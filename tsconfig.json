@@ -4,25 +4,11 @@
     "baseUrl": "packages",
     "target": "esnext",
     "paths": {
-      "@zthun/works.chonkify": ["works.chonkify/src/index"],
-      "@zthun/works.class": ["works.class/src/index"],
-      "@zthun/works.cirque": ["works.cirque/src/index"],
-      "@zthun/works.cirque-du-react": ["works.cirque-du-react/src/index"],
-      "@zthun/works.cirque-du-selenium": ["works.cirque-du-selenium/src/index"],
-      "@zthun/works.core": ["works.core/src/index"],
-      "@zthun/works.dal": ["works.dal/src/index"],
-      "@zthun/works.draw": ["works.draw/src/index"],
-      "@zthun/works.error": ["works.error/src/index"],
-      "@zthun/works.fashion": ["works.fashion/src/index"],
-      "@zthun/works.http": ["works.http/src/index"],
-      "@zthun/works.logger": ["works.logger/src/index"],
-      "@zthun/works.message": ["works.message/src/index"],
-      "@zthun/works.microservices": ["works.microservices/src/index"],
-      "@zthun/works.nest": ["works.nest/src/index"],
-      "@zthun/works.react": ["works.react/src/index"],
-      "@zthun/works.url": ["works.url/src/index"]
+      "@zthun/cirque": ["works.cirque/src/index"],
+      "@zthun/cirque-du-react": ["works.cirque-du-react/src/index"],
+      "@zthun/cirque-du-selenium": ["works.cirque-du-selenium/src/index"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts"],
   "exclude": ["**/node_modules/**"]
 }
