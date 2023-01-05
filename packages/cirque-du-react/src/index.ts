@@ -1,4 +1,4 @@
-/* istanbul ignore file */
+/* c8 ignore start */
 
 // Driver
 export { ZCircusDriver } from './driver/circus-driver';

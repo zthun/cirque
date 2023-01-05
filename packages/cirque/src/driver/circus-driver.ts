@@ -67,6 +67,19 @@ export interface IZCircusDriver {
   text(): Promise<string>;
 
   /**
+   * Gets the underlying value of the driver context.
+   *
+   * @param fallback
+   *        The fallback value in the case that the driver
+   *        does not support a value.
+   *
+   * @returns
+   *      The underlying value of the driver context, or fallback
+   *      if the driver does not support a value.
+   */
+  value(fallback: string): Promise<string>;
+
+  /**
    * Gets the underlying value of the driver context if there is one.
    *
    * @returns

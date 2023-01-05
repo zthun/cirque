@@ -71,7 +71,7 @@ export function ZChecklist(props: IZChecklist) {
   };
 
   return (
-    <div className='ZChecklist-root'>
+    <div className='ZChecklist-root' data-name={name}>
       <header className='ZChecklist-header'>
         <h2>{title}</h2>
       </header>

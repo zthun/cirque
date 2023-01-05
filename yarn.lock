@@ -4274,12 +4274,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-proxy@workspace:packages/cirque-proxy":
-  version: 0.0.0-use.local
-  resolution: "@zthun/cirque-proxy@workspace:packages/cirque-proxy"
-  languageName: unknown
-  linkType: soft
-
 "@zthun/cirque-web@workspace:packages/cirque-web":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-web@workspace:packages/cirque-web"

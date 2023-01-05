@@ -18,7 +18,28 @@ const _selector = (root: string, name?: string) => {
  */
 export abstract class ZCircusBy {
   /**
-   * Queries the driver by a specific css selector.
+   * Finds all components that match a given selector.
+   *
+   * @param driver
+   *        The driver to search.
+   * @param CircusComponentModel
+   *        The model to construct.
+   * @param selector
+   *        The optional selector to query.  If this is falsy,
+   *        the the component model internal selector is used.
+   */
+  public static async all<T extends ZCircusComponentModel>(
+    driver: IZCircusDriver,
+    CircusComponentModel: ZCircusComponentConstructor<T>,
+    selector: string = CircusComponentModel.Selector
+  ) {
+    const target = await driver.query(selector);
+    return target.map((t) => new CircusComponentModel(t));
+  }
+
+  /**
+   * Queries the driver by a specific css selector and
+   * returns the first item found.
    *
    * @param driver
    *        The root driver to query.
@@ -71,7 +92,7 @@ export abstract class ZCircusBy {
   }
 
   /**
-   * Same as first or named, but returns null if no such component exists.
+   * Same as first, but returns null if no such component exists.
    *
    * @param driver
    *        The driver to query.
@@ -79,6 +100,7 @@ export abstract class ZCircusBy {
    *        The component model to construct.
    * @param name
    *        The optional name.
+   *
    * @returns
    *        The first component that matches or null if no such component exists.
    */

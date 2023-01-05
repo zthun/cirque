@@ -81,8 +81,18 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * @inheritdoc
    */
-  public value(): Promise<string | null> {
-    return Promise.resolve(get(this._element, 'value', null));
+  public value(fallback: string): Promise<string>;
+
+  /**
+   * @inheritdoc
+   */
+  public value(): Promise<string | null>;
+
+  /**
+   * @inheritdoc
+   */
+  public value(fallback: string | null = null): Promise<string | null> {
+    return Promise.resolve(get(this._element, 'value', fallback));
   }
 
   /**

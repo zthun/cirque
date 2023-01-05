@@ -73,8 +73,19 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * @inheritdoc
    */
-  public value(): Promise<string> {
-    return this.attribute('value', '');
+  public value(fallback: string): Promise<string>;
+
+  /**
+   * @inheritdoc
+   */
+  public value(): Promise<string | null>;
+
+  /**
+   * @inheritdoc
+   */
+  public async value(fallback: string | null = null): Promise<string | null> {
+    const attribute = await this.attribute('value');
+    return attribute || fallback;
   }
 
   /**

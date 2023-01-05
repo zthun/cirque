@@ -1,4 +1,4 @@
-/* istanbul ignore file */
+/* c8 ignore start */
 
 // Component
 export { ZCircusBy } from './component/circus-by';

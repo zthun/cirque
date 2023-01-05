@@ -67,12 +67,18 @@ export class ZCircusActBuilder {
    *
    * @param key
    *        The key to press.
+   * @param times
+   *        The number of times to press the key.  Does it just once
+   *        if not supplied.
    *
    * @returns
    *        This object.
    */
-  public press(key: IZCircusKey) {
-    return this.keyDown(key).keyUp(key);
+  public press(key: IZCircusKey, times = 1) {
+    for (let i = 0; i < times; ++i) {
+      this.keyDown(key).keyUp(key);
+    }
+    return this;
   }
 
   /**
