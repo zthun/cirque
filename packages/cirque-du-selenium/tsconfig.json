@@ -7,5 +7,5 @@
       "@zthun/cirque": ["../cirque/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/index.ts"]
 }

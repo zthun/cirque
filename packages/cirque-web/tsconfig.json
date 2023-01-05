@@ -4,5 +4,5 @@
     "outDir": "dist/lib",
     "declarationDir": "dist/types"
   },
-  "include": ["src/index.ts"]
+  "include": ["./src/index.tsx"]
 }
