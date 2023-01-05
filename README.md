@@ -1,6 +1,6 @@
 # Zthunworks Circus
 
-![Circus](packages/cirque-web/public/png/cirque-256x256.png)
+![Circus](packages/cirque-web/public/assets/png/cirque-256x256.png)
 
 Writing tests for UIs can be a pain in the ass. There's several frameworks, and they all have different ways of handling
 tests. Modern React, for example, uses @testing-library/react for writing unit tests. The api and interactions of
@@ -16,10 +16,6 @@ keep your tests consistent and simple to write.
 
 Welcome to the show. We hope you enjoy your stay!
 
-## Getting Started
-
-See the readme for the [@zthun/cirque](./packages/cirque/README.md) project under packages for getting started.
-
 ## Component Model
 
 You might have heard of something called the Page Object Model, or POM, in the QA world. This is basically the concept
@@ -28,11 +24,48 @@ of the model of a single web page and the interactions that make up said page.
 Circus introduces the concept of a Component model; this is where you implement a single component, whether that be a
 component in react, a native web component, angular component, or a common pattern of code that makes up a part of a web
 page, and alongside that component is the component model for tests and bots to consume. By doing this, you essentially
-implement the strategy of how to actually interact with your component. Let's take a challenging concept, a list, for
-example. This can be a tough component to interact with, and you may find yourself rewriting patterns of interaction
-across testing frameworks. With the circus framework, you can just write the interaction once in a component model and
-then reuse those interactions throughout your tests.
+implement the strategy of how to actually interact with your component.
+
+For example, let's say I have a list component that displays a checklist of items. In this case, the component model may
+look something like this:
 
 ```ts
+// checklist.cm.ts
+import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
+import { last } from 'lodash';
+import { ZChecklistItemComponentModel } from './checklist-item.cm';
 
+export class ZChecklistComponentModel extends ZCircusComponentModel {
+  public static readonly Selector = '.ZChecklist-root';
+
+  public items(): Promise<ZChecklistItemComponentModel[]> {
+    return ZCircusBy.all(this.driver, ZChecklistItemComponentModel);
+  }
+
+  public async add(value?: string): Promise<ZChecklistItemComponentModel> {
+    const addButton = await this.driver.select('.ZChecklist-footer-add-button');
+    const action = new ZCircusActBuilder().click().build();
+    await addButton.perform(action);
+    const items = await this.items();
+    const newest = last(items)!;
+
+    if (value == null) {
+      return newest;
+    }
+
+    await newest.value(value);
+    return newest;
+  }
+}
 ```
+
+The Selector acts a css selector that would return all DOM elements that represent candidates for a checklist component.
+The remainder of the component model has asynchronous functions that will run performances or acts to dazzle your test
+framework and validate behaviors. Notice that there is no reference to the test framework or underlying ui framework.
+The component model is **framework agnostic**. This is an important feature of a component model. Regardless of what
+framework the component is written in, the way of interacting with that component on a user level remains the same. You
+just need to make sure that the output DOM elements have the necessary classes to target the specific pieces.
+
+## Getting Started
+
+See the readme for the [@zthun/cirque](./packages/cirque/README.md) project under packages for getting started.
