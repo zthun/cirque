@@ -1,0 +1,107 @@
+version: 2.1
+
+executors:
+  system:
+    machine:
+      image: ubuntu-2004:202111-02
+
+commands:
+  run_docker_target:
+    parameters:
+      target:
+        type: string
+    steps:
+      - checkout
+      - run: mkdir .secrets
+      - run: echo $GIT_CREDENTIALS >> .secrets/.git-credentials
+      - run: echo $NPM_CREDENTIALS >> .secrets/.npmrc
+      - run: ls -al .secrets
+      - run:
+          command: |
+            export DOCKER_BUILDKIT=1
+            docker build --target <<parameters.target>> --secret id=GIT_CREDENTIALS,src=.secrets/.git-credentials --secret id=NPM_CREDENTIALS,src=.secrets/.npmrc --progress=plain .
+      - run: rm -fr .secrets
+
+jobs:
+  analyze:
+    executor: system
+    steps:
+      - run_docker_target:
+          target: analyze
+
+  test:
+    executor: system
+    steps:
+      - run_docker_target:
+          target: test
+
+  build:
+    executor: system
+    steps:
+      - run_docker_target:
+          target: build
+
+  release:
+    executor: system
+    steps:
+      - run_docker_target:
+          target: release
+
+  dockerize:
+    executor: system
+    steps:
+      - checkout
+      - run:
+          command: |
+            export DOCKER_BUILDKIT=1
+            docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+            docker build . --target works.proxy -t zthun/works.proxy:latest -t zthun/works.proxy:$(node -p "require('./packages/works.proxy/package.json').version") --progress=plain
+            docker build . --target works.apps -t zthun/works.apps:latest -t zthun/works.apps:$(npm show @zthun/works.apps version) --progress=plain
+            docker build . --target works.cookies -t zthun/works.cookies:latest -t zthun/works.cookies:$(npm show @zthun/works.cookies version) --progress=plain
+            docker build . --target works.notifications -t zthun/works.notifications:latest -t zthun/works.notifications:$(npm show @zthun/works.notifications version) --progress=plain
+            docker build . --target works.users -t zthun/works.users:latest -t zthun/works.users:$(npm show @zthun/works.users version) --progress=plain
+            docker build . --target works.vault -t zthun/works.vault:latest -t zthun/works.vault:$(npm show @zthun/works.vault version) --progress=plain
+            docker build . --target works.api -t zthun/works.api:latest -t zthun/works.api:$(npm show @zthun/works.api version) --progress=plain
+            docker build . --target works.web -t zthun/works.web:latest -t zthun/works.web:$(npm show @zthun/works.web version) --progress=plain
+            docker push zthun/works.proxy:latest
+            docker push zthun/works.proxy:$(node -p "require('./packages/works.proxy/package.json').version")
+            docker push zthun/works.apps:latest
+            docker push zthun/works.apps:$(npm show @zthun/works.apps version)
+            docker push zthun/works.cookies:latest
+            docker push zthun/works.cookies:$(npm show @zthun/works.cookies version)
+            docker push zthun/works.notifications:latest
+            docker push zthun/works.notifications:$(npm show @zthun/works.notifications version)
+            docker push zthun/works.users:latest
+            docker push zthun/works.users:$(npm show @zthun/works.users version)
+            docker push zthun/works.vault:latest
+            docker push zthun/works.vault:$(npm show @zthun/works.vault version)
+            docker push zthun/works.api:latest
+            docker push zthun/works.api:$(npm show @zthun/works.api version)
+            docker push zthun/works.web:latest
+            docker push zthun/works.web:$(npm show @zthun/works.web version)
+
+workflows:
+  make:
+    jobs:
+      - analyze
+      - test
+      - build:
+          filters:
+            branches:
+              ignore:
+                - latest
+      - release:
+          context:
+            - credentials
+          requires:
+            - analyze
+            - test
+          filters:
+            branches:
+              only:
+                - latest
+      - dockerize:
+          context:
+            - credentials
+          requires:
+            - release
