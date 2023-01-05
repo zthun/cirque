@@ -4,9 +4,9 @@
     "baseUrl": "packages",
     "target": "esnext",
     "paths": {
-      "@zthun/cirque": ["works.cirque/src/index"],
-      "@zthun/cirque-du-react": ["works.cirque-du-react/src/index"],
-      "@zthun/cirque-du-selenium": ["works.cirque-du-selenium/src/index"]
+      "@zthun/cirque": ["cirque/src/index"],
+      "@zthun/cirque-du-react": ["cirque-du-react/src/index"],
+      "@zthun/cirque-du-selenium": ["cirque-du-selenium/src/index"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
