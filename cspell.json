@@ -3,8 +3,11 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
   "language": "en",
   "words": [
+    "Backquote",
     "Bonta",
     "chromedriver",
+    "clasz",
+    "commitlint",
     "conventionalcommits",
     "microbundle",
     "zthun",

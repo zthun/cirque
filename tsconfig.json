@@ -9,6 +9,6 @@
       "@zthun/cirque-du-selenium": ["works.cirque-du-selenium/src/index"]
     }
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["**/node_modules/**"]
 }

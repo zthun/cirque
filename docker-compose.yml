@@ -1,91 +1,22 @@
 services:
   # Load Balancer (Entry Point)
-  local.zthunworks.com:
+  local.cirque.zthunworks.com:
     image: nginx:1.21.5-alpine
     ports:
       - 80:80
       - 443:443
       - 8080:8080
     volumes:
-      - ./packages/works.proxy/shared:/etc/nginx/shared
-      - ./packages/works.proxy/certs:/etc/nginx/certs
-      - ./packages/works.proxy/conf.d:/etc/nginx/conf.d
+      - ./packages/cirque-proxy/shared:/etc/nginx/shared
+      - ./packages/cirque-proxy/certs:/etc/nginx/certs
+      - ./packages/cirque-proxy/conf.d:/etc/nginx/conf.d
     depends_on:
-      - zthunworks-services-api
-      - zthunworks-services-web
+      - cirque-services-web
 
   # Node Ports
-  zthunworks-services-web:
+  cirque-services-web:
     image: node:17.3.0
     volumes:
       - .:/usr/dev
     working_dir: /usr/dev
-    command: npm --workspace @zthun/works.web run debug
-  zthunworks-services-api:
-    image: node:17.3.0
-    ports:
-      - 9229:9229
-    volumes:
-      - .:/usr/dev
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.api run debug
-  zthunworks-services-users:
-    image: node:17.3.0
-    ports:
-      - 9231:9229
-    volumes:
-      - .:/usr/dev
-    environment:
-      - DATABASE_URL=mongodb://zthunworks-databases:27017
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.users run debug
-  zthunworks-services-vault:
-    image: node:17.3.0
-    ports:
-      - 9232:9229
-    volumes:
-      - .:/usr/dev
-    environment:
-      - DATABASE_URL=mongodb://zthunworks-databases:27017
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.vault run debug
-  zthunworks-services-notifications:
-    image: node:17.3.0
-    ports:
-      - 9233:9229
-    volumes:
-      - .:/usr/dev
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.notifications run debug
-  zthunworks-services-cookies:
-    image: node:17.3.0
-    ports:
-      - 9234:9229
-    volumes:
-      - .:/usr/dev
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.cookies run debug
-  zthunworks-services-apps:
-    image: node:17.3.0
-    ports:
-      - 9235:9229
-    volumes:
-      - .:/usr/dev
-    working_dir: /usr/dev
-    command: npm --workspace @zthun/works.apps run debug
-  # Databases
-  zthunworks-databases:
-    image: mongo:5.0.5
-    volumes:
-      - zthunworks-databases-data:/data/db
-  # Utilities
-  database.zthunworks.com:
-    image: mongo-express:0.54.0
-    depends_on:
-      - zthunworks-databases
-    environment:
-      - ME_CONFIG_MONGODB_SERVER=zthunworks-databases
-  smtp.zthunworks.com:
-    image: rnwood/smtp4dev:v3.1
-volumes:
-  zthunworks-databases-data:
+    command: npm --workspace @zthun/cirque-web run debug
