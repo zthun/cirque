@@ -13,8 +13,14 @@ import './todo-app.less';
 export function ZTodoApp() {
   return (
     <div className='ZTodoApp-root'>
-      <ZChecklist name='today'></ZChecklist>
-      <ZChecklist name='tomorrow'></ZChecklist>
+      <header>
+        <img src='/assets/png/cirque-64x64.png' />
+        <h1>Circus Sample App</h1>
+      </header>
+      <div className='ZTodoApp-checklists'>
+        <ZChecklist name='today'></ZChecklist>
+        <ZChecklist name='tomorrow'></ZChecklist>
+      </div>
     </div>
   );
 }

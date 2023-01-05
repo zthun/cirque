@@ -1,6 +1,6 @@
 # Zthunworks Circus
 
-![Circus](packages/cirque-web/assets/png/cirque-256x256.png)
+![Circus](packages/cirque-web/public/png/cirque-256x256.png)
 
 Writing tests for UIs can be a pain in the ass. There's several frameworks, and they all have different ways of handling
 tests. Modern React, for example, uses @testing-library/react for writing unit tests. The api and interactions of
