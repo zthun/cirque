@@ -9,6 +9,17 @@ export class ZChecklistComponentModel extends ZCircusComponentModel {
   public static readonly Selector = '.ZChecklist-root';
 
   /**
+   * Gets whether the empty text is displayed.
+   *
+   * @returns
+   *        True if the empty text is displayed, false otherwise.
+   */
+  public async empty(): Promise<boolean> {
+    const text = await ZCircusBy.optional(this.driver, ZChecklistItemComponentModel);
+    return text == null;
+  }
+
+  /**
    * Gets a list of all the current item component models.
    *
    * @returns

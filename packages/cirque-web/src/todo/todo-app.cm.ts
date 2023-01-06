@@ -26,4 +26,15 @@ export class ZTodoAppComponentModel extends ZCircusComponentModel {
   public tomorrow(): Promise<ZChecklistComponentModel> {
     return ZCircusBy.first(this.driver, ZChecklistComponentModel, 'tomorrow');
   }
+
+  /**
+   * Gets the component model for the future list if available.
+   *
+   * @returns
+   *        The component model for the future list, or null if
+   *        it is not available.
+   */
+  public future(): Promise<ZChecklistComponentModel | null> {
+    return ZCircusBy.optional(this.driver, ZChecklistComponentModel, 'future');
+  }
 }

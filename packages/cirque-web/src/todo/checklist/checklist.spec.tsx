@@ -12,8 +12,27 @@ describe('ZChecklist', () => {
     return ZCircusBy.first(driver, ZChecklistComponentModel);
   };
 
+  it('should start as empty', async () => {
+    // Arrange.
+    const target = await createTestTarget();
+    // Act.
+    const actual = await target.empty();
+    // Assert.
+    expect(actual).toBeTruthy();
+  });
+
   describe('Adding items', () => {
-    it('should add a new item to the end of the list', async () => {
+    it('should add an item.', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      await target.add();
+      const actual = await target.empty();
+      // Assert.
+      expect(actual).toBeFalsy();
+    });
+
+    it('should add new items to the end of the list', async () => {
       // Arrange.
       const target = await createTestTarget();
       const batman = 'Batman';
@@ -21,12 +40,9 @@ describe('ZChecklist', () => {
       const flash = 'Flash';
       const expected = 'Batman;Superman;Flash';
       // Act.
-      let item = await target.add();
-      await item.value(batman);
-      item = await target.add();
-      await item.value(superman);
-      item = await target.add();
-      await item.value(flash);
+      await target.add(batman);
+      await target.add(superman);
+      await target.add(flash);
       const items = await target.items();
       const actual = await Promise.all(items.map((item) => item.value()));
       // Assert.

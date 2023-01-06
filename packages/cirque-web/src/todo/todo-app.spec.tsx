@@ -50,4 +50,15 @@ describe('ZTodoApp', () => {
       await shouldAddItemsToTheCorrectList(factory);
     });
   });
+
+  describe('Future Checklist', () => {
+    it('should not be available', async () => {
+      // Arrange.
+      const target = await createTestTarget();
+      // Act.
+      const actual = await target.future();
+      // Assert.
+      expect(actual).toBeNull();
+    });
+  });
 });
