@@ -1,5 +1,5 @@
 /* eslint-disable valid-jsdoc */
-import { Browser, Capabilities } from 'selenium-webdriver';
+import { Browser, Builder, Capabilities } from 'selenium-webdriver';
 import { ZCircusSetupBrowser } from './circus-setup-browser';
 
 /**
@@ -13,13 +13,13 @@ export class ZCircusSetupEdge extends ZCircusSetupBrowser {
    *        The url to route to.
    */
   public constructor(public readonly url: string) {
-    super(Browser.EDGE, url);
+    super(url);
   }
 
   /**
    * @inheritdoc
    */
-  public capabilities(): Capabilities {
-    return Capabilities.edge();
+  public builder(): Builder {
+    return new Builder().forBrowser(Browser.EDGE).withCapabilities(Capabilities.edge());
   }
 }

@@ -21,7 +21,9 @@
   "dependencies": {
     "@zthun/cirque": "^1.0.0",
     "lodash": "^4.17.21",
-    "selenium-webdriver": "^4.7.1"
+    "selenium-webdriver": "^4.7.1",
+    "vite": "^4.0.4",
+    "vitest": "^0.26.3"
   },
   "devDependencies": {
     "microbundle": "^0.15.1",

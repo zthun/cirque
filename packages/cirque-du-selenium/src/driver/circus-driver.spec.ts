@@ -1,45 +1,39 @@
-import { ZCircusActBuilder } from '@zthun/cirque';
-import { noop } from 'lodash';
-import React from 'react';
+import { IZCircusDriver, ZCircusActBuilder, ZCircusKeyboardQwerty } from '@zthun/cirque';
+import { ZCircusSetupChrome } from 'src/setup/circus-setup-chrome';
 import { afterEach, describe, expect, it } from 'vitest';
-import { ZCircusSetupRenderer } from '../setup/circus-setup-renderer';
-import { ZCircusDriver } from './circus-driver';
 
 const NAME = 'friendly-neighborhood-spider-man';
 const TEXT = 'I am your friendly neighborhood Spider Man';
 const VALUE = 'My name is Peter Parker';
 
-describe('ZCircusDriver (React)', () => {
-  let _driver: ZCircusDriver;
+describe('ZCircusDriver (Selenium)', () => {
+  let _driver: IZCircusDriver;
 
   const createTestTarget = async () => {
-    const element = (
-      <div className='root' data-name={NAME}>
-        <input value={VALUE} onChange={noop} />
-        <button disabled />
-        <span>{TEXT}</span>
-        <button name='clickable' onClick={noop} />
-        <input type='checkbox' checked={true} onChange={noop} />
+    const html = `
+    <html>
+      <head></head>
+      <body>
+        <div class="root" data-name="${NAME}">
+          <input value="${VALUE}" />
+          <button disabled />
+          <span>${TEXT}</span>
+          <button />
+          <input type='checkbox' checked="true" />
       </div>
-    );
-    _driver = (await new ZCircusSetupRenderer(element).setup()) as ZCircusDriver;
+      </body>
+    </html>
+  `;
+
+    const base64 = Buffer.from(html).toString('base64');
+    const url = `data:text/html;base64,${base64}`;
+
+    _driver = await new ZCircusSetupChrome(url).headless().acceptInsecureCerts().setup();
     return _driver.select('.root');
   };
 
   afterEach(async () => {
     await _driver?.destroy();
-  });
-
-  describe('Monkey patches', () => {
-    it('should enable the getBoundingClientRect on the element', async () => {
-      // Arrange.
-      await createTestTarget();
-      // Act.
-      const actual = _driver.element.getBoundingClientRect();
-      // Assert.
-      expect(actual.width).toBeGreaterThan(0);
-      expect(actual.height).toBeGreaterThan(0);
-    });
   });
 
   describe('Attributes', () => {
@@ -82,8 +76,8 @@ describe('ZCircusDriver (React)', () => {
       const spanName = await span.tag();
       const inputName = await input.tag();
       // Assert
-      expect(spanName).toEqual('SPAN');
-      expect(inputName).toEqual('INPUT');
+      expect(spanName.toUpperCase()).toEqual('SPAN');
+      expect(inputName.toUpperCase()).toEqual('INPUT');
     });
   });
 
@@ -257,7 +251,7 @@ describe('ZCircusDriver (React)', () => {
       const body = await target.body();
       const actual = await body.tag();
       // Assert.
-      expect(actual).toEqual('BODY');
+      expect(actual.toUpperCase()).toEqual('BODY');
     });
   });
 
@@ -271,7 +265,7 @@ describe('ZCircusDriver (React)', () => {
       // Act.
       const actual = await (await target.focused())?.tag();
       // Assert.
-      expect(actual).toEqual('INPUT');
+      expect(actual?.toUpperCase()).toEqual('INPUT');
     });
   });
 
@@ -309,11 +303,34 @@ describe('ZCircusDriver (React)', () => {
       const target = await createTestTarget();
       // Act.
       // Assert
-      await expect(
-        target.wait(() => false),
-        undefined,
-        10
-      ).rejects.toBeTruthy();
+      await expect(target.wait(() => false)).rejects.toBeTruthy();
+    });
+  });
+
+  describe('Perform', () => {
+    it('should perform complex action sequences', async () => {
+      // Arrange
+      const target = await createTestTarget();
+      const input = await target.select('input');
+      const expected = 'The dog jumped over the moon.';
+      const current = await input.value('');
+      const act = new ZCircusActBuilder()
+        .magic(() => Promise.resolve())
+        .click()
+        .press(ZCircusKeyboardQwerty.backspace, current.length)
+        .press(ZCircusKeyboardQwerty.delete, current.length)
+        .keyDown(ZCircusKeyboardQwerty.shiftLeft)
+        .press(ZCircusKeyboardQwerty.keyT)
+        .magic(() => Promise.resolve())
+        .keyUp(ZCircusKeyboardQwerty.shiftLeft)
+        .type('he dog jumped over the moon.')
+        .press(ZCircusKeyboardQwerty.tab)
+        .build();
+      // Act.
+      await input.perform(act);
+      const actual = await input.value();
+      // Assert.
+      expect(actual).toEqual(expected);
     });
   });
 });

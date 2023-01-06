@@ -1,5 +1,5 @@
 import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
-import { Builder, By, Capabilities } from 'selenium-webdriver';
+import { Builder, By } from 'selenium-webdriver';
 import { ZCircusDriver } from '../driver/circus-driver';
 
 /**
@@ -16,7 +16,7 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
    * @param url
    *        The url to open when the browser opens.
    */
-  public constructor(public readonly browser: string, public readonly url: string) {}
+  public constructor(public readonly url: string) {}
 
   /**
    * Sets the flag to accept insecure certs.
@@ -33,11 +33,12 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
   }
 
   /**
-   * Constructs the appropriate capabilities for this browser.
+   * Constructs the starting builder for this browser.
    *
-   * @returns The capabilities for the browser.
+   * @returns
+   *        The starting builder for this browser.
    */
-  public abstract capabilities(): Capabilities;
+  public abstract builder(): Builder;
 
   /**
    * Constructs a new browser window and navigates to it.
@@ -47,8 +48,9 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
    *        This will point to the html element on the page.
    */
   public async setup(): Promise<IZCircusDriver> {
-    const options = this.capabilities().setAcceptInsecureCerts(this._acceptInsecureCerts);
-    const driver = new Builder().forBrowser(this.browser).withCapabilities(options).build();
+    const builder = this.builder();
+    const capabilities = builder.getCapabilities();
+    const driver = builder.withCapabilities(capabilities.setAcceptInsecureCerts(this._acceptInsecureCerts)).build();
     await driver.get(this.url);
     const root = driver.findElement(By.css('html'));
     return new ZCircusDriver(driver, root);

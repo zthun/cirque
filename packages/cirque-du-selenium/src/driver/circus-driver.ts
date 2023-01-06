@@ -163,7 +163,7 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * @inheritdoc
    */
-  public async wait(predicate: () => boolean | Promise<boolean>, description?: string): Promise<void> {
-    await this._seleniumDriver.wait(predicate, 10000, description);
+  public async wait(predicate: () => boolean | Promise<boolean>, description?: string, timeout = 10000): Promise<void> {
+    await this._seleniumDriver.wait(predicate, timeout, description);
   }
 }

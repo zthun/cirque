@@ -180,6 +180,8 @@ export interface IZCircusDriver {
    * @param description
    *        The optional friendly text that describes what the
    *        engine is waiting for.
+   * @param timeout
+   *        The optional timeout value to use
    */
-  wait(predicate: () => boolean | Promise<boolean>, description?: string): Promise<void>;
+  wait(predicate: () => boolean | Promise<boolean>, description?: string, timeout?: number): Promise<void>;
 }

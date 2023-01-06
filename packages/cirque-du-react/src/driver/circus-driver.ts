@@ -183,10 +183,11 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * @inheritdoc
    */
-  public wait(predicate: () => boolean | Promise<boolean>, description?: string): Promise<void> {
+  public wait(predicate: () => boolean | Promise<boolean>, description?: string, timeout?: number): Promise<void> {
+    const options = { timeout };
     return waitFor(async () => {
       const result = await predicate();
       return result ? Promise.resolve() : Promise.reject(new Error(description));
-    }, {});
+    }, options);
   }
 }
