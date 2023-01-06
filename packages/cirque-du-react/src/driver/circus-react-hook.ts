@@ -1,5 +1,6 @@
 /* eslint-disable valid-jsdoc */
 import { RenderHookResult } from '@testing-library/react';
+import { flush } from '../util/flush';
 
 /**
  * Represents a driver for a react hook.
@@ -66,7 +67,7 @@ export class ZCircusReactHook<T, P> implements IZCircusReactHook<T, P> {
    */
   public async rerender(props?: P): Promise<T> {
     this._result.rerender(props);
-    await new Promise((resolve) => setTimeout(resolve, 1));
+    await flush();
     return this.current();
   }
 }
