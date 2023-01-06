@@ -1,4 +1,4 @@
-# Description
+# Circus Of React (Cirque Du React)
 
 This is the framework specific circus package for React based unit testing. Under the hood, this provides the necessary
 setup and driver implementations that contains the anti-corruption patter for @testing-library/react and
