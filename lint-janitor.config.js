@@ -9,11 +9,11 @@ const generated = [
 ];
 const partialGenerated = ['cspell.json', 'lerna.json'];
 
-const esFiles = ['*.js', '*.ts', 'packages/**/src/**/*.ts', 'packages/**/src/**/*.tsx', 'packages/*/*.js'];
-const htmlFiles = ['packages/**/src/**/*.html'];
+const esFiles = ['*.js', '*.ts', 'packages/**/src/**/*.ts', 'packages/**/src/**/*.tsx'];
+const htmlFiles = ['packages/**/*.html'];
 const markdownFiles = ['*.md', 'packages/**/*.md'];
 const jsonFiles = ['*.json', 'packages/**/*.json'];
-const yamlFiles = ['*.yaml', '*.yml', 'packages/**/*.yaml', 'packages/**/*.yml'];
+const yamlFiles = ['.circleci/config.yml'];
 const prettyFiles = [].concat(esFiles).concat(htmlFiles).concat(markdownFiles).concat(jsonFiles).concat(yamlFiles);
 const spellingFiles = [].concat(esFiles).concat(htmlFiles).concat(markdownFiles).concat(jsonFiles).concat(yamlFiles);
 
