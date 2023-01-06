@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "packages",
+    "target": "esnext",
+    "paths": {
+      "@zthun/cirque": ["cirque/src/index"],
+      "@zthun/cirque-du-react": ["cirque-du-react/src/index"],
+      "@zthun/cirque-du-selenium": ["cirque-du-selenium/src/index"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules/**"]
+}

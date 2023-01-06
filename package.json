@@ -1,0 +1,49 @@
+{
+  "name": "@zthun/circus",
+  "version": "0.0.0",
+  "description": "Welcome to the show. We hope you enjoy your stay.",
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/cirque"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "rimraf 'dist' 'reports' '*.tgz' '*.log' 'packages/**/dist' 'packages/**/*.tgz' 'packages/**/*.log'",
+    "test": "vitest --run --coverage",
+    "e2e": "cucumber-js",
+    "lint": "lint-janitor",
+    "build": "lerna run build",
+    "make": "yarn clean && yarn lint && yarn test && yarn build",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@commitlint/cli": "^17.4.0",
+    "@commitlint/config-conventional": "^17.4.0",
+    "@cucumber/cucumber": "^8.10.0",
+    "@originjs/vite-plugin-global-style": "^1.0.2",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.18",
+    "@types/selenium-webdriver": "^4.1.10",
+    "@vitest/coverage-c8": "^0.26.3",
+    "@zthun/lint-janitor": "^13.0.2",
+    "@zthun/lint-janitor-config": "^13.0.2",
+    "husky": "^8.0.3",
+    "jsdom": "^20.0.3",
+    "lerna": "^6.3.0",
+    "less": "^4.1.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vitest": "^0.26.3",
+    "vitest-tsconfig-paths": "^3.4.1"
+  },
+  "packageManager": "yarn@3.3.1"
+}

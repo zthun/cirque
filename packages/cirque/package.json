@@ -1,0 +1,31 @@
+{
+  "name": "@zthun/cirque",
+  "version": "1.0.0",
+  "description": "An abstraction around testing libraries that allow actions to be performed without including the entire testing library into the main source.",
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/cirque",
+    "directory": "packages/cirque"
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.esm.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "microbundle --format esm,cjs --tsconfig tsconfig.prod.json --no-sourcemap"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vitest": "^0.26.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
+}

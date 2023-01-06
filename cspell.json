@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
+  "language": "en",
+  "words": [
+    "Backquote",
+    "Bonta",
+    "BUILDKIT",
+    "chromedriver",
+    "clasz",
+    "commitlint",
+    "conventionalcommits",
+    "geckodriver",
+    "microbundle",
+    "npmrc",
+    "originjs",
+    "zthun",
+    "Zthunworks"
+  ],
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
+}
