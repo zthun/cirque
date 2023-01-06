@@ -1,4 +1,5 @@
 import { IZCircusAct } from '../performance/circus-act';
+import { IZCircusWaitOptions } from './circus-wait-options';
 
 /**
  * Represents a driver that manages search and action criteria on a page object model.
@@ -177,11 +178,8 @@ export interface IZCircusDriver {
    *
    * @param predicate
    *        The predicate to wait for.
-   * @param description
-   *        The optional friendly text that describes what the
-   *        engine is waiting for.
-   * @param timeout
-   *        The optional timeout value to use
+   * @param options
+   *        The options for the wait.
    */
-  wait(predicate: () => boolean | Promise<boolean>, description?: string, timeout?: number): Promise<void>;
+  wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void>;
 }

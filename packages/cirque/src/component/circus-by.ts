@@ -1,3 +1,4 @@
+import { ZCircusWaitOptionsBuilder } from 'src/driver/circus-wait-options';
 import { IZCircusDriver } from '../driver/circus-driver';
 import { ZCircusComponentConstructor, ZCircusComponentModel } from './circus-component-model';
 
@@ -59,7 +60,8 @@ export abstract class ZCircusBy {
     selector: string
   ): Promise<T> {
     const description = `Searching for a component with selector: ${selector}`;
-    await driver.wait(() => driver.peek(selector), description);
+    const options = new ZCircusWaitOptionsBuilder().description(description).build();
+    await driver.wait(() => driver.peek(selector), options);
     const target = await driver.select(selector);
     return new CircusComponentModel(target);
   }

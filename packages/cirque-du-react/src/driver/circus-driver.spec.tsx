@@ -1,4 +1,4 @@
-import { ZCircusActBuilder } from '@zthun/cirque';
+import { ZCircusActBuilder, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
 import { noop } from 'lodash';
 import React from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -307,13 +307,10 @@ describe('ZCircusDriver (React)', () => {
     it('should reject if the predicate never resolves.', async () => {
       // Arrange
       const target = await createTestTarget();
+      const options = new ZCircusWaitOptionsBuilder().timeout(10).build();
       // Act.
       // Assert
-      await expect(
-        target.wait(() => false),
-        undefined,
-        10
-      ).rejects.toBeTruthy();
+      await expect(target.wait(() => false, options)).rejects.toBeTruthy();
     });
   });
 });

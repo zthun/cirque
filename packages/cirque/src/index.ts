@@ -5,6 +5,7 @@ export { ZCircusBy } from './component/circus-by';
 export { ZCircusComponentConstructor, ZCircusComponentModel } from './component/circus-component-model';
 // Driver
 export { IZCircusDriver } from './driver/circus-driver';
+export { IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from './driver/circus-wait-options';
 // Keyboard
 export { IZCircusKey } from './keyboard/circus-key';
 export { ZCircusKeyboardQwerty } from './keyboard/circus-keyboard-qwerty';

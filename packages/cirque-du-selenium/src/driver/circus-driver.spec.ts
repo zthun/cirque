@@ -1,4 +1,5 @@
 import { IZCircusDriver, ZCircusActBuilder, ZCircusKeyboardQwerty } from '@zthun/cirque';
+import { ZCircusWaitOptionsBuilder } from '@zthun/cirque/src/driver/circus-wait-options';
 import { ZCircusSetupChrome } from 'src/setup/circus-setup-chrome';
 import { afterEach, describe, expect, it } from 'vitest';
 
@@ -301,9 +302,10 @@ describe('ZCircusDriver (Selenium)', () => {
     it('should reject if the predicate never resolves.', async () => {
       // Arrange
       const target = await createTestTarget();
+      const options = new ZCircusWaitOptionsBuilder().timeout(5).build();
       // Act.
       // Assert
-      await expect(target.wait(() => false)).rejects.toBeTruthy();
+      await expect(target.wait(() => false, options)).rejects.toBeTruthy();
     });
   });
 
