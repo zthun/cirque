@@ -40,14 +40,10 @@ export type ZCircusMagicFunction = () => Promise<any>;
  * @returns
  *        Positive if the action name is one of the given types.
  */
-const _isActionOneOf = (types: ZCircusActionType[], action: IZCircusAction): action is IZCircusAction<any> => {
+const _isActionOneOf = (types: ZCircusActionType[], action: IZCircusAction): boolean => {
   const { name } = action;
   return types.indexOf(name) >= 0;
 };
-
-type ZKeyboardTypeGuard = (action: IZCircusAction) => action is IZCircusAction<IZCircusKey>;
-type ZMouseTypeGuard = (action: IZCircusAction) => action is IZCircusAction<ZCircusMouseButton>;
-type ZMagicTypeGuard = (action: IZCircusAction) => action is IZCircusAction<ZCircusMagicFunction>;
 
 /**
  * Gets whether an action represents a keyboard action.
@@ -59,10 +55,9 @@ type ZMagicTypeGuard = (action: IZCircusAction) => action is IZCircusAction<ZCir
  *        True if the action represents a key down or key up event.
  *        False otherwise.
  */
-export const isKeyboardAction = _isActionOneOf.bind(null, [
-  ZCircusActionType.KeyDown,
-  ZCircusActionType.KeyUp
-]) as ZKeyboardTypeGuard;
+export function isKeyboardAction(action: IZCircusAction): action is IZCircusAction<IZCircusKey> {
+  return _isActionOneOf([ZCircusActionType.KeyDown, ZCircusActionType.KeyUp], action);
+}
 
 /**
  * Gets whether an action represents a mouse action.
@@ -73,10 +68,9 @@ export const isKeyboardAction = _isActionOneOf.bind(null, [
  * @returns
  *        True if the action represents a mouse event.
  */
-export const isMouseAction = _isActionOneOf.bind(null, [
-  ZCircusActionType.MouseDown,
-  ZCircusActionType.MouseUp
-]) as ZMouseTypeGuard;
+export function isMouseAction(action: IZCircusAction): action is IZCircusAction<ZCircusMouseButton> {
+  return _isActionOneOf([ZCircusActionType.MouseDown, ZCircusActionType.MouseUp], action);
+}
 
 /**
  * Gets whether an action represents magic.
@@ -87,4 +81,6 @@ export const isMouseAction = _isActionOneOf.bind(null, [
  * @returns
  *        True if the action represents a magic event.
  */
-export const isMagicAction = _isActionOneOf.bind(null, [ZCircusActionType.Magic]) as ZMagicTypeGuard;
+export function isMagicAction(action: IZCircusAction): action is IZCircusAction<ZCircusMagicFunction> {
+  return _isActionOneOf([ZCircusActionType.Magic], action);
+}
