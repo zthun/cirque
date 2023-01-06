@@ -62,5 +62,5 @@ Then(
 
 After(async function (this: World<IZWorld>) {
   const { driver } = this.parameters;
-  await driver.destroy();
+  await driver?.destroy();
 });
