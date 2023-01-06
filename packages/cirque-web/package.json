@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-web",
-  "version": "1.0.0",
+  "version": "4.1.0",
   "description": "A sample todo web application for use with testing the circus frameworks",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "debug": "vite"
   },
   "dependencies": {
-    "@zthun/cirque": "^1.0.0",
+    "@zthun/cirque": "^4.1.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "@cucumber/cucumber": "^8.10.0",
     "@types/node": "^18.11.18",
-    "@zthun/cirque-du-react": "^1.0.0",
-    "@zthun/cirque-du-selenium": "^1.0.0",
+    "@zthun/cirque-du-react": "^4.1.0",
+    "@zthun/cirque-du-selenium": "^4.1.0",
     "less": "^4.1.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
