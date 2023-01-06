@@ -2,6 +2,7 @@ import { render, RenderOptions } from '@testing-library/react/pure';
 import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
 import { ReactElement } from 'react';
 import { ZCircusDriver } from '../driver/circus-driver';
+import { flush } from '../util/flush';
 
 /**
  * Represents a setup that renders a react component.
@@ -30,7 +31,7 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
    */
   public async setup(): Promise<IZCircusDriver> {
     const result = render(this._element, this._options);
-    await new Promise((resolve) => setTimeout(resolve, 1));
+    await flush();
     return new ZCircusDriver(result, result.container);
   }
 }
