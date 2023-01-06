@@ -22,7 +22,6 @@ export class ZCircusDriver implements IZCircusDriver {
    * @inheritdoc
    */
   public async destroy(): Promise<void> {
-    await this._seleniumDriver.close();
     await this._seleniumDriver.quit();
   }
 
