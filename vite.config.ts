@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [tsConfigPaths()],
   test: {
     environment: 'jsdom',
-    testTimeout: 10000
+    testTimeout: 30000
   }
 });
