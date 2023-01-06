@@ -14,17 +14,17 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * Initializes a new instance of this object.
    *
-   * @param _result
+   * @param result
    *        The render result.
-   * @param _element
+   * @param element
    *        The element to wrap.
    */
-  public constructor(private _result: RenderResult, private _element: HTMLElement) {
+  public constructor(public readonly result: RenderResult, public readonly element: HTMLElement) {
     // JSDOM doesn't actually render anything so whenever we try to get the bounding client
     // rect, it just returns (0, 0, 0, 0).  This messes up stuff that needs calculations
     // on the actual rectangles of the DOM, so we're just going to monkey patch the
     // getBoundingClientRect here.
-    _element.getBoundingClientRect = () =>
+    element.getBoundingClientRect = () =>
       ({
         x: 0,
         y: 0,
@@ -41,7 +41,7 @@ export class ZCircusDriver implements IZCircusDriver {
    * Destroys the render session.
    */
   public async destroy() {
-    this._result.unmount();
+    this.result.unmount();
     await flush();
   }
 
@@ -49,7 +49,7 @@ export class ZCircusDriver implements IZCircusDriver {
    * @inheritdoc
    */
   public attribute<T extends string>(attribute: string, fallback: T | null = null): Promise<T | null> {
-    const attr = this._element.getAttribute(attribute) as T;
+    const attr = this.element.getAttribute(attribute) as T;
     return Promise.resolve(attr == null ? fallback : attr);
   }
 
@@ -57,15 +57,20 @@ export class ZCircusDriver implements IZCircusDriver {
    * @inheritdoc
    */
   public tag(): Promise<string> {
-    return Promise.resolve(this._element.nodeName);
+    return Promise.resolve(this.element.nodeName);
   }
 
   /**
    * @inheritdoc
    */
-  public classes(filter: string[]): Promise<string[]> {
-    const list = this._element.classList;
+  public classes(filter?: string[]): Promise<string[]> {
+    const list = this.element.classList;
     const all = Array.from(list);
+
+    if (!filter) {
+      return Promise.resolve(all);
+    }
+
     const lookup = keyBy(filter);
     const filtered = all.filter((c) => Object.prototype.hasOwnProperty.call(lookup, c));
     return Promise.resolve(filtered);
@@ -75,7 +80,7 @@ export class ZCircusDriver implements IZCircusDriver {
    * @inheritdoc
    */
   public text(): Promise<string> {
-    return Promise.resolve(this._element.textContent || '');
+    return Promise.resolve(this.element.textContent || '');
   }
 
   /**
@@ -92,43 +97,43 @@ export class ZCircusDriver implements IZCircusDriver {
    * @inheritdoc
    */
   public value(fallback: string | null = null): Promise<string | null> {
-    return Promise.resolve(get(this._element, 'value', fallback));
+    return Promise.resolve(get(this.element, 'value', fallback));
   }
 
   /**
    * @inheritdoc
    */
   public selected(): Promise<boolean> {
-    return Promise.resolve(get(this._element, 'checked', false));
+    return Promise.resolve(get(this.element, 'checked', false));
   }
 
   /**
    * @inheritdoc
    */
   public disabled(): Promise<boolean> {
-    return Promise.resolve(get(this._element, 'disabled', false));
+    return Promise.resolve(get(this.element, 'disabled', false));
   }
 
   /**
    * @inheritdoc
    */
   public peek(selector: string): Promise<boolean> {
-    return Promise.resolve(!!this._element.querySelector(selector));
+    return Promise.resolve(!!this.element.querySelector(selector));
   }
 
   /**
    * @inheritdoc
    */
   public query(selector: string): Promise<IZCircusDriver[]> {
-    const elements = Array.from(this._element.querySelectorAll<HTMLElement>(selector));
-    return Promise.resolve(elements.map((e) => new ZCircusDriver(this._result, e)));
+    const elements = Array.from(this.element.querySelectorAll<HTMLElement>(selector));
+    return Promise.resolve(elements.map((e) => new ZCircusDriver(this.result, e)));
   }
 
   /**
    * @inheritdoc
    */
   public body(): Promise<IZCircusDriver> {
-    return Promise.resolve(new ZCircusDriver(this._result, document.body));
+    return Promise.resolve(new ZCircusDriver(this.result, document.body));
   }
 
   /**
@@ -137,7 +142,7 @@ export class ZCircusDriver implements IZCircusDriver {
   public focused(): Promise<IZCircusDriver | null> {
     // JSDOM actually just focuses the body so this never actually returns null.
     const active = document.activeElement as HTMLElement;
-    return Promise.resolve(new ZCircusDriver(this._result, active));
+    return Promise.resolve(new ZCircusDriver(this.result, active));
   }
 
   /**
@@ -163,7 +168,7 @@ export class ZCircusDriver implements IZCircusDriver {
     });
 
     // With user events, all events get squashed to magic.
-    const _act = squash(user, act, this._element);
+    const _act = squash(user, act, this.element);
 
     let promise = Promise.resolve();
 
