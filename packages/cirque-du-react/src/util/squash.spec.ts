@@ -124,4 +124,18 @@ describe('Squash', () => {
       expect(user.keyboard).toHaveBeenCalledWith('{/Shift}');
     });
   });
+
+  describe('Magic', () => {
+    it('should be kept', () => {
+      // Arrange
+      const magic = vitest.fn();
+      magic.mockResolvedValue(true);
+      const act = new ZCircusActBuilder().magic(magic).build();
+      // Act
+      const actual = squash(user, act, element);
+      actual.actions.forEach((a) => a.context());
+      // Assert
+      expect(magic).toHaveBeenCalled();
+    });
+  });
 });
