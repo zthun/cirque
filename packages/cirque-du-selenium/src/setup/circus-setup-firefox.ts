@@ -3,9 +3,9 @@ import { Browser, Capabilities } from 'selenium-webdriver';
 import { ZCircusSetupBrowser } from './circus-setup-browser';
 
 /**
- * A setup module for the chrome driver.
+ * A setup module for the firefox driver.
  */
-export class ZCircusSetupChrome extends ZCircusSetupBrowser {
+export class ZCircusSetupFirefox extends ZCircusSetupBrowser {
   /**
    * Initializes a new instance of this object.
    *
@@ -13,13 +13,13 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
    *        The url to route to.
    */
   public constructor(public readonly url: string) {
-    super(Browser.CHROME, url);
+    super(Browser.FIREFOX, url);
   }
 
   /**
    * @inheritdoc
    */
   public capabilities(): Capabilities {
-    return Capabilities.chrome();
+    return Capabilities.firefox();
   }
 }
