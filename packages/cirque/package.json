@@ -13,7 +13,7 @@
   "module": "./dist/lib/index.esm.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "microbundle --format cjs,esm"
+    "build": "microbundle --format esm,cjs --tsconfig tsconfig.prod.json --no-sourcemap"
   },
   "publishConfig": {
     "access": "public"
@@ -23,8 +23,7 @@
     "typescript": "^4.9.4"
   },
   "files": [
-    "dist/**",
-    "docs/**"
+    "dist"
   ],
   "sideEffects": false
 }
