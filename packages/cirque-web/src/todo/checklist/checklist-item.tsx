@@ -10,7 +10,7 @@ export interface IZChecklistItem {
 /**
  * Represents a checklist item.
  *
- * @param props
+ * @param props -
  *        The properties for this checklist.
  *
  * @returns

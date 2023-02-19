@@ -13,7 +13,7 @@ export class ZCircusKeyTranslator {
   /**
    * Initializes a new instance of this object.
    *
-   * @param keys
+   * @param keys -
    *        The collection of keys to support.
    */
   public constructor(keys: IZCircusKey[]) {
@@ -26,7 +26,7 @@ export class ZCircusKeyTranslator {
   /**
    * Translates the key or code to a ZCircusKey
    *
-   * @param keyOrCode
+   * @param keyOrCode -
    *        The code value (upper or lower case) or
    *        keycode value to translate.
    *

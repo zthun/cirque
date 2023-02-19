@@ -12,7 +12,7 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
   /**
    * Initializes a new instance of this object.
    *
-   * @param url
+   * @param url -
    *        The url to route to.
    */
   public constructor(public readonly url: string) {
@@ -22,7 +22,7 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
   /**
    * Sets the headless flag.
    *
-   * @param value
+   * @param value -
    *        The value to set.
    *
    * @returns
@@ -33,9 +33,6 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
     return this;
   }
 
-  /**
-   * @inheritdoc
-   */
   public builder(): Builder {
     const builder = new Builder().forBrowser(Browser.CHROME).withCapabilities(Capabilities.chrome());
     let options = new Options();

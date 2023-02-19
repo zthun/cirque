@@ -11,9 +11,9 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
   /**
    * Initializes a new instance of this object.
    *
-   * @param browser
+   * @param browser -
    *        The browser key.
-   * @param url
+   * @param url -
    *        The url to open when the browser opens.
    */
   public constructor(public readonly url: string) {}
@@ -21,7 +21,7 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
   /**
    * Sets the flag to accept insecure certs.
    *
-   * @param value
+   * @param value -
    *        The flag value to set.
    *
    * @returns

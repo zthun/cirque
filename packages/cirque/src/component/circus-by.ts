@@ -21,11 +21,11 @@ export abstract class ZCircusBy {
   /**
    * Finds all components that match a given selector.
    *
-   * @param driver
+   * @param driver -
    *        The driver to search.
-   * @param CircusComponentModel
+   * @param CircusComponentModel -
    *        The model to construct.
-   * @param selector
+   * @param selector -
    *        The optional selector to query.  If this is falsy,
    *        the the component model internal selector is used.
    */
@@ -42,11 +42,11 @@ export abstract class ZCircusBy {
    * Queries the driver by a specific css selector and
    * returns the first item found.
    *
-   * @param driver
+   * @param driver -
    *        The root driver to query.
-   * @param CircusComponentModel
+   * @param CircusComponentModel -
    *        The model type to construct using the child driver.
-   * @param selector
+   * @param selector -
    *        The css target selector that describes the root of the
    *        CircusComponentModel
    *
@@ -69,11 +69,11 @@ export abstract class ZCircusBy {
   /**
    * Returns the first discovered component model that matches the inner Selector.
    *
-   * @param driver
+   * @param driver -
    *        The driver to query.
-   * @param CircusComponentModel
+   * @param CircusComponentModel -
    *        The component model to construct.
-   * @param name
+   * @param name -
    *        The optional name.  If this is falsy,
    *        then the basic selector is used, otherwise
    *        the first component that matches the selector
@@ -96,11 +96,11 @@ export abstract class ZCircusBy {
   /**
    * Same as first, but returns null if no such component exists.
    *
-   * @param driver
+   * @param driver -
    *        The driver to query.
-   * @param CircusComponentModel
+   * @param CircusComponentModel -
    *        The component model to construct.
-   * @param name
+   * @param name -
    *        The optional name.
    *
    * @returns

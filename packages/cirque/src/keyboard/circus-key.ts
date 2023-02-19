@@ -58,9 +58,9 @@ export class ZCircusKeyBuilder {
   /**
    * Initializes a new instance of this object.
    *
-   * @param key
+   * @param key -
    *        The key value as a lower case variant.
-   * @param code
+   * @param code -
    *        The key code.
    */
   public constructor(key: string, code: string) {
@@ -78,7 +78,7 @@ export class ZCircusKeyBuilder {
   /**
    * Sets the upper case variant of this key.
    *
-   * @param key
+   * @param key -
    *        The key to set.
    *
    * @returns

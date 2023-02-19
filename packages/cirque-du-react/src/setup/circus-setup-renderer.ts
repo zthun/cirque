@@ -11,9 +11,9 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
   /**
    * Initializes a new instance of this object.
    *
-   * @param _element
+   * @param _element -
    *        The react element to render.
-   * @param _options
+   * @param _options -
    *        The options for the render.
    */
   public constructor(private _element: ReactElement, private _options?: RenderOptions<any, any, any>) {

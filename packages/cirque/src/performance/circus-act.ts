@@ -22,7 +22,7 @@ export class ZCircusActBuilder {
   /**
    * Appends an action.
    *
-   * @param action
+   * @param action -
    *        The action to append.
    *
    * @returns
@@ -36,9 +36,9 @@ export class ZCircusActBuilder {
   /**
    * Appends an action.
    *
-   * @param name
+   * @param name -
    *        The action name.
-   * @param context
+   * @param context -
    *        The action context.
    *
    * @returns
@@ -65,9 +65,9 @@ export class ZCircusActBuilder {
   /**
    * Presses a key on the keyboard.
    *
-   * @param key
+   * @param key -
    *        The key to press.
-   * @param times
+   * @param times -
    *        The number of times to press the key.  Does it just once
    *        if not supplied.
    *
@@ -107,7 +107,7 @@ export class ZCircusActBuilder {
    * You will only really be able to put strings of single digit characters
    * into this, so special characters will be handled as individual chars.
    *
-   * @param keys
+   * @param keys -
    *        The keys to press as a string.
    *
    * @returns

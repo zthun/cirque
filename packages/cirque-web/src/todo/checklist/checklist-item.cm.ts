@@ -19,7 +19,7 @@ export class ZChecklistItemComponentModel extends ZCircusComponentModel {
   /**
    * Gets the current value of the checklist item.
    *
-   * @param value
+   * @param value -
    *        The value to set.  If this is undefined, then
    *        no value is changed and the current value is returned.
    *
@@ -44,7 +44,7 @@ export class ZChecklistItemComponentModel extends ZCircusComponentModel {
    * following this method, or pass the desired value into the
    * value method.
    *
-   * @param value
+   * @param value -
    *        The value to set.
    *
    * @returns

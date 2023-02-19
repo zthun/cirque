@@ -14,9 +14,9 @@ import { Actions, Button, Key } from 'selenium-webdriver';
  *
  * Performances are broken up by magic.
  *
- * @param factory
+ * @param factory -
  *        A factory that creates the starting action.
- * @param act
+ * @param act -
  *        The circus act to squash.
  *
  * @returns

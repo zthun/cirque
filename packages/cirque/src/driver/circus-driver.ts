@@ -16,7 +16,7 @@ export interface IZCircusDriver {
   /**
    * Returns an attribute of the driver.
    *
-   * @param attribute
+   * @param attribute -
    *        The attribute to retrieve.
    *
    * @returns
@@ -27,9 +27,9 @@ export interface IZCircusDriver {
   /**
    * Returns an attribute of the driver.
    *
-   * @param attribute
+   * @param attribute -
    *        The attribute to retrieve.
-   * @param fallback
+   * @param fallback -
    *        The fallback value in case the attribute is not set.
    *
    * @returns
@@ -49,7 +49,7 @@ export interface IZCircusDriver {
    * Returns a list of classes on the driver context that
    * match a given filter.
    *
-   * @param filter
+   * @param filter -
    *        The filter of classes you want to check for. If you
    *        just want to get all classes, then just use undefined here.
    *
@@ -70,7 +70,7 @@ export interface IZCircusDriver {
   /**
    * Gets the underlying value of the driver context.
    *
-   * @param fallback
+   * @param fallback -
    *        The fallback value in the case that the driver
    *        does not support a value.
    *
@@ -109,7 +109,7 @@ export interface IZCircusDriver {
   /**
    * Looks at the app structure to see if a css selector will produce any results.
    *
-   * @param selector
+   * @param selector -
    *        The selector to check.
    *
    * @returns
@@ -121,7 +121,7 @@ export interface IZCircusDriver {
   /**
    * Selects a single item under the driver that matches the css selector.
    *
-   * @param selector
+   * @param selector -
    *        The selector to query.
    *
    * @returns
@@ -134,7 +134,7 @@ export interface IZCircusDriver {
   /**
    * Selects all items under this driver that matches the css selector.
    *
-   * @param selector
+   * @param selector -
    *        The selector to query.
    *
    * @returns
@@ -168,7 +168,7 @@ export interface IZCircusDriver {
   /**
    * Performs an action against the driver context.
    *
-   * @param act
+   * @param act -
    *        The act to perform.
    */
   perform(act: IZCircusAct): Promise<void>;
@@ -176,9 +176,9 @@ export interface IZCircusDriver {
   /**
    * Waits for a certain condition to be met before continuing.
    *
-   * @param predicate
+   * @param predicate -
    *        The predicate to wait for.
-   * @param options
+   * @param options -
    *        The options for the wait.
    */
   wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void>;

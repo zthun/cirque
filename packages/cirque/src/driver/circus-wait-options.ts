@@ -30,7 +30,7 @@ export class ZCircusWaitOptionsBuilder {
   /**
    * Sets the description.
    *
-   * @param val
+   * @param val -
    *        The value to set.
    *
    * @returns
@@ -44,7 +44,7 @@ export class ZCircusWaitOptionsBuilder {
   /**
    * Sets the timeout.
    *
-   * @param val
+   * @param val -
    *        The value to set.
    *
    * @returns

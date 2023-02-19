@@ -32,9 +32,9 @@ export type ZCircusMagicFunction = () => Promise<any>;
 /**
  * Gets whether an action is one of the specific types.
  *
- * @param types
+ * @param types -
  *        The types to check.
- * @param action
+ * @param action -
  *        The action to match.
  *
  * @returns
@@ -48,7 +48,7 @@ const _isActionOneOf = (types: ZCircusActionType[], action: IZCircusAction): boo
 /**
  * Gets whether an action represents a keyboard action.
  *
- * @param action
+ * @param action -
  *        The action to check.
  *
  * @returns
@@ -62,7 +62,7 @@ export function isKeyboardAction(action: IZCircusAction): action is IZCircusActi
 /**
  * Gets whether an action represents a mouse action.
  *
- * @param action
+ * @param action -
  *        The action to check.
  *
  * @returns
@@ -75,7 +75,7 @@ export function isMouseAction(action: IZCircusAction): action is IZCircusAction<
 /**
  * Gets whether an action represents magic.
  *
- * @param action
+ * @param action -
  *        The action to check.
  *
  * @returns

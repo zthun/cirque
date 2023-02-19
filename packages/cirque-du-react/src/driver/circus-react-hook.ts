@@ -36,35 +36,26 @@ export interface IZCircusReactHook<T, P> {
 
 /**
  * An implementation of an IZReactHook that wraps the result from
- * @testing-library/react.
+ * \@testing-library/react.
  */
 export class ZCircusReactHook<T, P> implements IZCircusReactHook<T, P> {
   /**
    * Initializes a new instance of this object.
    *
-   * @param _result
+   * @param _result -
    *        The render result.
    */
   public constructor(private _result: RenderHookResult<T, P>) {}
 
-  /**
-   * @inheritdoc
-   */
   public destroy(): Promise<void> {
     this._result.unmount();
     return new Promise((resolve) => setTimeout(resolve, 1));
   }
 
-  /**
-   * @inheritdoc
-   */
   public current(): Promise<T> {
     return Promise.resolve(this._result.result.current);
   }
 
-  /**
-   * @inheritdoc
-   */
   public async rerender(props?: P): Promise<T> {
     this._result.rerender(props);
     await flush();

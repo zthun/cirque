@@ -17,7 +17,7 @@ export interface IZChecklist {
 /**
  * Represents a checklist where items can be added and removed.
  *
- * @param props
+ * @param props -
  *        The properties for the checklist.
  *
  * @returns

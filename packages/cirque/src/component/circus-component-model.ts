@@ -7,7 +7,7 @@ export abstract class ZCircusComponentModel {
   /**
    * Initializes a new instance of this object.
    *
-   * @param driver
+   * @param driver -
    *        The driver that manages this component.
    */
   public constructor(public readonly driver: IZCircusDriver) {}
@@ -26,7 +26,7 @@ export type ZCircusComponentConstructor<T extends ZCircusComponentModel> = {
   /**
    * Initializes a new instance of this object.
    *
-   * @param driver
+   * @param driver -
    *        The driver that represents the root of the component.
    *
    * @returns

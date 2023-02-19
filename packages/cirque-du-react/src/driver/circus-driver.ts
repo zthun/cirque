@@ -14,9 +14,9 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * Initializes a new instance of this object.
    *
-   * @param result
+   * @param result -
    *        The render result.
-   * @param element
+   * @param element -
    *        The element to wrap.
    */
   public constructor(public readonly result: RenderResult, public readonly element: HTMLElement) {
@@ -45,24 +45,15 @@ export class ZCircusDriver implements IZCircusDriver {
     await flush();
   }
 
-  /**
-   * @inheritdoc
-   */
   public attribute<T extends string>(attribute: string, fallback: T | null = null): Promise<T | null> {
     const attr = this.element.getAttribute(attribute) as T;
     return Promise.resolve(attr == null ? fallback : attr);
   }
 
-  /**
-   * @inheritdoc
-   */
   public tag(): Promise<string> {
     return Promise.resolve(this.element.nodeName);
   }
 
-  /**
-   * @inheritdoc
-   */
   public classes(filter?: string[]): Promise<string[]> {
     const list = this.element.classList;
     const all = Array.from(list);
@@ -76,78 +67,45 @@ export class ZCircusDriver implements IZCircusDriver {
     return Promise.resolve(filtered);
   }
 
-  /**
-   * @inheritdoc
-   */
   public text(): Promise<string> {
     return Promise.resolve(this.element.textContent || '');
   }
 
-  /**
-   * @inheritdoc
-   */
   public value(fallback: string): Promise<string>;
 
-  /**
-   * @inheritdoc
-   */
   public value(): Promise<string | null>;
 
-  /**
-   * @inheritdoc
-   */
   public value(fallback: string | null = null): Promise<string | null> {
     return Promise.resolve(get(this.element, 'value', fallback));
   }
 
-  /**
-   * @inheritdoc
-   */
   public selected(): Promise<boolean> {
     return Promise.resolve(get(this.element, 'checked', false));
   }
 
-  /**
-   * @inheritdoc
-   */
   public disabled(): Promise<boolean> {
     return Promise.resolve(get(this.element, 'disabled', false));
   }
 
-  /**
-   * @inheritdoc
-   */
   public peek(selector: string): Promise<boolean> {
     return Promise.resolve(!!this.element.querySelector(selector));
   }
 
-  /**
-   * @inheritdoc
-   */
   public query(selector: string): Promise<IZCircusDriver[]> {
     const elements = Array.from(this.element.querySelectorAll<HTMLElement>(selector));
     return Promise.resolve(elements.map((e) => new ZCircusDriver(this.result, e)));
   }
 
-  /**
-   * @inheritdoc
-   */
   public body(): Promise<IZCircusDriver> {
     return Promise.resolve(new ZCircusDriver(this.result, document.body));
   }
 
-  /**
-   * @inheritdoc
-   */
   public focused(): Promise<IZCircusDriver | null> {
     // JSDOM actually just focuses the body so this never actually returns null.
     const active = document.activeElement as HTMLElement;
     return Promise.resolve(new ZCircusDriver(this.result, active));
   }
 
-  /**
-   * @inheritdoc
-   */
   public async select(selector: string): Promise<IZCircusDriver> {
     const drivers = await this.query(selector);
 
@@ -158,9 +116,6 @@ export class ZCircusDriver implements IZCircusDriver {
     return drivers[0];
   }
 
-  /**
-   * @inheritdoc
-   */
   public async perform(act: IZCircusAct): Promise<void> {
     const user = UserEvent.setup({
       // As of 14.4.0, auto modify is not yet implemented, so we will do the modifications ourselves.
@@ -180,9 +135,6 @@ export class ZCircusDriver implements IZCircusDriver {
     await flush();
   }
 
-  /**
-   * @inheritdoc
-   */
   public wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void> {
     const _options = options || new ZCircusWaitOptionsBuilder().build();
     return waitFor(

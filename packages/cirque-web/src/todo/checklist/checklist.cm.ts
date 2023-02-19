@@ -32,7 +32,7 @@ export class ZChecklistComponentModel extends ZCircusComponentModel {
   /**
    * Clicks the add button.
    *
-   * @param value
+   * @param value -
    *        The value to set automatically.  If this is falsy, then
    *        the current value is kept after adding.
    *

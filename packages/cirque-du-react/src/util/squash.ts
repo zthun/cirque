@@ -18,11 +18,11 @@ interface KeyboardState {
 /**
  * Squashes the keyboard events.
  *
- * @param user
- *        The @testing-library/user-events object that was setup earlier.
- * @param range
+ * @param user -
+ *        The \@testing-library/user-events object that was setup earlier.
+ * @param range -
  *        The range of circus actions to collapse.
- * @param state
+ * @param state -
  *        The current state of the keyboard modifier keys.
  *
  * @returns
@@ -87,11 +87,11 @@ function squashKeyboardEvents(user: any, range: IZCircusAction[], state: Keyboar
 /**
  * Squashes acts into specific chunks for user-events.
  *
- * @param user
- *        The user object from @testing-library/user-events that was setup earlier.
- * @param act
+ * @param user -
+ *        The user object from \@testing-library/user-events that was setup earlier.
+ * @param act -
  *        The circus act to squash.
- * @param element
+ * @param element -
  *        The driver element context for click events.
  *
  * @returns

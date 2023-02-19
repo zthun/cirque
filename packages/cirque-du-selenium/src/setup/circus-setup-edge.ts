@@ -9,16 +9,13 @@ export class ZCircusSetupEdge extends ZCircusSetupBrowser {
   /**
    * Initializes a new instance of this object.
    *
-   * @param url
+   * @param url -
    *        The url to route to.
    */
   public constructor(public readonly url: string) {
     super(url);
   }
 
-  /**
-   * @inheritdoc
-   */
   public builder(): Builder {
     return new Builder().forBrowser(Browser.EDGE).withCapabilities(Capabilities.edge());
   }
