@@ -9,6 +9,11 @@ describe('ZCircusWaitOptions', () => {
     expect(createTestTarget().description(expected).build().description).toEqual(expected);
   });
 
+  it('should set the debounce', () => {
+    const expected = 1500;
+    expect(createTestTarget().debounce(expected).build().debounce).toEqual(expected);
+  });
+
   it('should set the timeout', () => {
     const expected = 2000;
     expect(createTestTarget().timeout(expected).build().timeout).toEqual(expected);

@@ -1,5 +1,4 @@
-/* eslint-disable valid-jsdoc */
-import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions } from '@zthun/cirque';
+import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
 import { keyBy } from 'lodash';
 import { By, WebDriver, WebElement } from 'selenium-webdriver';
 import { squash } from '../util/squash';
@@ -107,8 +106,8 @@ export class ZCircusDriver implements IZCircusDriver {
   }
 
   public async wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void> {
-    const timeout = options?.timeout || 10000;
-    const description = options?.description;
-    await this._seleniumDriver.wait(predicate, timeout, description);
+    const _options = options || new ZCircusWaitOptionsBuilder().build();
+    await new Promise((r) => setTimeout(r, _options.debounce));
+    await this._seleniumDriver.wait(predicate, _options.timeout, _options.description);
   }
 }

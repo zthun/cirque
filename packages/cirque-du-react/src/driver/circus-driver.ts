@@ -1,5 +1,3 @@
-/* eslint-disable valid-jsdoc */
-
 import { RenderResult, waitFor } from '@testing-library/react/pure';
 import UserEvent from '@testing-library/user-event';
 import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
@@ -135,8 +133,11 @@ export class ZCircusDriver implements IZCircusDriver {
     await flush();
   }
 
-  public wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void> {
+  public async wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void> {
     const _options = options || new ZCircusWaitOptionsBuilder().build();
+
+    await new Promise((r) => setTimeout(r, _options.debounce));
+
     return waitFor(
       async () => {
         const result = await predicate();
