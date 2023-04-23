@@ -1,4 +1,3 @@
-/* eslint-disable valid-jsdoc */
 import { Browser, Builder, Capabilities } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome';
 import { ZCircusSetupBrowser } from './circus-setup-browser';

@@ -1,4 +1,3 @@
-/* eslint-disable valid-jsdoc */
 import { RenderHookResult } from '@testing-library/react';
 import { flush } from '../util/flush';
 
