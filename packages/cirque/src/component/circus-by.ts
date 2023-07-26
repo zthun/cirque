@@ -1,5 +1,5 @@
-import { ZCircusWaitOptionsBuilder } from 'src/driver/circus-wait-options';
 import { IZCircusDriver } from '../driver/circus-driver';
+import { ZCircusWaitOptionsBuilder } from '../driver/circus-wait-options';
 import { ZCircusComponentConstructor, ZCircusComponentModel } from './circus-component-model';
 
 const _selector = (root: string, name?: string) => {
