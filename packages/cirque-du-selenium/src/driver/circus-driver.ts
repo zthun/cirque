@@ -92,7 +92,10 @@ export class ZCircusDriver implements IZCircusDriver {
 
   public async perform(act: IZCircusAct): Promise<void> {
     // Before we do anything, we need to make sure the element is scrolled into view if possible.
-    await this._seleniumDriver.executeScript('arguments[0].scrollIntoView(true);', this._search);
+    await this._seleniumDriver.executeScript(
+      `arguments[0].scrollIntoView({block: 'nearest', inline: 'nearest'});`,
+      this._search
+    );
 
     const factory = () => this._seleniumDriver.actions().move({ x: 0, y: 0, origin: this._search });
     const _act = squash(factory, act);
