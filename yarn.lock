@@ -4353,14 +4353,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-react@^4.3.1, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
+"@zthun/cirque-du-react@^4.3.2, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-react@workspace:packages/cirque-du-react"
   dependencies:
     "@testing-library/dom": ^9.3.3
     "@testing-library/react": ^14.1.2
     "@testing-library/user-event": ^14.5.1
-    "@zthun/cirque": ^4.3.1
+    "@zthun/cirque": ^4.3.2
     lodash: ^4.17.21
     microbundle: ^0.15.1
     react: ^18.2.0
@@ -4373,11 +4373,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-selenium@^4.3.1, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
+"@zthun/cirque-du-selenium@^4.3.2, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium"
   dependencies:
-    "@zthun/cirque": ^4.3.1
+    "@zthun/cirque": ^4.3.2
     lodash: ^4.17.21
     microbundle: ^0.15.1
     selenium-webdriver: ^4.15.0
@@ -4392,9 +4392,9 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": ^10.0.1
     "@types/node": ^20.9.3
-    "@zthun/cirque": ^4.3.1
-    "@zthun/cirque-du-react": ^4.3.1
-    "@zthun/cirque-du-selenium": ^4.3.1
+    "@zthun/cirque": ^4.3.2
+    "@zthun/cirque-du-react": ^4.3.2
+    "@zthun/cirque-du-selenium": ^4.3.2
     less: ^4.2.0
     lodash: ^4.17.21
     react: ^18.2.0
@@ -4408,7 +4408,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque@^4.3.1, @zthun/cirque@workspace:packages/cirque":
+"@zthun/cirque@^4.3.2, @zthun/cirque@workspace:packages/cirque":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque@workspace:packages/cirque"
   dependencies:
