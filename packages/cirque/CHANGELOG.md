@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/zthun/cirque/compare/v4.3.1...v4.3.2) (2023-11-21)
+
+**Note:** Version bump only for package @zthun/cirque
+
+
+
+
+
 ## [4.3.1](https://github.com/zthun/cirque/compare/v4.3.0...v4.3.1) (2023-07-26)
 
 **Note:** Version bump only for package @zthun/cirque

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/zthun/cirque/compare/v4.3.1...v4.3.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* updated selenium to discover newer versions of chrome ([7c217aa](https://github.com/zthun/cirque/commit/7c217aad39049d8be3e3a0b70a1efb327d3af974))
+
+
+
 ## [4.3.1](https://github.com/zthun/cirque/compare/v4.3.0...v4.3.1) (2023-07-26)
 
 
