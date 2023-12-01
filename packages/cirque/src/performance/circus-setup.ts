@@ -3,6 +3,11 @@
  */
 export interface IZCircusSetup<T> {
   /**
+   * Releases and cleans up any items used by this setup.
+   */
+  destroy?(): Promise<void>;
+
+  /**
    * Sets up the circus environment.
    *
    * @returns
