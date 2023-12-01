@@ -1,0 +1,7 @@
+services:
+  circus-services-web:
+    image: nginx:stable-alpine
+    ports:
+      - 5173:80
+    volumes:
+      - ./packages/cirque-web/dist:/usr/share/nginx/html
