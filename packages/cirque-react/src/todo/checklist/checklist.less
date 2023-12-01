@@ -1,0 +1,82 @@
+@import '../../variables';
+
+@checklist-hf-height: 4rem;
+@checklist-body-height: 20rem;
+
+@checklist-border-size: 0.064rem;
+@checklist-border-style: solid;
+@checklist-border-radius: 0.5rem;
+
+@checklist-width: 10rem;
+@checklist-height: @checklist-hf-height * 2 + @checklist-body-height;
+
+@checklist-part-padding: 1rem;
+
+@checklist-footer-button-padding: 0.5rem;
+@checklist-footer-button-width: 7rem;
+@checklist-footer-button-height: 2.5rem;
+
+.ZChecklist-root {
+  display: flex;
+  flex-direction: column;
+  border: @checklist-border-size @checklist-border-style @color-primary;
+  min-width: @checklist-width;
+  height: @checklist-height;
+
+  .ZChecklist-header,
+  .ZChecklist-footer {
+    display: flex;
+    align-items: center;
+    background-color: @color-primary;
+    color: @color-primary-contrast;
+    height: @checklist-hf-height;
+    padding: @checklist-part-padding;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .ZChecklist-body {
+    flex-grow: 1;
+    background-color: #ffffff;
+    height: 100%;
+    overflow: auto;
+    padding: @checklist-part-padding;
+
+    .ZChecklist-empty {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2rem;
+      height: 100%;
+      justify-content: center;
+      text-align: center;
+      opacity: 0.5;
+    }
+  }
+
+  .ZChecklist-footer {
+    justify-content: flex-end;
+
+    button {
+      border-color: @color-secondary-light;
+      background-color: @color-secondary;
+      color: @color-secondary-contrast;
+      cursor: pointer;
+      padding: @checklist-footer-button-padding;
+      width: @checklist-footer-button-width;
+
+      &:hover {
+        background-color: @color-secondary-dark;
+      }
+    }
+  }
+
+  .ZChecklistItem-root {
+    input {
+      border: 0;
+      background: transparent;
+      width: 100%;
+    }
+  }
+}

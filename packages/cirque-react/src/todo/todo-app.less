@@ -1,0 +1,30 @@
+@import '../variables';
+
+body {
+  padding: 0;
+  margin: auto;
+  font-family: 'Roboto';
+  background-color: whitesmoke;
+}
+
+.ZTodoApp-root {
+  > header {
+    align-items: center;
+    background-color: @color-primary;
+    color: @color-primary-contrast;
+    display: flex;
+    padding: 0.25rem;
+
+    h1 {
+      margin: 0;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .ZTodoApp-checklists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
