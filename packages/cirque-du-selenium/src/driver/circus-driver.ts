@@ -15,7 +15,10 @@ export class ZCircusDriver implements IZCircusDriver {
    * @param _search -
    *        The search context.
    */
-  public constructor(private _seleniumDriver: WebDriver, private _search: WebElement) {}
+  public constructor(
+    private _seleniumDriver: WebDriver,
+    private _search: WebElement
+  ) {}
 
   public async destroy(): Promise<void> {
     await this._seleniumDriver.quit();

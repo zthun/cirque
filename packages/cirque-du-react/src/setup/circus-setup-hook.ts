@@ -9,7 +9,10 @@ export class ZCircusSetupHook<T, P> implements IZCircusSetup<IZCircusReactHook<T
   /**
    * Initializes a new instance of this object.
    */
-  public constructor(private _render: (props: P) => T, private _options?: RenderHookOptions<any, any, any>) {
+  public constructor(
+    private _render: (props: P) => T,
+    private _options?: RenderHookOptions<any, any, any>
+  ) {
     // We will flush the event loops ourselves.  Trying to mingle this with @testing-library
     // is a mess.  So we will just turn all this off.
     global.IS_REACT_ACT_ENVIRONMENT = false;

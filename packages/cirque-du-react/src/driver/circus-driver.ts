@@ -17,7 +17,10 @@ export class ZCircusDriver implements IZCircusDriver {
    * @param element -
    *        The element to wrap.
    */
-  public constructor(public readonly result: RenderResult, public readonly element: HTMLElement) {
+  public constructor(
+    public readonly result: RenderResult,
+    public readonly element: HTMLElement
+  ) {
     // JSDOM doesn't actually render anything so whenever we try to get the bounding client
     // rect, it just returns (0, 0, 0, 0).  This messes up stuff that needs calculations
     // on the actual rectangles of the DOM, so we're just going to monkey patch the
@@ -32,7 +35,7 @@ export class ZCircusDriver implements IZCircusDriver {
         right: 500,
         top: 0,
         bottom: 25
-      } as unknown as DOMRect);
+      }) as unknown as DOMRect;
   }
 
   /**

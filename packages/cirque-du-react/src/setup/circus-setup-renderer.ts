@@ -16,7 +16,10 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
    * @param _options -
    *        The options for the render.
    */
-  public constructor(private _element: ReactElement, private _options?: RenderOptions<any, any, any>) {
+  public constructor(
+    private _element: ReactElement,
+    private _options?: RenderOptions<any, any, any>
+  ) {
     // We will flush the event loops ourselves.  Trying to mingle this with @testing-library
     // is a mess.  So we will just turn all this off.
     global.IS_REACT_ACT_ENVIRONMENT = false;
