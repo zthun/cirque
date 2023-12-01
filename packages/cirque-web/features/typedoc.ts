@@ -16,7 +16,7 @@ async function page(world: IZWorld) {
 }
 
 Given('I navigate to the typedoc application', async function (this: World<IZWorld>) {
-  const url = 'http://localhost:5173';
+  const url = 'http://localhost:5174';
   this.parameters.browser = new ZCircusSetupChrome(url).acceptInsecureCerts();
 });
 
