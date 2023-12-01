@@ -28,7 +28,7 @@
     "@cucumber/cucumber": "^10.0.1",
     "@originjs/vite-plugin-global-style": "^1.0.3",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.1",
+    "@types/node": "^20.10.2",
     "@types/selenium-webdriver": "^4.1.20",
     "@vitest/coverage-istanbul": "^0.34.6",
     "@zthun/lint-janitor": "^15.1.1",
