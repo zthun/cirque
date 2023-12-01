@@ -20,10 +20,6 @@ export class ZCircusDriver implements IZCircusDriver {
     private _search: WebElement
   ) {}
 
-  public async destroy(): Promise<void> {
-    await this._seleniumDriver.quit();
-  }
-
   public attribute<T extends string>(attribute: string): Promise<T | null>;
 
   public attribute<T extends string>(attribute: string, fallback: T): Promise<T>;
