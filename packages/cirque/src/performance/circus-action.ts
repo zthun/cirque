@@ -1,13 +1,28 @@
 import { IZCircusKey } from '../keyboard/circus-key';
 
+/**
+ * Represents a type of action that can be performed.
+ */
 export enum ZCircusActionType {
-  // Mouse Actions
+  /**
+   * User presses a mouse button down (no-release).
+   */
   MouseDown = 'mouse-down',
+  /**
+   * User releases a mouse button.
+   */
   MouseUp = 'mouse-up',
-  // Keyboard Actions
+  /**
+   * User presses a key on the keyboard (no-release).
+   */
   KeyDown = 'key-down',
+  /**
+   * User releases a key on the keyboard.
+   */
   KeyUp = 'key-up',
-  // Custom Actions
+  /**
+   * A custom action that may or may not be done by the user.
+   */
   Magic = 'magic'
 }
 
