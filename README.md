@@ -1,7 +1,5 @@
 # Zthunworks Circus
 
-![Circus](packages/cirque-web/public/assets/png/cirque-256x256.png)
-
 Writing tests for UIs can be a pain in the ass. There's several frameworks, and they all have different ways of handling
 tests. Modern React, for example, uses @testing-library/react for writing unit tests. The api and interactions of
 @testing-library is very different than how you would interact with something like selenium-web-driver for writing end
@@ -65,7 +63,3 @@ framework and validate behaviors. Notice that there is no reference to the test 
 The component model is **framework agnostic**. This is an important feature of a component model. Regardless of what
 framework the component is written in, the way of interacting with that component on a user level remains the same. You
 just need to make sure that the output DOM elements have the necessary classes to target the specific pieces.
-
-## Getting Started
-
-See the readme for the [@zthun/cirque](./packages/cirque/README.md) project under packages for getting started.
