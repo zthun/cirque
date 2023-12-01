@@ -1,4 +1,4 @@
-# Description
+# Circus
 
 Zthunworks Circus' main package is @zthun/cirque. Cirque contains all of the abstractions and interfaces that your
 application will need in order to begin creating component models. The @zthun/cirque package _is meant to be used in a
