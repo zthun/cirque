@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.0](https://github.com/zthun/cirque/compare/v4.3.2...v5.0.0) (2023-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* the destroy method on the driver is now optional
+
+### Features
+
+* setups many now include a destroy method ([b7339d8](https://github.com/zthun/cirque/commit/b7339d8683121bdd869d9bd8253db13fcefe0665))
+* the destroy method on the driver is now optional ([ecf622a](https://github.com/zthun/cirque/commit/ecf622aae1a4b60aa222e41fa30d3cda8c1a5c26))
+
+
+
 ## [4.3.2](https://github.com/zthun/cirque/compare/v4.3.1...v4.3.2) (2023-11-21)
 
 **Note:** Version bump only for package @zthun/cirque

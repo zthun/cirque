@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.0](https://github.com/zthun/cirque/compare/v4.3.2...v5.0.0) (2023-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* destroying the selenium web driver is now the responsibility of the setup
+* the driver no longer destroys the underlying selenium driver
+* the destroy method on the driver is now optional
+
+### Features
+
+* cirque web adds the documentation site for circus ([ef57b19](https://github.com/zthun/cirque/commit/ef57b19c609e428799551912ff5349534dd22b35))
+* destroying the selenium web driver is now the responsibility of the setup ([af158a8](https://github.com/zthun/cirque/commit/af158a883d1bfc3bb0d004db42d59d555bf00bbe))
+* setups many now include a destroy method ([b7339d8](https://github.com/zthun/cirque/commit/b7339d8683121bdd869d9bd8253db13fcefe0665))
+* the cirque-react project is the todo app renamed from the old cirque-web ([788cabf](https://github.com/zthun/cirque/commit/788cabf211a122f154152ea4c04ed4c7096e8b21))
+* the destroy method on the driver is now optional ([ecf622a](https://github.com/zthun/cirque/commit/ecf622aae1a4b60aa222e41fa30d3cda8c1a5c26))
+* the driver no longer destroys the underlying selenium driver ([5b2dfa1](https://github.com/zthun/cirque/commit/5b2dfa1999f2c657feffbc07a3a9523c79ba382f))
+
+
+
 ## [4.3.2](https://github.com/zthun/cirque/compare/v4.3.1...v4.3.2) (2023-11-21)
 
 

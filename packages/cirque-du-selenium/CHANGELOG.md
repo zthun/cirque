@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.0](https://github.com/zthun/cirque/compare/v4.3.2...v5.0.0) (2023-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* destroying the selenium web driver is now the responsibility of the setup
+* the driver no longer destroys the underlying selenium driver
+
+### Features
+
+* destroying the selenium web driver is now the responsibility of the setup ([af158a8](https://github.com/zthun/cirque/commit/af158a883d1bfc3bb0d004db42d59d555bf00bbe))
+* the driver no longer destroys the underlying selenium driver ([5b2dfa1](https://github.com/zthun/cirque/commit/5b2dfa1999f2c657feffbc07a3a9523c79ba382f))
+
+
+
 ## [4.3.2](https://github.com/zthun/cirque/compare/v4.3.1...v4.3.2) (2023-11-21)
 
 
