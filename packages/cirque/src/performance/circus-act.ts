@@ -48,22 +48,76 @@ export class ZCircusActBuilder {
     return this.action({ name, context });
   }
 
+  /**
+   * Adds a keydown action.
+   *
+   * @param key -
+   *        The key to press down.
+   *
+   * @returns
+   *        This object.
+   */
   public keyDown: (key: IZCircusKey) => this = this._action.bind(this, ZCircusActionType.KeyDown);
+  /**
+   * Adds a keyup action.
+   *
+   * @param key -
+   *        The key to release.
+   *
+   * @returns
+   *        This object.
+   */
   public keyUp: (key: IZCircusKey) => this = this._action.bind(this, ZCircusActionType.KeyUp);
 
   private _mouseDown: (which: ZCircusMouseButton) => this = this._action.bind(this, ZCircusActionType.MouseDown);
   private _mouseUp: (which: ZCircusMouseButton) => this = this._action.bind(this, ZCircusActionType.MouseUp);
 
+  /**
+   * Adds a mouse down action for the left mouse button.
+   *
+   * @returns
+   *        This object.
+   */
   public leftMouseDown: () => this = this._mouseDown.bind(this, 'Left');
+  /**
+   * Adds a mouse up action for the left mouse button.
+   *
+   * @returns
+   *        This object.
+   */
   public leftMouseUp: () => this = this._mouseUp.bind(this, 'Left');
 
+  /**
+   * Adds a mouse down action for the right mouse button.
+   *
+   * @returns
+   *        This object.
+   */
   public rightMouseDown: () => this = this._mouseDown.bind(this, 'Right');
+
+  /**
+   * Adds a mouse up action for the right mouse button.
+   *
+   * @returns
+   *        This object.
+   */
   public rightMouseUp: () => this = this._mouseUp.bind(this, 'Right');
 
+  /**
+   * Adds custom magic action.
+   *
+   * @param action -
+   *        The action function that will be invoked to produce the magic.
+   *
+   * @returns
+   *        This object.
+   */
   public magic: (action: ZCircusMagicFunction) => this = this._action.bind(this, ZCircusActionType.Magic);
 
   /**
    * Presses a key on the keyboard.
+   *
+   * This is essentially a combination of key down + key up.
    *
    * @param key -
    *        The key to press.
@@ -84,6 +138,8 @@ export class ZCircusActBuilder {
   /**
    * Clicks the left mouse button.
    *
+   * This is a combination of left mouse down + left mouse up.
+   *
    * @returns
    *        This object.
    */
@@ -93,6 +149,8 @@ export class ZCircusActBuilder {
 
   /**
    * Clicks the right mouse button.
+   *
+   * This is a combination of right mouse down + right mouse up.
    *
    * @returns
    *        This object
