@@ -1,4 +1,4 @@
-import { IZCircusDriver, ZCircusActBuilder, ZCircusKeyboardQwerty } from '@zthun/cirque';
+import { IZCircusDriver, IZCircusSetup, ZCircusActBuilder, ZCircusKeyboardQwerty } from '@zthun/cirque';
 import { ZCircusWaitOptionsBuilder } from '@zthun/cirque/src/driver/circus-wait-options';
 import { ZCircusSetupChrome } from 'src/setup/circus-setup-chrome';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -9,6 +9,7 @@ const VALUE = 'My name is Peter Parker';
 
 describe('ZCircusDriver (Selenium)', () => {
   let _driver: IZCircusDriver;
+  let _browser: IZCircusSetup<IZCircusDriver>;
 
   const createTestTarget = async () => {
     const html = `
@@ -29,12 +30,14 @@ describe('ZCircusDriver (Selenium)', () => {
     const base64 = Buffer.from(html).toString('base64');
     const url = `data:text/html;base64,${base64}`;
 
-    _driver = await new ZCircusSetupChrome(url).headless().acceptInsecureCerts().setup();
+    _browser = new ZCircusSetupChrome(url).headless().acceptInsecureCerts();
+    _driver = await _browser.setup();
     return _driver.select('.root');
   };
 
   afterEach(async () => {
-    await _driver?.destroy();
+    await _browser?.destroy?.call(_browser);
+    await _driver?.destroy?.call(_driver);
   });
 
   describe('Attributes', () => {
