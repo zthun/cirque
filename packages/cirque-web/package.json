@@ -1,0 +1,31 @@
+{
+  "name": "@zthun/cirque-web",
+  "version": "4.3.2",
+  "description": "A documentation website for showing circus.",
+  "author": "Anthony Bonta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zthun/cirque",
+    "directory": "packages/cirque-web"
+  },
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "typedoc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@zthun/cirque": "^4.3.2",
+    "@zthun/cirque-du-react": "^4.3.2",
+    "@zthun/cirque-du-selenium": "^4.3.2",
+    "typedoc": "^0.25.4",
+    "typedoc-plugin-extras": "^3.0.0",
+    "typescript": "^5.3.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
+}

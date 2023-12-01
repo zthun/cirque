@@ -1,0 +1,12 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "out": "./dist",
+  "categorizeByGroup": true,
+  "entryPointStrategy": "packages",
+  "entryPoints": ["../*"],
+  "exclude": ["./"],
+  "excludeNotDocumented": true,
+  "name": "Circus",
+  "plugin": ["typedoc-plugin-extras"],
+  "favicon": "public/svg/cirque.svg"
+}
