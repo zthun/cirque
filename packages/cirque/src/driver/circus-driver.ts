@@ -11,7 +11,7 @@ export interface IZCircusDriver {
    * This releases all memory and items used by the driver.
    * If nothing is used, then this may do nothing.
    */
-  destroy(): Promise<void>;
+  destroy?(): Promise<void>;
 
   /**
    * Returns an attribute of the driver.
