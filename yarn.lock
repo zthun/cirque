@@ -4386,9 +4386,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-web@workspace:packages/cirque-web":
+"@zthun/cirque-test@workspace:packages/cirque-test":
   version: 0.0.0-use.local
-  resolution: "@zthun/cirque-web@workspace:packages/cirque-web"
+  resolution: "@zthun/cirque-test@workspace:packages/cirque-test"
   dependencies:
     "@cucumber/cucumber": ^10.0.1
     "@types/node": ^20.9.3

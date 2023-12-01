@@ -1,5 +1,5 @@
 {
-  "name": "@zthun/cirque-web",
+  "name": "@zthun/cirque-test",
   "version": "4.3.2",
   "description": "A sample todo web application for use with testing the circus frameworks",
   "author": "Anthony Bonta",
@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zthun/cirque",
-    "directory": "packages/cirque-web"
+    "directory": "packages/cirque-test"
   },
   "scripts": {
     "build": "vite build",
