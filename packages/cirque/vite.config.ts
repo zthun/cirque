@@ -8,7 +8,8 @@ export default defineConfig({
       entry: './src/index.ts',
       formats: ['es', 'cjs'],
       fileName: 'index'
-    }
+    },
+    sourcemap: true
   },
-  plugins: [externalizeDeps(), dts({ exclude: ['**/*.spec.ts'] })]
+  plugins: [externalizeDeps(), dts({ tsconfigPath: 'tsconfig.prod.json' })]
 });
