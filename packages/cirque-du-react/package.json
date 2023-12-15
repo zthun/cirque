@@ -9,11 +9,11 @@
     "url": "https://github.com/zthun/cirque",
     "directory": "packages/cirque-du-react"
   },
-  "main": "./dist/lib/index.js",
-  "module": "./dist/lib/index.esm.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "microbundle --format esm,cjs --tsconfig tsconfig.prod.json --no-sourcemap"
+    "build": "vite build"
   },
   "publishConfig": {
     "access": "public"
@@ -26,10 +26,12 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "microbundle": "^0.15.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.6.4",
+    "vite-plugin-externalize-deps": "^0.8.0",
     "vitest": "^1.0.4"
   },
   "peerDependencies": {
