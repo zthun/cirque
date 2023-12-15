@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/zthun/cirque/compare/v5.0.2...v5.0.3) (2023-12-15)
+
+
+### Bug Fixes
+
+* import paths for main and module are now correct ([3e7203f](https://github.com/zthun/cirque/commit/3e7203f4fa0579599402d871a53fa81fac56c84a))
+
+
+
 ## [5.0.1](https://github.com/zthun/cirque/compare/v5.0.0...v5.0.1) (2023-12-15)
 
 **Note:** Version bump only for package @zthun/cirque-du-selenium

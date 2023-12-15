@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-du-react",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "A cirque performance for unit testing react applications and components.",
   "author": "Anthony Bonta",
   "license": "MIT",
