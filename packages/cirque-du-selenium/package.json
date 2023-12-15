@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-du-selenium",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A cirque performance for e2e testing web applications with selenium.",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@zthun/cirque": "^5.0.0",
+    "@zthun/cirque": "^5.0.1",
     "lodash": "^4.17.21",
     "selenium-webdriver": "^4.16.0"
   },
