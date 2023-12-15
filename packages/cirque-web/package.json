@@ -21,10 +21,10 @@
     "@zthun/cirque": "^5.0.0",
     "@zthun/cirque-du-react": "^5.0.0",
     "@zthun/cirque-du-selenium": "^5.0.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typedoc": "^0.25.4",
     "typedoc-plugin-extras": "^3.0.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "files": [
     "dist"

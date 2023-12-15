@@ -22,27 +22,26 @@
     "postinstall": "husky install"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@cucumber/cucumber": "^10.0.1",
     "@originjs/vite-plugin-global-style": "^1.0.3",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.2",
-    "@types/selenium-webdriver": "^4.1.20",
-    "@vitest/coverage-istanbul": "^0.34.6",
-    "@zthun/lint-janitor": "^15.1.1",
-    "@zthun/lint-janitor-config": "^15.1.1",
+    "@types/node": "^20.10.4",
+    "@types/selenium-webdriver": "^4.1.21",
+    "@vitest/coverage-istanbul": "^1.0.4",
+    "@zthun/lint-janitor": "^15.1.2",
+    "@zthun/lint-janitor-config": "^15.1.2",
     "husky": "^8.0.3",
     "jsdom": "^23.0.1",
-    "lerna": "^8.0.0",
+    "lerna": "^8.0.1",
     "less": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.2",
-    "vite-tsconfig-paths": "^4.2.1",
-    "vitest": "^0.34.6"
+    "typescript": "^5.3.3",
+    "vite-tsconfig-paths": "^4.2.2",
+    "vitest": "^1.0.4"
   },
   "resolutions": {
     "rollup": "npm:@rollup/wasm-node@*"
