@@ -1,5 +1,5 @@
 import { RenderResult, waitFor } from '@testing-library/react/pure';
-import UserEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
 import { get, keyBy } from 'lodash';
 import { flush } from '../util/flush';
@@ -118,7 +118,7 @@ export class ZCircusDriver implements IZCircusDriver {
   }
 
   public async perform(act: IZCircusAct): Promise<void> {
-    const user = UserEvent.setup({
+    const user = userEvent.setup({
       // As of 14.4.0, auto modify is not yet implemented, so we will do the modifications ourselves.
       autoModify: false
     });
