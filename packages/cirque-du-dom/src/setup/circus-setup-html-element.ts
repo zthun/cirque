@@ -5,7 +5,7 @@ import { flush } from '../util/flush';
 /**
  * Represents a setup that renders a react component.
  */
-export class ZCircusSetupNode implements IZCircusSetup<IZCircusDriver> {
+export class ZCircusSetupHtmlElement implements IZCircusSetup<IZCircusDriver> {
   private _current: HTMLElement | null;
 
   /**
