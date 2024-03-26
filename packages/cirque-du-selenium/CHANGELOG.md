@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/zthun/cirque/compare/v6.0.0...v6.0.1) (2024-03-26)
+
+
+### Reverts
+
+* move lodash-es back to lodash ([54b770b](https://github.com/zthun/cirque/commit/54b770b38f926cccbedddd342a39c70bdb40038f))
+
+
+
 ## [6.0.0](https://github.com/zthun/cirque/compare/v5.0.3...v6.0.0) (2024-03-26)
 
 
