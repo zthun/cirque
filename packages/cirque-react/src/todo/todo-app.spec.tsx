@@ -1,17 +1,26 @@
-import { ZCircusBy } from '@zthun/cirque';
+import { IZCircusDriver, IZCircusSetup, ZCircusBy } from '@zthun/cirque';
 import { ZCircusSetupRenderer } from '@zthun/cirque-du-react';
 import React from 'react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { ZChecklistComponentModel } from './checklist/checklist.cm';
 import { ZTodoApp } from './todo-app';
 import { ZTodoAppComponentModel } from './todo-app.cm';
 
 describe('ZTodoApp', () => {
+  let _renderer: IZCircusSetup;
+  let _driver: IZCircusDriver;
+
   const createTestTarget = async () => {
     const element = <ZTodoApp />;
-    const driver = await new ZCircusSetupRenderer(element).setup();
-    return ZCircusBy.first(driver, ZTodoAppComponentModel);
+    _renderer = new ZCircusSetupRenderer(element);
+    _driver = await _renderer.setup();
+    return ZCircusBy.first(_driver, ZTodoAppComponentModel);
   };
+
+  afterEach(() => {
+    _renderer?.destroy?.call(_renderer);
+    _driver?.destroy?.call(_driver);
+  });
 
   type ChecklistFactory = (t: ZTodoAppComponentModel) => Promise<ZChecklistComponentModel>;
 
