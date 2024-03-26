@@ -21,7 +21,7 @@
   "dependencies": {
     "@zthun/cirque": "^5.0.1",
     "lodash": "^4.17.21",
-    "selenium-webdriver": "^4.16.0"
+    "selenium-webdriver": "^4.18.1"
   },
   "devDependencies": {
     "typescript": "^5.4.3",
