@@ -17,8 +17,9 @@
     "test": "vitest --run --coverage",
     "e2e": "cucumber-js",
     "lint": "lint-janitor",
+    "check": "tsc --noEmit",
     "build": "lerna run build",
-    "make": "yarn clean && yarn lint && yarn test && yarn build",
+    "make": "yarn clean && yarn lint && yarn check && yarn test && yarn build",
     "postinstall": "husky install"
   },
   "devDependencies": {
@@ -39,7 +40,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.3",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
   },

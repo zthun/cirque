@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install gnupg wget -y && \
     apt-get install google-chrome-stable -y
 RUN yarn test
 
+FROM setup as check
+RUN yarn check
+
 FROM setup as build
 RUN yarn build
 

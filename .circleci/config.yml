@@ -35,6 +35,12 @@ jobs:
       - run_docker_target:
           target: test
 
+  check:
+    executor: system
+    steps:
+      - run_docker_target:
+          target: check
+
   build:
     executor: system
     steps:
@@ -63,6 +69,7 @@ workflows:
     jobs:
       - analyze
       - test
+      - check
       - build:
           filters:
             branches:
@@ -73,6 +80,7 @@ workflows:
             - credentials
           requires:
             - analyze
+            - check
             - test
           filters:
             branches:
