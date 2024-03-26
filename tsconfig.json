@@ -5,6 +5,7 @@
     "target": "esnext",
     "paths": {
       "@zthun/cirque": ["cirque/src/index"],
+      "@zthun/cirque-du-dom": ["cirque-du-dom/src/index"],
       "@zthun/cirque-du-react": ["cirque-du-react/src/index"],
       "@zthun/cirque-du-selenium": ["cirque-du-selenium/src/index"]
     }

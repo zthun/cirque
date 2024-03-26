@@ -19,9 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@testing-library/dom": "^9.3.4",
     "@testing-library/react": "^14.2.2",
-    "@testing-library/user-event": "^14.5.2",
     "@zthun/cirque": "^5.0.1",
     "@zthun/cirque-du-dom": "^5.0.1",
     "lodash": "^4.17.21"
