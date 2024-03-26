@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "description": "An abstraction around testing libraries that allow actions to be performed without including the entire testing library into the main source.",
   "author": "Anthony Bonta",
   "license": "MIT",

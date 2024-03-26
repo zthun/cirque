@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.0](https://github.com/zthun/cirque/compare/v5.0.3...v6.0.0) (2024-03-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* cirque-du-react no longer exports its own driver
+
+### Features
+
+* circus setup type now defaults to IZCircusDriver ([cfd131c](https://github.com/zthun/cirque/commit/cfd131cea4fc130f634a571acdd14a707fcf4b39))
+* cirque-du-dom allows for testing using basic html dom rendering ([008fe87](https://github.com/zthun/cirque/commit/008fe872a5eb4c8a18267575f79025b07a6b250c))
+* upgraded [@testing-library](https://github.com/testing-library) versions ([ef91602](https://github.com/zthun/cirque/commit/ef91602b3f714a988a424ea0c9e4b4aec40b5681))
+* upgraded selenium webdriver to 4.18.1 ([97efef0](https://github.com/zthun/cirque/commit/97efef01434ac4dc465ceecd0d6e18b61304f227))
+
+
+### Code Refactoring
+
+* cirque-du-react no longer exports its own driver ([bbaf0ce](https://github.com/zthun/cirque/commit/bbaf0ce98a29b2af054659348e3ea4e454b6d2f7))
+
+
+
 ## [5.0.3](https://github.com/zthun/cirque/compare/v5.0.2...v5.0.3) (2023-12-15)
 
 
