@@ -27,7 +27,7 @@
     "@commitlint/config-conventional": "^19.1.0",
     "@cucumber/cucumber": "^10.3.1",
     "@originjs/vite-plugin-global-style": "^1.0.3",
-    "@types/lodash": "^4.17.0",
+    "@types/lodash-es": "^4.17.0",
     "@types/node": "^20.11.30",
     "@types/selenium-webdriver": "^4.1.22",
     "@vitest/coverage-istanbul": "^1.4.0",

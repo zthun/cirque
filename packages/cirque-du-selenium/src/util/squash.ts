@@ -6,7 +6,7 @@ import {
   ZCircusActBuilder,
   ZCircusActionType
 } from '@zthun/cirque';
-import { snakeCase } from 'lodash';
+import { snakeCase } from 'lodash-es';
 import { Actions, Button, Key } from 'selenium-webdriver';
 
 /**

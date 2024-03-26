@@ -1,4 +1,4 @@
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
 import { ZChecklistItem } from './checklist-item';
