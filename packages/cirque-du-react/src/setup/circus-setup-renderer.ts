@@ -1,13 +1,14 @@
-import { render, RenderOptions } from '@testing-library/react/pure';
+import { render, RenderOptions, RenderResult } from '@testing-library/react/pure';
 import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
+import { ZCircusDriver } from '@zthun/cirque-du-dom';
 import { ReactElement } from 'react';
-import { ZCircusDriver } from '../driver/circus-driver';
-import { flush } from '../util/flush';
 
 /**
  * Represents a setup that renders a react component.
  */
 export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
+  private _result: RenderResult | null = null;
+
   /**
    * Initializes a new instance of this object.
    *
@@ -25,16 +26,15 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
     global.IS_REACT_ACT_ENVIRONMENT = false;
   }
 
-  /**
-   * Renders the element and returns the result once it is ready.
-   *
-   * @returns
-   *      The result of the render. Returns a rejected
-   *      result if the render never becomes ready.
-   */
+  public async destroy() {
+    this._result?.unmount();
+    this._result = null;
+    await new Promise((resolve) => setTimeout(resolve, 1));
+  }
+
   public async setup(): Promise<IZCircusDriver> {
-    const result = render(this._element, this._options);
-    await flush();
-    return new ZCircusDriver(result, result.container);
+    this._result = render(this._element, this._options);
+    await new Promise((resolve) => setTimeout(resolve, 1));
+    return new ZCircusDriver(this._result.container);
   }
 }
