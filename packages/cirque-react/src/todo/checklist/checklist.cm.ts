@@ -1,5 +1,5 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { last } from 'lodash-es';
+import { last } from 'lodash';
 import { ZChecklistItemComponentModel } from './checklist-item.cm';
 
 /**

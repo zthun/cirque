@@ -1,7 +1,7 @@
 import { waitFor } from '@testing-library/dom';
 import { userEvent } from '@testing-library/user-event';
 import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
-import { get, keyBy, trim } from 'lodash-es';
+import { get, keyBy, trim } from 'lodash';
 import { flush } from '../util/flush';
 import { squash } from '../util/squash';
 

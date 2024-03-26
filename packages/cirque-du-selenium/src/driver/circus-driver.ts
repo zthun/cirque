@@ -1,5 +1,5 @@
 import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
-import { keyBy } from 'lodash-es';
+import { keyBy } from 'lodash';
 import { By, WebDriver, WebElement } from 'selenium-webdriver';
 import { squash } from '../util/squash';
 
