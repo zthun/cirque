@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.0](https://github.com/zthun/cirque/compare/v5.0.3...v6.0.0) (2024-03-26)
+
+
+### Features
+
+* upgraded selenium webdriver to 4.18.1 ([97efef0](https://github.com/zthun/cirque/commit/97efef01434ac4dc465ceecd0d6e18b61304f227))
+
+
+
 ## [5.0.3](https://github.com/zthun/cirque/compare/v5.0.2...v5.0.3) (2023-12-15)
 
 

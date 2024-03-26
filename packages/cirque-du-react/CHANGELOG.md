@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.0](https://github.com/zthun/cirque/compare/v5.0.3...v6.0.0) (2024-03-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* cirque-du-react no longer exports its own driver
+
+### Features
+
+* upgraded [@testing-library](https://github.com/testing-library) versions ([ef91602](https://github.com/zthun/cirque/commit/ef91602b3f714a988a424ea0c9e4b4aec40b5681))
+
+
+### Code Refactoring
+
+* cirque-du-react no longer exports its own driver ([bbaf0ce](https://github.com/zthun/cirque/commit/bbaf0ce98a29b2af054659348e3ea4e454b6d2f7))
+
+
+
 ## [5.0.3](https://github.com/zthun/cirque/compare/v5.0.2...v5.0.3) (2023-12-15)
 
 **Note:** Version bump only for package @zthun/cirque-du-react
