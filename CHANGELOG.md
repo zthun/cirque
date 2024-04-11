@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.0](https://github.com/zthun/cirque/compare/v6.0.1...v6.1.0) (2024-04-11)
+
+
+### Features
+
+* upgrade @testing-library/dom to 10.x and @testing-library/react to 15.x ([1ecd92d](https://github.com/zthun/cirque/commit/1ecd92d54cc7aab82a8330719a1dd62238204355))
+* upgrade selenium to 4.19 ([aca012a](https://github.com/zthun/cirque/commit/aca012aa0675fe392b6eda5fe3ef7f91c0c5b17c))
+
+
+
 ## [6.0.1](https://github.com/zthun/cirque/compare/v6.0.0...v6.0.1) (2024-03-26)
 
 
