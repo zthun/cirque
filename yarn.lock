@@ -2794,7 +2794,7 @@ __metadata:
   dependencies:
     "@zthun/cirque": "npm:^6.0.1"
     lodash: "npm:^4.17.21"
-    selenium-webdriver: "npm:^4.18.1"
+    selenium-webdriver: "npm:^4.19.0"
     typescript: "npm:^5.4.5"
     vite: "npm:^5.2.8"
     vite-plugin-dts: "npm:^3.8.1"
@@ -10320,14 +10320,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"selenium-webdriver@npm:^4.18.1":
-  version: 4.18.1
-  resolution: "selenium-webdriver@npm:4.18.1"
+"selenium-webdriver@npm:^4.19.0":
+  version: 4.19.0
+  resolution: "selenium-webdriver@npm:4.19.0"
   dependencies:
     jszip: "npm:^3.10.1"
-    tmp: "npm:^0.2.1"
-    ws: "npm:>=8.14.2"
-  checksum: 10/3d8063755025a340ea91252ffa589fc7176b4de94533da27cbdf165365046ea56fe6a4c3ec12b819d8388d1314f3d3cbbc1e3845eb657cc0b33736296664046e
+    tmp: "npm:^0.2.3"
+    ws: "npm:>=8.16.0"
+  checksum: 10/a92053e0e592c5828e1c7fbe7e378305cc48d8d8b130e1e10b3ec2fdf0198e0365ac54615f3f9f0fefdb7f410f7372b6116f97015c4355ae4d5b5de269d87984
   languageName: node
   linkType: hard
 
@@ -11319,7 +11319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp@npm:0.2.3, tmp@npm:^0.2.1, tmp@npm:~0.2.1":
+"tmp@npm:0.2.3, tmp@npm:^0.2.3, tmp@npm:~0.2.1":
   version: 0.2.3
   resolution: "tmp@npm:0.2.3"
   checksum: 10/7b13696787f159c9754793a83aa79a24f1522d47b87462ddb57c18ee93ff26c74cbb2b8d9138f571d2e0e765c728fb2739863a672b280528512c6d83d511c6fa
@@ -12425,7 +12425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:>=8.14.2, ws@npm:^8.16.0":
+"ws@npm:>=8.16.0, ws@npm:^8.16.0":
   version: 8.16.0
   resolution: "ws@npm:8.16.0"
   peerDependencies:
