@@ -23,15 +23,15 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^10.3.1",
-    "@types/node": "^20.11.30",
+    "@cucumber/cucumber": "^10.4.0",
+    "@types/node": "^20.12.7",
     "@zthun/cirque-du-react": "^6.0.1",
     "@zthun/cirque-du-selenium": "^6.0.1",
     "less": "^4.2.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.6",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8",
     "vitest": "^1.4.0"
   }
 }
