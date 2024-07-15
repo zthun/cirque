@@ -34,10 +34,10 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
 
   public builder(): Builder {
     const builder = new Builder().forBrowser(Browser.CHROME).withCapabilities(Capabilities.chrome());
-    let options = new Options();
+    const options = new Options();
 
     if (this._headless) {
-      options = options.addArguments('--headless').addArguments('--no-sandbox');
+      options.addArguments('--headless').addArguments('--no-sandbox');
     }
 
     return builder.setChromeOptions(options);
