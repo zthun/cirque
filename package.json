@@ -29,6 +29,7 @@
     "@originjs/vite-plugin-global-style": "^1.0.3",
     "@types/lodash": "^4.17.6",
     "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
     "@types/selenium-webdriver": "^4.1.24",
     "@vitest/coverage-istanbul": "^2.0.2",
     "@zthun/lint-janitor": "^16.1.1",
