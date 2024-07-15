@@ -1,3 +1,11 @@
 {
-  "recommendations": ["esbenp.prettier-vscode", "streetsidesoftware.code-spell-checker", "ms-azuretools.vscode-docker", "dbaeumer.vscode-eslint", "ZixuanChen.vitest-explorer", "davidanson.vscode-markdownlint", "redhat.vscode-yaml"]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "davidanson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "vitest.explorer"
+  ]
 }
