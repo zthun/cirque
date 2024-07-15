@@ -2829,13 +2829,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-dom@npm:^6.1.0, @zthun/cirque-du-dom@workspace:packages/cirque-du-dom":
+"@zthun/cirque-du-dom@npm:^6.1.1, @zthun/cirque-du-dom@workspace:packages/cirque-du-dom":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-dom@workspace:packages/cirque-du-dom"
   dependencies:
     "@testing-library/dom": "npm:^10.3.1"
     "@testing-library/user-event": "npm:^14.5.2"
-    "@zthun/cirque": "npm:^6.1.0"
+    "@zthun/cirque": "npm:^6.1.1"
     lodash: "npm:^4.17.21"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -2850,14 +2850,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-react@npm:^6.1.0, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
+"@zthun/cirque-du-react@npm:^6.1.1, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-react@workspace:packages/cirque-du-react"
   dependencies:
     "@testing-library/dom": "npm:^10.3.1"
     "@testing-library/react": "npm:^16.0.0"
-    "@zthun/cirque": "npm:^6.1.0"
-    "@zthun/cirque-du-dom": "npm:^6.1.0"
+    "@zthun/cirque": "npm:^6.1.1"
+    "@zthun/cirque-du-dom": "npm:^6.1.1"
     lodash: "npm:^4.17.21"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -2872,11 +2872,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-selenium@npm:^6.1.0, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
+"@zthun/cirque-du-selenium@npm:^6.1.1, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium"
   dependencies:
-    "@zthun/cirque": "npm:^6.1.0"
+    "@zthun/cirque": "npm:^6.1.1"
     lodash: "npm:^4.17.21"
     selenium-webdriver: "npm:^4.22.0"
     typescript: "npm:^5.5.3"
@@ -2893,9 +2893,9 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": "npm:^10.8.0"
     "@types/node": "npm:^20.14.10"
-    "@zthun/cirque": "npm:^6.1.0"
-    "@zthun/cirque-du-react": "npm:^6.1.0"
-    "@zthun/cirque-du-selenium": "npm:^6.1.0"
+    "@zthun/cirque": "npm:^6.1.1"
+    "@zthun/cirque-du-react": "npm:^6.1.1"
+    "@zthun/cirque-du-selenium": "npm:^6.1.1"
     less: "npm:^4.2.0"
     lodash: "npm:^4.17.21"
     react: "npm:^18.3.1"
@@ -2916,9 +2916,9 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": "npm:^10.8.0"
     "@types/node": "npm:^20.14.10"
-    "@zthun/cirque": "npm:^6.1.0"
-    "@zthun/cirque-du-react": "npm:^6.1.0"
-    "@zthun/cirque-du-selenium": "npm:^6.1.0"
+    "@zthun/cirque": "npm:^6.1.1"
+    "@zthun/cirque-du-react": "npm:^6.1.1"
+    "@zthun/cirque-du-selenium": "npm:^6.1.1"
     ts-node: "npm:^10.9.2"
     typedoc: "npm:^0.26.4"
     typedoc-plugin-extras: "npm:^3.1.0"
@@ -2926,7 +2926,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque@npm:^6.1.0, @zthun/cirque@workspace:packages/cirque":
+"@zthun/cirque@npm:^6.1.1, @zthun/cirque@workspace:packages/cirque":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque@workspace:packages/cirque"
   dependencies:
