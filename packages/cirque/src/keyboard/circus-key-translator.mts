@@ -1,5 +1,5 @@
-import { IZCircusKey } from './circus-key';
-import { ZCircusKeyboardQwerty } from './circus-keyboard-qwerty';
+import { IZCircusKey } from './circus-key.mjs';
+import { ZCircusKeyboardQwerty } from './circus-keyboard-qwerty.mjs';
 
 /**
  * A translator that can convert from characters and keys to ZCircusKey objects.

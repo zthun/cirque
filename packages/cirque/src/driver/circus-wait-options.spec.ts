@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ZCircusWaitOptionsBuilder } from './circus-wait-options';
+import { ZCircusWaitOptionsBuilder } from './circus-wait-options.mjs';
 
 describe('ZCircusWaitOptions', () => {
   const createTestTarget = () => new ZCircusWaitOptionsBuilder();

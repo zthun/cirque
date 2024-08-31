@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "moduleResolution": "node",
     "removeComments": true,
@@ -13,6 +14,6 @@
     "skipLibCheck": true,
     "jsx": "react",
     "target": "es5",
-    "module": "commonjs"
+    "module": "esnext"
   }
 }

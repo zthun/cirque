@@ -1,4 +1,4 @@
-import { ZCircusKeyBuilder } from './circus-key';
+import { ZCircusKeyBuilder } from './circus-key.mjs';
 
 /**
  * All keys that conform to the QWERTY layout.

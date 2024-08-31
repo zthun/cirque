@@ -1,4 +1,16 @@
 {
   "extends": "../../.config/.tsconfig.json",
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/performance/circus-act.mts",
+    "src/performance/circus-action.mts",
+    "src/performance/circus-setup.mts",
+    "src/keyboard/circus-key-translator.mts",
+    "src/keyboard/circus-key.mts",
+    "src/keyboard/circus-keyboard-qwerty.mts",
+    "src/driver/circus-driver.mts",
+    "src/driver/circus-wait-options.mts",
+    "src/component/circus-component-model.mts",
+    "src/component/circus-by.mts"
+  ]
 }

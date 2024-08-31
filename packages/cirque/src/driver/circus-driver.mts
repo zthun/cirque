@@ -1,5 +1,5 @@
-import { IZCircusAct } from '../performance/circus-act';
-import { IZCircusWaitOptions } from './circus-wait-options';
+import { IZCircusAct } from '../performance/circus-act.mjs';
+import { IZCircusWaitOptions } from './circus-wait-options.mjs';
 
 /**
  * Represents a driver that manages search and action criteria on a page object model.

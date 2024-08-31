@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isKeyboardAction, isMagicAction, isMouseAction, IZCircusAction, ZCircusActionType } from './circus-action';
+import { isKeyboardAction, isMagicAction, isMouseAction, IZCircusAction, ZCircusActionType } from './circus-action.mjs';
 
 describe('ZCircusAction', () => {
   const shouldBeAction = (

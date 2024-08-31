@@ -1,4 +1,4 @@
-import { IZCircusDriver } from '../driver/circus-driver';
+import { IZCircusDriver } from '../driver/circus-driver.mjs';
 
 /**
  * Represents a helper class to construct component models in a common way.
