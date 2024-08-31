@@ -14,7 +14,7 @@ const esFiles = [
   "*.ts",
   "packages/**/src/**/*.ts",
   "packages/**/src/**/*.tsx",
-  "packages/**/*.mts",
+  "packages/**/src/**/*.mts",
 ];
 const htmlFiles = ["packages/**/*.html"];
 const markdownFiles = ["*.md", "packages/**/*.md"];
