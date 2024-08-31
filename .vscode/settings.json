@@ -6,5 +6,5 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "cucumber.features": ["packages/**/features/**/*.feature"],
-  "cucumber.glue": ["packages/**/features/**/*.ts"]
+  "cucumber.glue": ["packages/**/features/**/*.mts"]
 }
