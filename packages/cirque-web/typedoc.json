@@ -4,7 +4,7 @@
   "categorizeByGroup": true,
   "entryPointStrategy": "packages",
   "entryPoints": ["../*"],
-  "exclude": ["./"],
+  "exclude": ["./", "../cirque-react"],
   "excludeNotDocumented": true,
   "name": "Circus",
   "plugin": ["typedoc-plugin-extras"],
