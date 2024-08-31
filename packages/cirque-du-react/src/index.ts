@@ -1,3 +1,3 @@
-export * from './driver/circus-react-hook';
-export * from './setup/circus-setup-hook';
-export * from './setup/circus-setup-renderer';
+export * from './driver/circus-react-hook.mjs';
+export * from './setup/circus-setup-hook.mjs';
+export * from './setup/circus-setup-renderer.mjs';

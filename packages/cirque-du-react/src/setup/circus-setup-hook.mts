@@ -1,6 +1,6 @@
 import { renderHook, RenderHookOptions } from '@testing-library/react';
 import { IZCircusSetup } from '@zthun/cirque';
-import { IZCircusReactHook, ZCircusReactHook } from '../driver/circus-react-hook';
+import { IZCircusReactHook, ZCircusReactHook } from '../driver/circus-react-hook.mjs';
 
 /**
  * Represents a setup mechanism that renders a react hook.
