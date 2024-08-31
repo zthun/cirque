@@ -6,7 +6,7 @@ import {
   ZCircusWaitOptionsBuilder
 } from '@zthun/cirque';
 import { afterEach, describe, expect, it } from 'vitest';
-import { ZCircusSetupChrome } from '../setup/circus-setup-chrome';
+import { ZCircusSetupChrome } from '../setup/circus-setup-chrome.mjs';
 
 const NAME = 'friendly-neighborhood-spider-man';
 const TEXT = 'I am your friendly neighborhood Spider Man';

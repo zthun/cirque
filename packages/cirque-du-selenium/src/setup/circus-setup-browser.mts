@@ -1,6 +1,6 @@
 import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
 import { Builder, By, WebDriver } from 'selenium-webdriver';
-import { ZCircusDriver } from '../driver/circus-driver';
+import { ZCircusDriver } from '../driver/circus-driver.mjs';
 
 /**
  * Represents a necessary setup that can open a browser.

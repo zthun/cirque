@@ -1,7 +1,7 @@
 import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
 import { keyBy } from 'lodash';
 import { By, WebDriver, WebElement } from 'selenium-webdriver';
-import { squash } from '../util/squash';
+import { squash } from '../util/squash.mjs';
 
 /**
  * Represents the circus driver for selenium actions.

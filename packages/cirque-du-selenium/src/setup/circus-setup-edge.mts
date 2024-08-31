@@ -1,10 +1,10 @@
 import { Browser, Builder, Capabilities } from 'selenium-webdriver';
-import { ZCircusSetupBrowser } from './circus-setup-browser';
+import { ZCircusSetupBrowser } from './circus-setup-browser.mjs';
 
 /**
- * A setup module for the firefox driver.
+ * A setup module for the edge driver.
  */
-export class ZCircusSetupFirefox extends ZCircusSetupBrowser {
+export class ZCircusSetupEdge extends ZCircusSetupBrowser {
   /**
    * Initializes a new instance of this object.
    *
@@ -16,6 +16,6 @@ export class ZCircusSetupFirefox extends ZCircusSetupBrowser {
   }
 
   public builder(): Builder {
-    return new Builder().forBrowser(Browser.FIREFOX).withCapabilities(Capabilities.firefox());
+    return new Builder().forBrowser(Browser.EDGE).withCapabilities(Capabilities.edge());
   }
 }

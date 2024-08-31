@@ -1,6 +1,6 @@
 import { Browser, Builder, Capabilities } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome';
-import { ZCircusSetupBrowser } from './circus-setup-browser';
+import { ZCircusSetupBrowser } from './circus-setup-browser.mjs';
 
 /**
  * A setup module for the chrome driver.

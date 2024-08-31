@@ -8,5 +8,14 @@
       "@zthun/cirque": ["../cirque/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/util/squash.mts",
+    "src/setup/circus-setup-browser.mts",
+    "src/setup/circus-setup-chrome.mts",
+    "src/setup/circus-setup-edge.mts",
+    "src/setup/circus-setup-firefox.mts",
+    "src/driver/circus-driver.mts"
+  ]
 }
