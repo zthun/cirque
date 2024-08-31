@@ -26,7 +26,7 @@ There are several classes, helpers, and interfaces that can help you implement t
 
 ### Driver
 
-At the heart of the circus framework is the [**IZCircusDriver**](./src/driver/circus-driver.ts) interface. This
+At the heart of the circus framework is the [**IZCircusDriver**](./src/driver/circus-driver.mts) interface. This
 interface is a wrapper around the DOM and the interactions around it. If you have ever used selenium, then this will
 feel very familiar to you. The driver itself has several methods for interacting with the DOM, but the main ones you
 will use the most often are query and select. Query will find all elements that match a css selector, and select will
@@ -47,10 +47,10 @@ function findElementByName(driver: IZCircusDriver, name: string): Promise<IZCirc
 }
 ```
 
-To actually retrieve a driver object, you will need to consume a [**setup**](./src/performance/circus-setup.ts)
+To actually retrieve a driver object, you will need to consume a [**setup**](./src/performance/circus-setup.mts)
 implementation. _A circus setup is the only thing that is NOT framework agnostic_. The implementation for the setup will
 depend on the outer framework you are using. For example, if you are writing react unit tests, you would consume a
-[ZCircusSetupRenderer](../cirque-du-react/src/setup/circus-setup-renderer.ts) object to obtain a driver.
+[ZCircusSetupRenderer](../cirque-du-react/src/setup/circus-setup-renderer.mts) object to obtain a driver.
 
 ```ts
 const element = <MyComponentUnderTest />;
@@ -90,10 +90,10 @@ export class MyModalComponentModel extends ZCircusComponentModel {
 
 ### Component Models
 
-All component models have the [**ZCircusComponentModel**](./src/component/circus-component-model.ts) abstract class they
-can inherit from, but this is not 100% required. It will save you typing in the all component models that are expected
-to be constructed will take a driver object. In combination with the ZCircusComponentModel, you also have the
-[**ZCircusBy**](./src/component/circus-by.ts) class, which is useful for running queries to construct component models
+All component models have the [**ZCircusComponentModel**](./src/component/circus-component-model.mts) abstract class
+they can inherit from, but this is not 100% required. It will save you typing in the all component models that are
+expected to be constructed will take a driver object. In combination with the ZCircusComponentModel, you also have the
+[**ZCircusBy**](./src/component/circus-by.mts) class, which is useful for running queries to construct component models
 in common ways.
 
 ```tsx

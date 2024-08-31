@@ -15,8 +15,8 @@ yarn add @zthun/cirque @zthun/cirque-du-dom
 
 ## Setup
 
-There are two circus setup classes to this package, [**ZCircusSetupHtml**](./src/setup/circus-setup-html.ts) and
-[**ZCircusSetupHtmlElement**](./src/setup/circus-setup-html-element.ts).
+There are two circus setup classes to this package, [**ZCircusSetupHtml**](./src/setup/circus-setup-html.mts) and
+[**ZCircusSetupHtmlElement**](./src/setup/circus-setup-html-element.mts).
 
 Whichever one you need depends on how deep you go when constructing your DOM object. If all you have is string html,
 then use ZCircusSetupHtml. If you need full control of the wrapper container element, use ZCircusSetupHtmlElement.

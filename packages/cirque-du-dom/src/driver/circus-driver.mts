@@ -12,8 +12,6 @@ export class ZCircusDriver implements IZCircusDriver {
   /**
    * Initializes a new instance of this object.
    *
-   * @param result -
-   *        The render result.
    * @param element -
    *        The element to wrap.
    */

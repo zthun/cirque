@@ -12,8 +12,6 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
   /**
    * Initializes a new instance of this object.
    *
-   * @param browser -
-   *        The browser key.
    * @param url -
    *        The url to open when the browser opens.
    */

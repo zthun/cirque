@@ -15,8 +15,8 @@ yarn add @zthun/cirque @zthun/cirque-du-react
 
 ## Setup
 
-There are two circus setup classes to this package, [**ZCircusSetupRenderer**](./src/setup/circus-setup-renderer.ts) and
-[**ZCircusSetupHook**](./src/setup/circus-setup-hook.ts).
+There are two circus setup classes to this package, [**ZCircusSetupRenderer**](./src/setup/circus-setup-renderer.mts)
+and [**ZCircusSetupHook**](./src/setup/circus-setup-hook.mts).
 
 Generally speaking, testing hooks does not really fall under the guise of component models or component testing, but the
 setup is here for the sake of completeness and helps you with not having to import anything from @testing-library
