@@ -9,6 +9,7 @@
     "url": "https://github.com/zthun/cirque",
     "directory": "packages/cirque-web"
   },
+  "type": "module",
   "main": "./dist/main.js",
   "scripts": {
     "build": "typedoc"

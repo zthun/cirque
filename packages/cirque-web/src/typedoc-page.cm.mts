@@ -1,6 +1,6 @@
 import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
-import { ZTypedocContentComponentModel } from "./typedoc-content.cm";
-import { ZTypedocToolbarComponentModel } from "./typedoc-toolbar.cm";
+import { ZTypedocContentComponentModel } from "./typedoc-content.cm.mjs";
+import { ZTypedocToolbarComponentModel } from "./typedoc-toolbar.cm.mjs";
 
 export class ZTypedocPageComponentModel extends ZCircusComponentModel {
   public static readonly Selector = "body";

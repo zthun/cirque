@@ -1,0 +1,17 @@
+{
+  "extends": "../../.config/.tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@zthun/cirque": ["../cirque/src/index"],
+      "@zthun/cirque-du-react": ["../cirque-du-react/src/index"],
+      "@zthun/cirque-du-selenium": ["../cirque-du-selenium/src/index"]
+    }
+  },
+  "include": [
+    "./src/**/*.mts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./features/**/*.mts"
+  ]
+}

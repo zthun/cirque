@@ -9,7 +9,7 @@ import {
 import { IZCircusDriver, IZCircusSetup, ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupChrome } from "@zthun/cirque-du-selenium";
 import assert from "assert";
-import { ZTypedocPageComponentModel } from "../src/typedoc-page.cm";
+import { ZTypedocPageComponentModel } from "../src/typedoc-page.cm.mjs";
 
 setDefaultTimeout(30000);
 
