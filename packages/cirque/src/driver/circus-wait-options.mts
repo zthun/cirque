@@ -37,7 +37,7 @@ export class ZCircusWaitOptionsBuilder {
   public constructor() {
     this._wait = {
       debounce: 0,
-      timeout: 10000
+      timeout: 10000,
     };
   }
 

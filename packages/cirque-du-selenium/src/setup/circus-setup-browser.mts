@@ -1,11 +1,13 @@
-import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
-import { Builder, By, WebDriver } from 'selenium-webdriver';
-import { ZCircusDriver } from '../driver/circus-driver.mjs';
+import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import { Builder, By, WebDriver } from "selenium-webdriver";
+import { ZCircusDriver } from "../driver/circus-driver.mjs";
 
 /**
  * Represents a necessary setup that can open a browser.
  */
-export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDriver> {
+export abstract class ZCircusSetupBrowser
+  implements IZCircusSetup<IZCircusDriver>
+{
   private _acceptInsecureCerts = false;
   private _driver: WebDriver | null = null;
 
@@ -58,12 +60,16 @@ export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDrive
     if (this._driver == null) {
       const builder = this.builder();
       const capabilities = builder.getCapabilities();
-      const driver = builder.withCapabilities(capabilities.setAcceptInsecureCerts(this._acceptInsecureCerts)).build();
+      const driver = builder
+        .withCapabilities(
+          capabilities.setAcceptInsecureCerts(this._acceptInsecureCerts),
+        )
+        .build();
       await driver.get(this.url);
       this._driver = driver;
     }
 
-    const root = this._driver.findElement(By.css('html'));
+    const root = this._driver.findElement(By.css("html"));
     return new ZCircusDriver(this._driver, root);
   }
 }

@@ -1,17 +1,22 @@
-import { renderHook, RenderHookOptions } from '@testing-library/react';
-import { IZCircusSetup } from '@zthun/cirque';
-import { IZCircusReactHook, ZCircusReactHook } from '../driver/circus-react-hook.mjs';
+import { renderHook, RenderHookOptions } from "@testing-library/react";
+import { IZCircusSetup } from "@zthun/cirque";
+import {
+  IZCircusReactHook,
+  ZCircusReactHook,
+} from "../driver/circus-react-hook.mjs";
 
 /**
  * Represents a setup mechanism that renders a react hook.
  */
-export class ZCircusSetupHook<T, P> implements IZCircusSetup<IZCircusReactHook<T, P>> {
+export class ZCircusSetupHook<T, P>
+  implements IZCircusSetup<IZCircusReactHook<T, P>>
+{
   /**
    * Initializes a new instance of this object.
    */
   public constructor(
     private _render: (props: P) => T,
-    private _options?: RenderHookOptions<any, any, any>
+    private _options?: RenderHookOptions<any, any, any>,
   ) {
     // We will flush the event loops ourselves.  Trying to mingle this with @testing-library
     // is a mess.  So we will just turn all this off.

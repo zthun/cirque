@@ -1,11 +1,11 @@
-import { ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { ZChecklistComponentModel } from './checklist/checklist.cm';
+import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import { ZChecklistComponentModel } from "./checklist/checklist.cm.mjs";
 
 /**
  * Represents the component model for the ZTodoApp
  */
 export class ZTodoAppComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZTodoApp-root';
+  public static readonly Selector = ".ZTodoApp-root";
 
   /**
    * Gets the component model for the today list.
@@ -14,7 +14,7 @@ export class ZTodoAppComponentModel extends ZCircusComponentModel {
    *        The component model for the today list.
    */
   public today(): Promise<ZChecklistComponentModel> {
-    return ZCircusBy.first(this.driver, ZChecklistComponentModel, 'today');
+    return ZCircusBy.first(this.driver, ZChecklistComponentModel, "today");
   }
 
   /**
@@ -24,7 +24,7 @@ export class ZTodoAppComponentModel extends ZCircusComponentModel {
    *        The component model for the tomorrow list.
    */
   public tomorrow(): Promise<ZChecklistComponentModel> {
-    return ZCircusBy.first(this.driver, ZChecklistComponentModel, 'tomorrow');
+    return ZCircusBy.first(this.driver, ZChecklistComponentModel, "tomorrow");
   }
 
   /**
@@ -35,6 +35,6 @@ export class ZTodoAppComponentModel extends ZCircusComponentModel {
    *        it is not available.
    */
   public future(): Promise<ZChecklistComponentModel | null> {
-    return ZCircusBy.optional(this.driver, ZChecklistComponentModel, 'future');
+    return ZCircusBy.optional(this.driver, ZChecklistComponentModel, "future");
   }
 }

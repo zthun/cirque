@@ -4,10 +4,10 @@ import {
   isMouseAction,
   IZCircusAct,
   ZCircusActBuilder,
-  ZCircusActionType
-} from '@zthun/cirque';
-import { snakeCase } from 'lodash';
-import { Actions, Button, Key } from 'selenium-webdriver';
+  ZCircusActionType,
+} from "@zthun/cirque";
+import { snakeCase } from "lodash";
+import { Actions, Button, Key } from "selenium-webdriver";
 
 /**
  * Squashes acts into specific chunks for selenium action sequences.
@@ -33,9 +33,15 @@ export function squash(factory: () => Actions, act: IZCircusAct): IZCircusAct {
 
     if (isKeyboardAction(action)) {
       const key = snakeCase(action.context.upper).toUpperCase();
-      if (action.name === ZCircusActionType.KeyDown && action.context.modifier) {
+      if (
+        action.name === ZCircusActionType.KeyDown &&
+        action.context.modifier
+      ) {
         performance.keyDown(Key[key]);
-      } else if (action.name === ZCircusActionType.KeyUp && action.context.modifier) {
+      } else if (
+        action.name === ZCircusActionType.KeyUp &&
+        action.context.modifier
+      ) {
         performance.keyUp(Key[key]);
       } else if (action.name === ZCircusActionType.KeyDown) {
         // Selenium is limited here.  You can only do modifiers with keyDown and keyUp, everything

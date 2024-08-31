@@ -71,7 +71,7 @@ export class ZCircusKeyBuilder {
       printable: false,
       modifier: false,
       shift: false,
-      toggle: false
+      toggle: false,
     };
   }
 

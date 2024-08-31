@@ -1,9 +1,14 @@
-import { waitFor } from '@testing-library/dom';
-import { userEvent } from '@testing-library/user-event';
-import { IZCircusAct, IZCircusDriver, IZCircusWaitOptions, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
-import { get, keyBy, trim } from 'lodash';
-import { flush } from '../util/flush.mjs';
-import { squash } from '../util/squash';
+import { waitFor } from "@testing-library/dom";
+import { userEvent } from "@testing-library/user-event";
+import {
+  IZCircusAct,
+  IZCircusDriver,
+  IZCircusWaitOptions,
+  ZCircusWaitOptionsBuilder,
+} from "@zthun/cirque";
+import { get, keyBy, trim } from "lodash";
+import { flush } from "../util/flush.mjs";
+import { squash } from "../util/squash";
 
 /**
  * Represents a circus driver that wraps an html element.
@@ -29,11 +34,14 @@ export class ZCircusDriver implements IZCircusDriver {
         left: 0,
         right: 500,
         top: 0,
-        bottom: 25
+        bottom: 25,
       }) as unknown as DOMRect;
   }
 
-  public attribute<T extends string>(attribute: string, fallback: T | null = null): Promise<T | null> {
+  public attribute<T extends string>(
+    attribute: string,
+    fallback: T | null = null,
+  ): Promise<T | null> {
     const attr = this.element.getAttribute(attribute) as T;
     return Promise.resolve(attr == null ? fallback : attr);
   }
@@ -51,12 +59,14 @@ export class ZCircusDriver implements IZCircusDriver {
     }
 
     const lookup = keyBy(filter);
-    const filtered = all.filter((c) => Object.prototype.hasOwnProperty.call(lookup, c));
+    const filtered = all.filter((c) =>
+      Object.prototype.hasOwnProperty.call(lookup, c),
+    );
     return Promise.resolve(filtered);
   }
 
   public text(): Promise<string> {
-    const t = trim(this.element.textContent || '');
+    const t = trim(this.element.textContent || "");
     return Promise.resolve(t);
   }
 
@@ -65,15 +75,15 @@ export class ZCircusDriver implements IZCircusDriver {
   public value(): Promise<string | null>;
 
   public value(fallback: string | null = null): Promise<string | null> {
-    return Promise.resolve(get(this.element, 'value', fallback));
+    return Promise.resolve(get(this.element, "value", fallback));
   }
 
   public selected(): Promise<boolean> {
-    return Promise.resolve(get(this.element, 'checked', false));
+    return Promise.resolve(get(this.element, "checked", false));
   }
 
   public disabled(): Promise<boolean> {
-    return Promise.resolve(get(this.element, 'disabled', false));
+    return Promise.resolve(get(this.element, "disabled", false));
   }
 
   public peek(selector: string): Promise<boolean> {
@@ -81,7 +91,9 @@ export class ZCircusDriver implements IZCircusDriver {
   }
 
   public query(selector: string): Promise<IZCircusDriver[]> {
-    const elements = Array.from(this.element.querySelectorAll<HTMLElement>(selector));
+    const elements = Array.from(
+      this.element.querySelectorAll<HTMLElement>(selector),
+    );
     return Promise.resolve(elements.map((e) => new ZCircusDriver(e)));
   }
 
@@ -99,7 +111,9 @@ export class ZCircusDriver implements IZCircusDriver {
     const drivers = await this.query(selector);
 
     if (!drivers.length) {
-      return Promise.reject(`No element with selector, ${selector}, could be found.`);
+      return Promise.reject(
+        `No element with selector, ${selector}, could be found.`,
+      );
     }
 
     return drivers[0];
@@ -108,7 +122,7 @@ export class ZCircusDriver implements IZCircusDriver {
   public async perform(act: IZCircusAct): Promise<void> {
     const user = userEvent.setup({
       // As of 14.4.0, auto modify is not yet implemented, so we will do the modifications ourselves.
-      autoModify: false
+      autoModify: false,
     });
 
     // With user events, all events get squashed to magic.
@@ -124,7 +138,10 @@ export class ZCircusDriver implements IZCircusDriver {
     await flush();
   }
 
-  public async wait(predicate: () => boolean | Promise<boolean>, options?: IZCircusWaitOptions): Promise<void> {
+  public async wait(
+    predicate: () => boolean | Promise<boolean>,
+    options?: IZCircusWaitOptions,
+  ): Promise<void> {
     const _options = options || new ZCircusWaitOptionsBuilder().build();
 
     await new Promise((r) => setTimeout(r, _options.debounce));
@@ -132,9 +149,11 @@ export class ZCircusDriver implements IZCircusDriver {
     return waitFor(
       async () => {
         const result = await predicate();
-        return result ? Promise.resolve() : Promise.reject(new Error(options?.description));
+        return result
+          ? Promise.resolve()
+          : Promise.reject(new Error(options?.description));
       },
-      { timeout: _options.timeout }
+      { timeout: _options.timeout },
     );
   }
 }

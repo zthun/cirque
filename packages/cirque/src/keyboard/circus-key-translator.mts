@@ -1,11 +1,13 @@
-import { IZCircusKey } from './circus-key.mjs';
-import { ZCircusKeyboardQwerty } from './circus-keyboard-qwerty.mjs';
+import { IZCircusKey } from "./circus-key.mjs";
+import { ZCircusKeyboardQwerty } from "./circus-keyboard-qwerty.mjs";
 
 /**
  * A translator that can convert from characters and keys to ZCircusKey objects.
  */
 export class ZCircusKeyTranslator {
-  public static readonly Qwerty = new ZCircusKeyTranslator(Object.values(ZCircusKeyboardQwerty));
+  public static readonly Qwerty = new ZCircusKeyTranslator(
+    Object.values(ZCircusKeyboardQwerty),
+  );
 
   private _lowerCaseToKeyValue = new Map<string, IZCircusKey>();
   private _upperCaseToKeyValue = new Map<string, IZCircusKey>();
@@ -35,6 +37,9 @@ export class ZCircusKeyTranslator {
    *        or undefined if no such key exists.
    */
   public translate(keyOrCode: string): IZCircusKey | undefined {
-    return this._lowerCaseToKeyValue.get(keyOrCode) || this._upperCaseToKeyValue.get(keyOrCode);
+    return (
+      this._lowerCaseToKeyValue.get(keyOrCode) ||
+      this._upperCaseToKeyValue.get(keyOrCode)
+    );
   }
 }

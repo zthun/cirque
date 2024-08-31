@@ -1,9 +1,9 @@
-import { startCase } from 'lodash';
-import React, { useState } from 'react';
-import { v4 } from 'uuid';
-import { ZChecklistItem } from './checklist-item';
+import { startCase } from "lodash";
+import React, { useState } from "react";
+import { v4 } from "uuid";
+import { ZChecklistItem } from "./checklist-item";
 
-import './checklist.less';
+import "./checklist.less";
 
 interface IZCheckItem {
   id: string;
@@ -31,8 +31,11 @@ export function ZChecklist(props: IZChecklist) {
   const renderBody = () => {
     if (!items.length) {
       return (
-        <div className='ZChecklist-empty'>
-          <span>There are currently no items in the list. Click the Add button to add one.</span>
+        <div className="ZChecklist-empty">
+          <span>
+            There are currently no items in the list. Click the Add button to
+            add one.
+          </span>
         </div>
       );
     }
@@ -41,16 +44,20 @@ export function ZChecklist(props: IZChecklist) {
       const next = items.slice();
       next[index] = {
         ...next[index],
-        value: newValue
+        value: newValue,
       };
       setItems(next);
     };
 
     const renderItem = (item: IZCheckItem, index: number) => (
-      <ZChecklistItem key={item.id} value={item.value} onValueChange={handleItemChange.bind(null, index)} />
+      <ZChecklistItem
+        key={item.id}
+        value={item.value}
+        onValueChange={handleItemChange.bind(null, index)}
+      />
     );
 
-    return <ul className='ZChecklist-items'>{items.map(renderItem)}</ul>;
+    return <ul className="ZChecklist-items">{items.map(renderItem)}</ul>;
   };
 
   const renderFooter = () => {
@@ -58,25 +65,29 @@ export function ZChecklist(props: IZChecklist) {
       const next = items.slice();
       next.push({
         id: v4(),
-        value: '(What do you want to do?)'
+        value: "(What do you want to do?)",
       });
       setItems(next);
     };
 
     return (
-      <button className='ZChecklist-footer-add-button' name='add' onClick={handleAdd}>
+      <button
+        className="ZChecklist-footer-add-button"
+        name="add"
+        onClick={handleAdd}
+      >
         Add
       </button>
     );
   };
 
   return (
-    <div className='ZChecklist-root' data-name={name}>
-      <header className='ZChecklist-header'>
+    <div className="ZChecklist-root" data-name={name}>
+      <header className="ZChecklist-header">
         <h2>{title}</h2>
       </header>
-      <div className='ZChecklist-body'>{renderBody()}</div>
-      <footer className='ZChecklist-footer'>{renderFooter()}</footer>
+      <div className="ZChecklist-body">{renderBody()}</div>
+      <footer className="ZChecklist-footer">{renderFooter()}</footer>
     </div>
   );
 }

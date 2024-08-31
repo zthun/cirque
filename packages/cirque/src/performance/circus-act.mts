@@ -1,7 +1,12 @@
-import { ZCircusKeyTranslator } from '../keyboard/circus-key-translator.mjs';
-import { IZCircusKey } from '../keyboard/circus-key.mjs';
-import { ZCircusKeyboardQwerty } from '../keyboard/circus-keyboard-qwerty.mjs';
-import { IZCircusAction, ZCircusActionType, ZCircusMagicFunction, ZCircusMouseButton } from './circus-action.mjs';
+import { ZCircusKeyTranslator } from "../keyboard/circus-key-translator.mjs";
+import { IZCircusKey } from "../keyboard/circus-key.mjs";
+import { ZCircusKeyboardQwerty } from "../keyboard/circus-keyboard-qwerty.mjs";
+import {
+  IZCircusAction,
+  ZCircusActionType,
+  ZCircusMagicFunction,
+  ZCircusMouseButton,
+} from "./circus-action.mjs";
 
 /**
  * Represents an ordered act in a circus.
@@ -57,7 +62,10 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public keyDown: (key: IZCircusKey) => this = this._action.bind(this, ZCircusActionType.KeyDown);
+  public keyDown: (key: IZCircusKey) => this = this._action.bind(
+    this,
+    ZCircusActionType.KeyDown,
+  );
   /**
    * Adds a keyup action.
    *
@@ -67,10 +75,19 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public keyUp: (key: IZCircusKey) => this = this._action.bind(this, ZCircusActionType.KeyUp);
+  public keyUp: (key: IZCircusKey) => this = this._action.bind(
+    this,
+    ZCircusActionType.KeyUp,
+  );
 
-  private _mouseDown: (which: ZCircusMouseButton) => this = this._action.bind(this, ZCircusActionType.MouseDown);
-  private _mouseUp: (which: ZCircusMouseButton) => this = this._action.bind(this, ZCircusActionType.MouseUp);
+  private _mouseDown: (which: ZCircusMouseButton) => this = this._action.bind(
+    this,
+    ZCircusActionType.MouseDown,
+  );
+  private _mouseUp: (which: ZCircusMouseButton) => this = this._action.bind(
+    this,
+    ZCircusActionType.MouseUp,
+  );
 
   /**
    * Adds a mouse down action for the left mouse button.
@@ -78,14 +95,14 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public leftMouseDown: () => this = this._mouseDown.bind(this, 'Left');
+  public leftMouseDown: () => this = this._mouseDown.bind(this, "Left");
   /**
    * Adds a mouse up action for the left mouse button.
    *
    * @returns
    *        This object.
    */
-  public leftMouseUp: () => this = this._mouseUp.bind(this, 'Left');
+  public leftMouseUp: () => this = this._mouseUp.bind(this, "Left");
 
   /**
    * Adds a mouse down action for the right mouse button.
@@ -93,7 +110,7 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public rightMouseDown: () => this = this._mouseDown.bind(this, 'Right');
+  public rightMouseDown: () => this = this._mouseDown.bind(this, "Right");
 
   /**
    * Adds a mouse up action for the right mouse button.
@@ -101,7 +118,7 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public rightMouseUp: () => this = this._mouseUp.bind(this, 'Right');
+  public rightMouseUp: () => this = this._mouseUp.bind(this, "Right");
 
   /**
    * Adds custom magic action.
@@ -112,7 +129,10 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  public magic: (action: ZCircusMagicFunction) => this = this._action.bind(this, ZCircusActionType.Magic);
+  public magic: (action: ZCircusMagicFunction) => this = this._action.bind(
+    this,
+    ZCircusActionType.Magic,
+  );
 
   /**
    * Presses a key on the keyboard.
@@ -178,7 +198,9 @@ export class ZCircusActBuilder {
       const k = qwerty.translate(key);
 
       if (key === k?.upper && key !== k?.lower) {
-        this.keyDown(ZCircusKeyboardQwerty.shiftLeft).press(k).keyUp(ZCircusKeyboardQwerty.shiftLeft);
+        this.keyDown(ZCircusKeyboardQwerty.shiftLeft)
+          .press(k)
+          .keyUp(ZCircusKeyboardQwerty.shiftLeft);
       } else if (k != null) {
         this.press(k);
       }
@@ -194,7 +216,7 @@ export class ZCircusActBuilder {
    */
   public build(): IZCircusAct {
     return {
-      actions: this._actions.slice()
+      actions: this._actions.slice(),
     };
   }
 }

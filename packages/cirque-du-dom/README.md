@@ -1,7 +1,8 @@
 # Circus Of DOM (Cirque Du DOM)
 
-This is the framework specific circus package for web component / dom based unit testing. Under the hood, this provides
-the necessary setup and driver implementations that contains the anti-corruption pattern for basic HTMLElement
+This is the framework specific circus package for web component / dom based unit
+testing. Under the hood, this provides the necessary setup and driver
+implementations that contains the anti-corruption pattern for basic HTMLElement
 selectors.
 
 ## Installation
@@ -15,16 +16,18 @@ yarn add @zthun/cirque @zthun/cirque-du-dom
 
 ## Setup
 
-There are two circus setup classes to this package, [**ZCircusSetupHtml**](./src/setup/circus-setup-html.mts) and
+There are two circus setup classes to this package,
+[**ZCircusSetupHtml**](./src/setup/circus-setup-html.mts) and
 [**ZCircusSetupHtmlElement**](./src/setup/circus-setup-html-element.mts).
 
-Whichever one you need depends on how deep you go when constructing your DOM object. If all you have is string html,
-then use ZCircusSetupHtml. If you need full control of the wrapper container element, use ZCircusSetupHtmlElement.
+Whichever one you need depends on how deep you go when constructing your DOM
+object. If all you have is string html, then use ZCircusSetupHtml. If you need
+full control of the wrapper container element, use ZCircusSetupHtmlElement.
 
 ## Example
 
 ```typescript
-describe('MyComponent', () => {
+describe("MyComponent", () => {
   let _renderer: IZCircusSetup;
   let _driver: IZCircusDriver;
 

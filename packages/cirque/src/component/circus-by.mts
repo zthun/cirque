@@ -1,6 +1,9 @@
-import { IZCircusDriver } from '../driver/circus-driver.mjs';
-import { ZCircusWaitOptionsBuilder } from '../driver/circus-wait-options.mjs';
-import { ZCircusComponentConstructor, ZCircusComponentModel } from './circus-component-model.mjs';
+import { IZCircusDriver } from "../driver/circus-driver.mjs";
+import { ZCircusWaitOptionsBuilder } from "../driver/circus-wait-options.mjs";
+import {
+  ZCircusComponentConstructor,
+  ZCircusComponentModel,
+} from "./circus-component-model.mjs";
 
 const _selector = (root: string, name?: string) => {
   let selector = root;
@@ -32,7 +35,7 @@ export abstract class ZCircusBy {
   public static async all<T extends ZCircusComponentModel>(
     driver: IZCircusDriver,
     CircusComponentModel: ZCircusComponentConstructor<T>,
-    selector: string = CircusComponentModel.Selector
+    selector: string = CircusComponentModel.Selector,
   ) {
     const target = await driver.query(selector);
     return target.map((t) => new CircusComponentModel(t));
@@ -57,10 +60,12 @@ export abstract class ZCircusBy {
   public static async css<T extends ZCircusComponentModel>(
     driver: IZCircusDriver,
     CircusComponentModel: ZCircusComponentConstructor<T>,
-    selector: string
+    selector: string,
   ): Promise<T> {
     const description = `Searching for a component with selector: ${selector}`;
-    const options = new ZCircusWaitOptionsBuilder().description(description).build();
+    const options = new ZCircusWaitOptionsBuilder()
+      .description(description)
+      .build();
     await driver.wait(() => driver.peek(selector), options);
     const target = await driver.select(selector);
     return new CircusComponentModel(target);
@@ -87,7 +92,7 @@ export abstract class ZCircusBy {
   public static first<T extends ZCircusComponentModel>(
     driver: IZCircusDriver,
     CircusComponentModel: ZCircusComponentConstructor<T>,
-    name?: string
+    name?: string,
   ): Promise<T> {
     const selector = _selector(CircusComponentModel.Selector, name);
     return ZCircusBy.css(driver, CircusComponentModel, selector);
@@ -109,7 +114,7 @@ export abstract class ZCircusBy {
   public static async optional<T extends ZCircusComponentModel>(
     driver: IZCircusDriver,
     CircusComponentModel: ZCircusComponentConstructor<T>,
-    name?: string
+    name?: string,
   ): Promise<T | null> {
     const selector = _selector(CircusComponentModel.Selector, name);
     const [found] = await driver.query(selector);

@@ -13,6 +13,7 @@
     "conventionalcommits",
     "DOCKERHUB",
     "geckodriver",
+    "htmlhint",
     "microbundle",
     "npmrc",
     "originjs",

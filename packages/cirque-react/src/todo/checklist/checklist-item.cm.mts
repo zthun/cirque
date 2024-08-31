@@ -1,10 +1,15 @@
-import { IZCircusDriver, ZCircusActBuilder, ZCircusComponentModel, ZCircusKeyboardQwerty } from '@zthun/cirque';
+import {
+  IZCircusDriver,
+  ZCircusActBuilder,
+  ZCircusComponentModel,
+  ZCircusKeyboardQwerty,
+} from "@zthun/cirque";
 
 /**
  * Represents the component model for the individual items.
  */
 export class ZChecklistItemComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZChecklistItem-root';
+  public static readonly Selector = ".ZChecklistItem-root";
 
   /**
    * Gets the underlying input element that handles the user actions.
@@ -13,7 +18,7 @@ export class ZChecklistItemComponentModel extends ZCircusComponentModel {
    *      The driver for the underlying input element.
    */
   private _input(): Promise<IZCircusDriver> {
-    return this.driver.select('input');
+    return this.driver.select("input");
   }
 
   /**
@@ -34,7 +39,7 @@ export class ZChecklistItemComponentModel extends ZCircusComponentModel {
       await this.keyboard(value);
     }
 
-    return input.value('');
+    return input.value("");
   }
 
   /**

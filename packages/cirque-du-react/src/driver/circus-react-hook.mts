@@ -1,4 +1,4 @@
-import { RenderHookResult } from '@testing-library/react';
+import { RenderHookResult } from "@testing-library/react";
 
 /**
  * Represents a driver for a react hook.

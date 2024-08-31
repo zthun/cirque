@@ -1,5 +1,5 @@
-import { Browser, Builder, Capabilities } from 'selenium-webdriver';
-import { ZCircusSetupBrowser } from './circus-setup-browser.mjs';
+import { Browser, Builder, Capabilities } from "selenium-webdriver";
+import { ZCircusSetupBrowser } from "./circus-setup-browser.mjs";
 
 /**
  * A setup module for the firefox driver.
@@ -16,6 +16,8 @@ export class ZCircusSetupFirefox extends ZCircusSetupBrowser {
   }
 
   public builder(): Builder {
-    return new Builder().forBrowser(Browser.FIREFOX).withCapabilities(Capabilities.firefox());
+    return new Builder()
+      .forBrowser(Browser.FIREFOX)
+      .withCapabilities(Capabilities.firefox());
   }
 }

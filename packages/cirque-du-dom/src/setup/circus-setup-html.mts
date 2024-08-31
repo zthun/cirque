@@ -1,6 +1,6 @@
-import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
-import { flush } from '../util/flush.mjs';
-import { ZCircusSetupHtmlElement } from './circus-setup-html-element.mjs';
+import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import { flush } from "../util/flush.mjs";
+import { ZCircusSetupHtmlElement } from "./circus-setup-html-element.mjs";
 
 /**
  * Represents a setup that renders a react component.
@@ -33,7 +33,7 @@ export class ZCircusSetupHtml implements IZCircusSetup {
    *      result if the render never becomes ready.
    */
   public async setup(): Promise<IZCircusDriver> {
-    const element = document.createElement('div');
+    const element = document.createElement("div");
     element.innerHTML = this._html;
     this._node = new ZCircusSetupHtmlElement(element);
     return this._node.setup();

@@ -6,8 +6,8 @@ import {
   IZCircusKey,
   ZCircusActBuilder,
   ZCircusActionType,
-  ZCircusKeyboardQwerty
-} from '@zthun/cirque';
+  ZCircusKeyboardQwerty,
+} from "@zthun/cirque";
 
 interface KeyboardState {
   leftShift: number;
@@ -29,7 +29,11 @@ interface KeyboardState {
  *        A new magic action that runs user.keyboard with the given range of actions
  *        translated appropriately.
  */
-function squashKeyboardEvents(user: any, range: IZCircusAction[], state: KeyboardState): IZCircusAction {
+function squashKeyboardEvents(
+  user: any,
+  range: IZCircusAction[],
+  state: KeyboardState,
+): IZCircusAction {
   const chain: string[] = [];
 
   for (let i = 0; i < range.length; ++i) {
@@ -39,8 +43,12 @@ function squashKeyboardEvents(user: any, range: IZCircusAction[], state: Keyboar
     const key = stepAction.context as IZCircusKey;
     const nextKey = nextAction?.context as IZCircusKey;
 
-    const upper = state.caps ? stepAction.context.lower : stepAction.context.upper;
-    const lower = state.caps ? stepAction.context.upper : stepAction.context.lower;
+    const upper = state.caps
+      ? stepAction.context.lower
+      : stepAction.context.upper;
+    const lower = state.caps
+      ? stepAction.context.upper
+      : stepAction.context.lower;
 
     const isUpperCase = !!state.leftShift || !!state.rightShift;
     const value = isUpperCase ? upper : lower;
@@ -54,32 +62,51 @@ function squashKeyboardEvents(user: any, range: IZCircusAction[], state: Keyboar
       chain.push(key.printable ? value : `{${value}}`);
       ++i;
     } else {
-      chain.push(stepAction.name === ZCircusActionType.KeyDown ? `{${value}>}` : `{/${value}}`);
+      chain.push(
+        stepAction.name === ZCircusActionType.KeyDown
+          ? `{${value}>}`
+          : `{/${value}}`,
+      );
     }
 
-    if (stepAction.name === ZCircusActionType.KeyDown && key.code === ZCircusKeyboardQwerty.capsLock.code) {
+    if (
+      stepAction.name === ZCircusActionType.KeyDown &&
+      key.code === ZCircusKeyboardQwerty.capsLock.code
+    ) {
       state.caps = !state.caps;
     }
 
-    if (stepAction.name === ZCircusActionType.KeyDown && key.code === ZCircusKeyboardQwerty.shiftLeft.code) {
+    if (
+      stepAction.name === ZCircusActionType.KeyDown &&
+      key.code === ZCircusKeyboardQwerty.shiftLeft.code
+    ) {
       state.leftShift++;
     }
 
-    if (stepAction.name === ZCircusActionType.KeyUp && key.code === ZCircusKeyboardQwerty.shiftLeft.code) {
+    if (
+      stepAction.name === ZCircusActionType.KeyUp &&
+      key.code === ZCircusKeyboardQwerty.shiftLeft.code
+    ) {
       state.leftShift--;
     }
 
-    if (stepAction.name === ZCircusActionType.KeyDown && key.code === ZCircusKeyboardQwerty.shiftRight.code) {
+    if (
+      stepAction.name === ZCircusActionType.KeyDown &&
+      key.code === ZCircusKeyboardQwerty.shiftRight.code
+    ) {
       state.rightShift++;
     }
 
-    if (stepAction.name === ZCircusActionType.KeyUp && key.code === ZCircusKeyboardQwerty.shiftRight.code) {
+    if (
+      stepAction.name === ZCircusActionType.KeyUp &&
+      key.code === ZCircusKeyboardQwerty.shiftRight.code
+    ) {
       state.rightShift--;
     }
   }
 
   const name = ZCircusActionType.Magic;
-  const context = () => user.keyboard(chain.join(''));
+  const context = () => user.keyboard(chain.join(""));
 
   return { name, context };
 }
@@ -97,7 +124,11 @@ function squashKeyboardEvents(user: any, range: IZCircusAction[], state: Keyboar
  * @returns
  *        A new circus act that describes the full performance.
  */
-export function squash(user: any, act: IZCircusAct, element: HTMLElement): IZCircusAct {
+export function squash(
+  user: any,
+  act: IZCircusAct,
+  element: HTMLElement,
+): IZCircusAct {
   let newAct = new ZCircusActBuilder();
   const state: KeyboardState = { leftShift: 0, rightShift: 0, caps: false };
 
@@ -106,7 +137,11 @@ export function squash(user: any, act: IZCircusAct, element: HTMLElement): IZCir
 
     if (isKeyboardAction(action)) {
       let end = i;
-      for (end; end < act.actions.length && isKeyboardAction(act.actions[end]); ++end);
+      for (
+        end;
+        end < act.actions.length && isKeyboardAction(act.actions[end]);
+        ++end
+      );
       const range = act.actions.slice(i, end);
       newAct = newAct.action(squashKeyboardEvents(user, range, state));
       i = end - 1;
@@ -116,9 +151,13 @@ export function squash(user: any, act: IZCircusAct, element: HTMLElement): IZCir
     if (isMouseAction(action)) {
       // Mouse actions work properly in user-events - no need to squash anything
       if (action.name === ZCircusActionType.MouseUp) {
-        newAct = newAct.magic(() => user.pointer({ keys: `[/Mouse${action.context}]`, target: element }));
+        newAct = newAct.magic(() =>
+          user.pointer({ keys: `[/Mouse${action.context}]`, target: element }),
+        );
       } else {
-        newAct = newAct.magic(() => user.pointer({ keys: `[Mouse${action.context}>]`, target: element }));
+        newAct = newAct.magic(() =>
+          user.pointer({ keys: `[Mouse${action.context}>]`, target: element }),
+        );
       }
       continue;
     }

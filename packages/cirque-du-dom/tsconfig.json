@@ -6,12 +6,5 @@
       "@zthun/cirque": ["../cirque/src/index.ts"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/util/flush.mts",
-    "src/setup/circus-setup-html.mts",
-    "src/setup/circus-setup-html-element.mts",
-    "src/driver/circus-driver.mts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.mts"]
 }

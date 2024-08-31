@@ -1,6 +1,6 @@
-import { Browser, Builder, Capabilities } from 'selenium-webdriver';
-import { Options } from 'selenium-webdriver/chrome';
-import { ZCircusSetupBrowser } from './circus-setup-browser.mjs';
+import { Browser, Builder, Capabilities } from "selenium-webdriver";
+import { Options } from "selenium-webdriver/chrome";
+import { ZCircusSetupBrowser } from "./circus-setup-browser.mjs";
 
 /**
  * A setup module for the chrome driver.
@@ -33,11 +33,13 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
   }
 
   public builder(): Builder {
-    const builder = new Builder().forBrowser(Browser.CHROME).withCapabilities(Capabilities.chrome());
+    const builder = new Builder()
+      .forBrowser(Browser.CHROME)
+      .withCapabilities(Capabilities.chrome());
     const options = new Options();
 
     if (this._headless) {
-      options.addArguments('--headless').addArguments('--no-sandbox');
+      options.addArguments("--headless").addArguments("--no-sandbox");
     }
 
     return builder.setChromeOptions(options);

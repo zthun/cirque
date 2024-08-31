@@ -1,7 +1,11 @@
-import { render, RenderOptions, RenderResult } from '@testing-library/react/pure';
-import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
-import { ZCircusDriver } from '@zthun/cirque-du-dom';
-import { ReactElement } from 'react';
+import {
+  render,
+  RenderOptions,
+  RenderResult,
+} from "@testing-library/react/pure";
+import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import { ZCircusDriver } from "@zthun/cirque-du-dom";
+import { ReactElement } from "react";
 
 /**
  * Represents a setup that renders a react component.
@@ -19,7 +23,7 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
    */
   public constructor(
     private _element: ReactElement,
-    private _options?: RenderOptions<any, any, any>
+    private _options?: RenderOptions<any, any, any>,
   ) {
     // We will flush the event loops ourselves.  Trying to mingle this with @testing-library
     // is a mess.  So we will just turn all this off.

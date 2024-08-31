@@ -1,4 +1,4 @@
-import { IZCircusKey } from '../keyboard/circus-key.mjs';
+import { IZCircusKey } from "../keyboard/circus-key.mjs";
 
 /**
  * Represents a type of action that can be performed.
@@ -7,23 +7,23 @@ export enum ZCircusActionType {
   /**
    * User presses a mouse button down (no-release).
    */
-  MouseDown = 'mouse-down',
+  MouseDown = "mouse-down",
   /**
    * User releases a mouse button.
    */
-  MouseUp = 'mouse-up',
+  MouseUp = "mouse-up",
   /**
    * User presses a key on the keyboard (no-release).
    */
-  KeyDown = 'key-down',
+  KeyDown = "key-down",
   /**
    * User releases a key on the keyboard.
    */
-  KeyUp = 'key-up',
+  KeyUp = "key-up",
   /**
    * A custom action that may or may not be done by the user.
    */
-  Magic = 'magic'
+  Magic = "magic",
 }
 
 /**
@@ -37,7 +37,7 @@ export interface IZCircusAction<TContext = any> {
 /**
  * The context for when clicking a mouse button.
  */
-export type ZCircusMouseButton = 'Left' | 'Right' | 'Middle';
+export type ZCircusMouseButton = "Left" | "Right" | "Middle";
 
 /**
  * A function that does something and returns a promise.
@@ -55,7 +55,10 @@ export type ZCircusMagicFunction = () => Promise<any>;
  * @returns
  *        Positive if the action name is one of the given types.
  */
-const _isActionOneOf = (types: ZCircusActionType[], action: IZCircusAction): boolean => {
+const _isActionOneOf = (
+  types: ZCircusActionType[],
+  action: IZCircusAction,
+): boolean => {
   const { name } = action;
   return types.indexOf(name) >= 0;
 };
@@ -70,8 +73,13 @@ const _isActionOneOf = (types: ZCircusActionType[], action: IZCircusAction): boo
  *        True if the action represents a key down or key up event.
  *        False otherwise.
  */
-export function isKeyboardAction(action: IZCircusAction): action is IZCircusAction<IZCircusKey> {
-  return _isActionOneOf([ZCircusActionType.KeyDown, ZCircusActionType.KeyUp], action);
+export function isKeyboardAction(
+  action: IZCircusAction,
+): action is IZCircusAction<IZCircusKey> {
+  return _isActionOneOf(
+    [ZCircusActionType.KeyDown, ZCircusActionType.KeyUp],
+    action,
+  );
 }
 
 /**
@@ -83,8 +91,13 @@ export function isKeyboardAction(action: IZCircusAction): action is IZCircusActi
  * @returns
  *        True if the action represents a mouse event.
  */
-export function isMouseAction(action: IZCircusAction): action is IZCircusAction<ZCircusMouseButton> {
-  return _isActionOneOf([ZCircusActionType.MouseDown, ZCircusActionType.MouseUp], action);
+export function isMouseAction(
+  action: IZCircusAction,
+): action is IZCircusAction<ZCircusMouseButton> {
+  return _isActionOneOf(
+    [ZCircusActionType.MouseDown, ZCircusActionType.MouseUp],
+    action,
+  );
 }
 
 /**
@@ -96,6 +109,8 @@ export function isMouseAction(action: IZCircusAction): action is IZCircusAction<
  * @returns
  *        True if the action represents a magic event.
  */
-export function isMagicAction(action: IZCircusAction): action is IZCircusAction<ZCircusMagicFunction> {
+export function isMagicAction(
+  action: IZCircusAction,
+): action is IZCircusAction<ZCircusMagicFunction> {
   return _isActionOneOf([ZCircusActionType.Magic], action);
 }

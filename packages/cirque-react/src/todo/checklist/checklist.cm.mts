@@ -1,12 +1,16 @@
-import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
-import { last } from 'lodash';
-import { ZChecklistItemComponentModel } from './checklist-item.cm.mjs';
+import {
+  ZCircusActBuilder,
+  ZCircusBy,
+  ZCircusComponentModel,
+} from "@zthun/cirque";
+import { last } from "lodash";
+import { ZChecklistItemComponentModel } from "./checklist-item.cm.mjs";
 
 /**
  * Represents the component model for the checklist component.
  */
 export class ZChecklistComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = '.ZChecklist-root';
+  public static readonly Selector = ".ZChecklist-root";
 
   /**
    * Gets whether the empty text is displayed.
@@ -15,7 +19,10 @@ export class ZChecklistComponentModel extends ZCircusComponentModel {
    *        True if the empty text is displayed, false otherwise.
    */
   public async empty(): Promise<boolean> {
-    const text = await ZCircusBy.optional(this.driver, ZChecklistItemComponentModel);
+    const text = await ZCircusBy.optional(
+      this.driver,
+      ZChecklistItemComponentModel,
+    );
     return text == null;
   }
 
@@ -40,7 +47,7 @@ export class ZChecklistComponentModel extends ZCircusComponentModel {
    *        The new item that was just added.
    */
   public async add(value?: string): Promise<ZChecklistItemComponentModel> {
-    const addButton = await this.driver.select('.ZChecklist-footer-add-button');
+    const addButton = await this.driver.select(".ZChecklist-footer-add-button");
     const action = new ZCircusActBuilder().click().build();
     await addButton.perform(action);
     const items = await this.items();

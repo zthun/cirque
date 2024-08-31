@@ -7,11 +7,5 @@
       "@zthun/cirque-du-dom": ["../cirque-du-dom/src/index.ts"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/setup/circus-setup-hook.mts",
-    "src/setup/circus-setup-renderer.mts",
-    "src/driver/circus-react-hook.mts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.mts"]
 }

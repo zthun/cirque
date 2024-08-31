@@ -1,10 +1,15 @@
 // cspell: disable
 
-import { IZCircusAct, ZCircusActBuilder, ZCircusActionType, ZCircusKeyboardQwerty } from '@zthun/cirque';
-import { beforeEach, describe, expect, it, Mocked, vitest } from 'vitest';
-import { squash } from './squash';
+import {
+  IZCircusAct,
+  ZCircusActBuilder,
+  ZCircusActionType,
+  ZCircusKeyboardQwerty,
+} from "@zthun/cirque";
+import { beforeEach, describe, expect, it, Mocked, vitest } from "vitest";
+import { squash } from "./squash";
 
-describe('Squash', () => {
+describe("Squash", () => {
   let user: Mocked<any>;
   let element: HTMLElement;
 
@@ -13,10 +18,10 @@ describe('Squash', () => {
     user.keyboard = vitest.fn();
     user.pointer = vitest.fn();
 
-    element = document.createElement('input');
+    element = document.createElement("input");
   });
 
-  describe('Keyboard', () => {
+  describe("Keyboard", () => {
     const shouldSquashTo = (expected: string, act: IZCircusAct) => {
       // Arrange
       const actual = squash(user, act, element);
@@ -28,14 +33,14 @@ describe('Squash', () => {
       expect(user.keyboard).toHaveBeenCalledWith(expected);
     };
 
-    it('should squash actions together into a single string', () => {
-      const expected = 'actions should squash with appropriate keys.';
+    it("should squash actions together into a single string", () => {
+      const expected = "actions should squash with appropriate keys.";
       const act = new ZCircusActBuilder().type(expected).build();
       shouldSquashTo(expected, act);
     });
 
-    it('should squash keys and auto modify with the shift key', () => {
-      const text = 'actions should auto modify with the shift key being held';
+    it("should squash keys and auto modify with the shift key", () => {
+      const text = "actions should auto modify with the shift key being held";
       const expected = `{Shift>}${text.toUpperCase()}{/Shift}`;
       const act = new ZCircusActBuilder()
         .keyDown(ZCircusKeyboardQwerty.shiftLeft)
@@ -46,8 +51,8 @@ describe('Squash', () => {
       shouldSquashTo(expected, act);
     });
 
-    it('should squash keys and auto modify with the caps key', () => {
-      const text = 'actions should auto modify with the caps lock key toggled';
+    it("should squash keys and auto modify with the caps key", () => {
+      const text = "actions should auto modify with the caps lock key toggled";
       const expected = `{CapsLock}${text.toUpperCase()}{CapsLock}`;
       const act = new ZCircusActBuilder()
         .press(ZCircusKeyboardQwerty.capsLock)
@@ -57,8 +62,8 @@ describe('Squash', () => {
       shouldSquashTo(expected, act);
     });
 
-    it('should reverse the caps if the caps lock key is pressed and the shift key is held', () => {
-      const text = 'caps lock should reverse with the shift key';
+    it("should reverse the caps if the caps lock key is pressed and the shift key is held", () => {
+      const text = "caps lock should reverse with the shift key";
       const expected = `{CapsLock}{Shift>}${text.toLowerCase()}{/Shift}{CapsLock}`;
       const act = new ZCircusActBuilder()
         .press(ZCircusKeyboardQwerty.capsLock)
@@ -70,9 +75,9 @@ describe('Squash', () => {
       shouldSquashTo(expected, act);
     });
 
-    it('should ignore redundant shift clicks', () => {
-      const textA = 'Shift clicks should act as a stack';
-      const textB = ' and release when Finished';
+    it("should ignore redundant shift clicks", () => {
+      const textA = "Shift clicks should act as a stack";
+      const textB = " and release when Finished";
       const expected = `{Shift>}{Shift>}S{/Shift}HIFT CLICKS SHOULD ACT AS A STACK{/Shift} and release when {Shift>}F{/Shift}inished`;
       const act = new ZCircusActBuilder()
         .keyDown(ZCircusKeyboardQwerty.shiftLeft)
@@ -84,30 +89,38 @@ describe('Squash', () => {
     });
   });
 
-  describe('Mouse', () => {
-    it('should sqaush to a left click', () => {
+  describe("Mouse", () => {
+    it("should sqaush to a left click", () => {
       // Arrange
       const act = new ZCircusActBuilder().click().build();
       // Act
       const actual = squash(user, act, element);
       actual.actions.forEach((a) => a.context());
       // Assert
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[MouseLeft>]', target: element }));
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[/MouseLeft]', target: element }));
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[MouseLeft>]", target: element }),
+      );
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[/MouseLeft]", target: element }),
+      );
     });
 
-    it('should squash to a right click', () => {
+    it("should squash to a right click", () => {
       // Arrange
       const act = new ZCircusActBuilder().rightClick().build();
       // Act
       const actual = squash(user, act, element);
       actual.actions.forEach((a) => a.context());
       // Assert
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[MouseRight>]', target: element }));
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[/MouseRight]', target: element }));
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[MouseRight>]", target: element }),
+      );
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[/MouseRight]", target: element }),
+      );
     });
 
-    it('should squash to a shift click', () => {
+    it("should squash to a shift click", () => {
       // Arrange
       const act = new ZCircusActBuilder()
         .keyDown(ZCircusKeyboardQwerty.shiftLeft)
@@ -118,15 +131,19 @@ describe('Squash', () => {
       const actual = squash(user, act, element);
       actual.actions.forEach((a) => a.context());
       // Assert
-      expect(user.keyboard).toHaveBeenCalledWith('{Shift>}');
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[MouseLeft>]', target: element }));
-      expect(user.pointer).toHaveBeenCalledWith(expect.objectContaining({ keys: '[/MouseLeft]', target: element }));
-      expect(user.keyboard).toHaveBeenCalledWith('{/Shift}');
+      expect(user.keyboard).toHaveBeenCalledWith("{Shift>}");
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[MouseLeft>]", target: element }),
+      );
+      expect(user.pointer).toHaveBeenCalledWith(
+        expect.objectContaining({ keys: "[/MouseLeft]", target: element }),
+      );
+      expect(user.keyboard).toHaveBeenCalledWith("{/Shift}");
     });
   });
 
-  describe('Magic', () => {
-    it('should be kept', () => {
+  describe("Magic", () => {
+    it("should be kept", () => {
       // Arrange
       const magic = vitest.fn();
       magic.mockResolvedValue(true);

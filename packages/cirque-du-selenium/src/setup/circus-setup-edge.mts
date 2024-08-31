@@ -1,5 +1,5 @@
-import { Browser, Builder, Capabilities } from 'selenium-webdriver';
-import { ZCircusSetupBrowser } from './circus-setup-browser.mjs';
+import { Browser, Builder, Capabilities } from "selenium-webdriver";
+import { ZCircusSetupBrowser } from "./circus-setup-browser.mjs";
 
 /**
  * A setup module for the edge driver.
@@ -16,6 +16,8 @@ export class ZCircusSetupEdge extends ZCircusSetupBrowser {
   }
 
   public builder(): Builder {
-    return new Builder().forBrowser(Browser.EDGE).withCapabilities(Capabilities.edge());
+    return new Builder()
+      .forBrowser(Browser.EDGE)
+      .withCapabilities(Capabilities.edge());
   }
 }

@@ -1,10 +1,13 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import { afterEach, describe, expect, it } from 'vitest';
-import { ZCircusSetupHook } from '../setup/circus-setup-hook.mjs';
-import { IZCircusReactHook } from './circus-react-hook.mjs';
+import { Dispatch, SetStateAction, useState } from "react";
+import { afterEach, describe, expect, it } from "vitest";
+import { ZCircusSetupHook } from "../setup/circus-setup-hook.mjs";
+import { IZCircusReactHook } from "./circus-react-hook.mjs";
 
-describe('ZCircusReactHook', () => {
-  let _target: IZCircusReactHook<[number, Dispatch<SetStateAction<number>>], never>;
+describe("ZCircusReactHook", () => {
+  let _target: IZCircusReactHook<
+    [number, Dispatch<SetStateAction<number>>],
+    never
+  >;
 
   const createTestTarget = async () => {
     _target = await new ZCircusSetupHook(() => useState(0)).setup();
@@ -15,7 +18,7 @@ describe('ZCircusReactHook', () => {
     await _target?.destroy();
   });
 
-  it('should rerender the value', async () => {
+  it("should rerender the value", async () => {
     // Arrange.
     const target = await createTestTarget();
     const expected = 25;
