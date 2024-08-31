@@ -9,9 +9,10 @@
     }
   },
   "include": [
-    "./src/**/*.mts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./features/**/*.mts"
+    "src/**/*.mts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "features/**/*.ts",
+    "features/**/*.mts"
   ]
 }
