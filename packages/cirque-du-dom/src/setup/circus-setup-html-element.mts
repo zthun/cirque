@@ -1,6 +1,6 @@
 import { IZCircusDriver, IZCircusSetup } from '@zthun/cirque';
-import { ZCircusDriver } from '../driver/circus-driver';
-import { flush } from '../util/flush';
+import { ZCircusDriver } from '../driver/circus-driver.mjs';
+import { flush } from '../util/flush.mjs';
 
 /**
  * Represents a setup that renders a react component.

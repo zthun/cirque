@@ -1,7 +1,7 @@
 import { IZCircusDriver, IZCircusSetup, ZCircusActBuilder, ZCircusWaitOptionsBuilder } from '@zthun/cirque';
 import { afterEach, describe, expect, it } from 'vitest';
-import { ZCircusSetupHtml } from '../setup/circus-setup-html';
-import { ZCircusDriver } from './circus-driver';
+import { ZCircusSetupHtml } from '../setup/circus-setup-html.mjs';
+import { ZCircusDriver } from './circus-driver.mjs';
 
 const NAME = 'friendly-neighborhood-spider-man';
 const TEXT = 'I am your friendly neighborhood Spider Man';

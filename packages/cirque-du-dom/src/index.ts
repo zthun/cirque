@@ -1,3 +1,3 @@
-export * from './driver/circus-driver';
-export * from './setup/circus-setup-html';
-export * from './setup/circus-setup-html-element';
+export * from './driver/circus-driver.mjs';
+export * from './setup/circus-setup-html-element.mjs';
+export * from './setup/circus-setup-html.mjs';
