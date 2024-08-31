@@ -1,6 +1,6 @@
 import { ZCircusActBuilder, ZCircusBy, ZCircusComponentModel } from '@zthun/cirque';
 import { last } from 'lodash';
-import { ZChecklistItemComponentModel } from './checklist-item.cm';
+import { ZChecklistItemComponentModel } from './checklist-item.cm.mjs';
 
 /**
  * Represents the component model for the checklist component.
