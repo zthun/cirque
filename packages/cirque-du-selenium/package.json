@@ -21,14 +21,14 @@
   "dependencies": {
     "@zthun/cirque": "^6.1.1",
     "lodash": "^4.17.21",
-    "selenium-webdriver": "^4.22.0"
+    "selenium-webdriver": "^4.24.0"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
     "vite-plugin-dts": "^3.9.1",
     "vite-plugin-externalize-deps": "^0.8.0",
-    "vitest": "^2.0.2"
+    "vitest": "^2.0.5"
   },
   "files": [
     "dist"
