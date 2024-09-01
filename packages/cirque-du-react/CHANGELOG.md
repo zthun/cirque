@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.0](https://github.com/zthun/cirque/compare/v6.1.1...v7.0.0) (2024-09-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* cirque-du-react is now primarily an esm module
+
+### Features
+
+* cirque-du-react is now primarily an esm module ([1e0caa7](https://github.com/zthun/cirque/commit/1e0caa7ab3327551535b73f08e41f024fd809876))
+
+
+
 ## [6.1.1](https://github.com/zthun/cirque/compare/v6.1.0...v6.1.1) (2024-07-15)
 
 **Note:** Version bump only for package @zthun/cirque-du-react

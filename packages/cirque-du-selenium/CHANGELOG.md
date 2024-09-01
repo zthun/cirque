@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.0](https://github.com/zthun/cirque/compare/v6.1.1...v7.0.0) (2024-09-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* cirque-du-selenium is now primarily an esm module
+
+### Features
+
+* cirque-du-selenium is now primarily an esm module ([f9cd250](https://github.com/zthun/cirque/commit/f9cd250d3f952f6bdfa58fab5f4265b40ee30a86))
+
+
+
 ## [6.1.1](https://github.com/zthun/cirque/compare/v6.1.0...v6.1.1) (2024-07-15)
 
 **Note:** Version bump only for package @zthun/cirque-du-selenium

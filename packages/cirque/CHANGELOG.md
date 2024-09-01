@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.0](https://github.com/zthun/cirque/compare/v6.1.1...v7.0.0) (2024-09-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* cirque-du-dom is now primarily an esm module
+
+### Features
+
+* cirque now primarily builds as an esm module ([54d2528](https://github.com/zthun/cirque/commit/54d25282768218ca00377c3a95b3e42c571f96e6))
+* cirque-du-dom is now primarily an esm module ([e52c171](https://github.com/zthun/cirque/commit/e52c171d0db3406590957c246ada37496927dd80))
+
+
+
 ## [6.1.1](https://github.com/zthun/cirque/compare/v6.1.0...v6.1.1) (2024-07-15)
 
 **Note:** Version bump only for package @zthun/cirque
