@@ -1,8 +1,4 @@
-import {
-  render,
-  RenderOptions,
-  RenderResult,
-} from "@testing-library/react/pure";
+import { render, RenderOptions, RenderResult } from "@testing-library/react";
 import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusDriver } from "@zthun/cirque-du-dom";
 import { ReactElement } from "react";
