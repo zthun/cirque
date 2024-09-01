@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-react",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "A sample todo react application for use with testing the circus react framework",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.9.0",
     "@types/node": "^22.5.2",
-    "@zthun/cirque-du-react": "^7.0.1",
+    "@zthun/cirque-du-react": "^7.0.2",
     "@zthun/cirque-du-selenium": "^7.0.1",
     "less": "^4.2.0",
     "tsconfig-paths": "^4.2.0",
