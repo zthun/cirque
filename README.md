@@ -41,7 +41,7 @@ import {
   ZCircusBy,
   ZCircusComponentModel,
 } from "@zthun/cirque";
-import { last } from "lodash";
+import { last } from "lodash-es";
 import { ZChecklistItemComponentModel } from "./checklist-item.cm";
 
 export class ZChecklistComponentModel extends ZCircusComponentModel {

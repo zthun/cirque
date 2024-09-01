@@ -1,5 +1,5 @@
-import { get } from "lodash";
-import React, { FormEvent } from "react";
+import { get } from "lodash-es";
+import { FormEvent } from "react";
 
 export interface IZChecklistItem {
   value: string;
