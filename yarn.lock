@@ -3004,7 +3004,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-react@npm:^7.0.1, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
+"@zthun/cirque-du-react@npm:^7.0.2, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-react@workspace:packages/cirque-du-react"
   dependencies:
@@ -3047,7 +3047,7 @@ __metadata:
     "@cucumber/cucumber": "npm:^10.9.0"
     "@types/node": "npm:^22.5.2"
     "@zthun/cirque": "npm:^7.0.1"
-    "@zthun/cirque-du-react": "npm:^7.0.1"
+    "@zthun/cirque-du-react": "npm:^7.0.2"
     "@zthun/cirque-du-selenium": "npm:^7.0.1"
     less: "npm:^4.2.0"
     lodash-es: "npm:^4.17.21"
@@ -3069,7 +3069,7 @@ __metadata:
     "@cucumber/cucumber": "npm:^10.9.0"
     "@types/node": "npm:^22.5.2"
     "@zthun/cirque": "npm:^7.0.1"
-    "@zthun/cirque-du-react": "npm:^7.0.1"
+    "@zthun/cirque-du-react": "npm:^7.0.2"
     "@zthun/cirque-du-selenium": "npm:^7.0.1"
     typedoc: "npm:^0.26.6"
     typedoc-plugin-extras: "npm:^3.1.0"
