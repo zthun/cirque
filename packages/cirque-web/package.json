@@ -18,8 +18,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^10.9.0",
-    "@types/node": "^22.5.2",
+    "@cucumber/cucumber": "^11.0.0",
+    "@types/node": "^22.5.4",
     "@zthun/cirque": "^7.0.1",
     "@zthun/cirque-du-react": "^7.0.2",
     "@zthun/cirque-du-selenium": "^7.0.1",
