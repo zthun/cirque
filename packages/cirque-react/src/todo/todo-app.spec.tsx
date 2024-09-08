@@ -1,6 +1,5 @@
 import { IZCircusDriver, IZCircusSetup, ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import React from "react";
 import { afterEach, describe, expect, it } from "vitest";
 import { ZChecklistComponentModel } from "./checklist/checklist.cm.mjs";
 import { ZTodoApp } from "./todo-app";

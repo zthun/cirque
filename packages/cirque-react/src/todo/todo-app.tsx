@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ZChecklist } from "./checklist/checklist";
 
 import "./todo-app.less";
