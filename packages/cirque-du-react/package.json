@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-du-react",
-  "version": "7.0.3",
+  "version": "7.0.4",
   "description": "A cirque performance for unit testing react applications and components.",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -27,8 +27,8 @@
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.1",
-    "@zthun/cirque": "^7.0.3",
-    "@zthun/cirque-du-dom": "^7.0.3"
+    "@zthun/cirque": "^7.0.4",
+    "@zthun/cirque-du-dom": "^7.0.4"
   },
   "devDependencies": {
     "react": "^18.3.1",
