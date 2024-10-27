@@ -18,14 +18,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^11.0.0",
-    "@types/node": "^22.5.4",
+    "@cucumber/cucumber": "^11.0.1",
+    "@types/node": "^22.8.1",
     "@zthun/cirque": "^7.0.3",
     "@zthun/cirque-du-react": "^7.0.3",
     "@zthun/cirque-du-selenium": "^7.0.3",
-    "typedoc": "^0.26.6",
+    "typedoc": "^0.26.10",
     "typedoc-plugin-extras": "^3.1.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "files": [
     "dist"
