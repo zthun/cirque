@@ -46,8 +46,8 @@ function findElementsByName(
   driver: IZCircusDriver,
   name: string,
 ): Promise<IZCircusDriver[]> {
-  // Returns all elements with the given name.  Will return an empty array if no such elements
-  // match the query.
+  // Returns all elements with the given name.  Will return an
+  // empty array if no such elements match the query.
   return driver.query(`[name="${name}"],[data-name="${name}"]`);
 }
 
@@ -99,11 +99,13 @@ export class MyModalComponentModel extends ZCircusComponentModel {
     const closeButton = await this.driver.select(".MyModal-close");
     const act = new ZCircusActBuilder().click().build();
     await closeButton.perform(act);
-    // This waits for the modal to no longer exist under the body DOM element.
-    // The peek method will return true if it finds something under driver context,
-    // and false if there is no such element.  The then block reverses the boolean since
-    // we want to wait until the modal no longer exists so we want body.peek to return
-    // false.
+    // This waits for the modal to no longer exist
+    // under the body DOM element. The peek method will
+    // return true if it finds something under driver context,
+    // and false if there is no such element.  The then
+    // block reverses the boolean since we want to wait
+    // until the modal no longer exists so we want body.peek
+    // to return false.
     await body.wait(() =>
       body.peek(MyModalComponentModel.Selector).then((m) => !m),
     );
@@ -122,8 +124,10 @@ the [**ZCircusBy**](./src/component/circus-by.mts) class, which is useful for
 running queries to construct component models in common ways.
 
 ```tsx
-// The following component here is a react component, but you can create a component model for any framework
-// as long as an IZCircusSetup implementation is provided and the equivalent IZCircusDriver implementation
+// The following component here is a react component,
+// but you can create a component model for any framework
+// as long as an IZCircusSetup implementation is provided and the equivalent
+// IZCircusDriver implementation
 // to run queries in that framework.
 export function MyCard(props: IMyCard) {
   const { title, children } = props;
@@ -246,17 +250,18 @@ describe("MyForm", () => {
     return ZCircusBy.first(driver, MyFormComponentModel);
   };
 
-  it("should submit the form after entering in the information needed.", async () => {
+  it("should submit the form.", async () => {
     // Arrange.
     const target = await createTestTarget();
     // Act.
     const firstName = await target.firstName();
-    // Note that type is the same as doing multiple key down and key up strokes all at once.
-    // Press is the combination of key down and key up strokes 1 or more times.
-    // The ZCircusKeyboardQwerty is a utility class that contains every possible key that you
-    // find on a standard qwerty keyboard and includes all of the upper case, lower case
-    // and code variants according to the JavaScript key standard.  If you don't want to use
-    // cirque for testing, you can actually just use it exclusively for this keyboard utility
+    // Note that type is the same as doing multiple key down and key up strokes
+    // all at once.  Press is the combination of key down and key up strokes 1
+    // or more times. The ZCircusKeyboardQwerty is a utility class that contains
+    // every possible key that you find on a standard qwerty keyboard and
+    // includes all of the upper case, lower case and code variants according
+    // to the JavaScript key standard.  If you don't want to use cirque
+    // for testing, you can actually just use it exclusively for this keyboard utility
     // class.
     // cspell:disable next-line
     const enterFirstName = new ZCircusActBuilder()
