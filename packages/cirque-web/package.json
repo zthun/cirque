@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-web",
-  "version": "7.0.5",
+  "version": "7.1.0",
   "description": "A documentation website for showing circus.",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -20,9 +20,9 @@
   "devDependencies": {
     "@cucumber/cucumber": "^11.1.1",
     "@types/node": "^22.10.2",
-    "@zthun/cirque": "^7.0.5",
-    "@zthun/cirque-du-react": "^7.0.5",
-    "@zthun/cirque-du-selenium": "^7.0.5",
+    "@zthun/cirque": "^7.1.0",
+    "@zthun/cirque-du-react": "^7.1.0",
+    "@zthun/cirque-du-selenium": "^7.1.0",
     "typedoc": "^0.26.11",
     "typedoc-plugin-extras": "^3.1.0",
     "typescript": "~5.6.3"

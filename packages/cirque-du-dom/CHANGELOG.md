@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.0](https://github.com/zthun/cirque/compare/v7.0.5...v7.1.0) (2024-12-29)
+
+
+### Features
+
+* support react 19 ([3bde49c](https://github.com/zthun/cirque/commit/3bde49c71cde4920380e7e2cac8a817bf02139a8))
+
+
+
 ## [7.0.5](https://github.com/zthun/cirque/compare/v7.0.4...v7.0.5) (2024-11-05)
 
 **Note:** Version bump only for package @zthun/cirque-du-dom
