@@ -7,6 +7,5 @@
   "exclude": ["./", "../cirque-react"],
   "excludeNotDocumented": true,
   "name": "Circus",
-  "plugin": ["typedoc-plugin-extras"],
   "favicon": "public/svg/cirque.svg"
 }
