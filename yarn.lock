@@ -3170,7 +3170,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     tsx: "npm:^4.19.2"
     typescript: "npm:~5.7.2"
-    vite: "npm:^5.0.0"
+    vite: "npm:^5.4.11"
     vite-plugin-dts: "npm:^4.4.0"
     vite-plugin-external: "npm:^4.3.1"
     vite-tsconfig-paths: "npm:^5.1.4"
