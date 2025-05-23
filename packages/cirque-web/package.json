@@ -19,12 +19,12 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^11.1.1",
-    "@types/node": "^22.10.5",
+    "@types/node": "^22.15.21",
     "@zthun/cirque": "^7.1.1",
     "@zthun/cirque-du-react": "^7.1.1",
     "@zthun/cirque-du-selenium": "^7.1.1",
-    "typedoc": "^0.27.6",
-    "typescript": "~5.7.2"
+    "typedoc": "^0.28.4",
+    "typescript": "~5.8.3"
   },
   "files": [
     "dist"
