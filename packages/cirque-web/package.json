@@ -18,7 +18,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^11.1.1",
+    "@cucumber/cucumber": "^11.3.0",
     "@types/node": "^22.15.21",
     "@zthun/cirque": "^7.1.1",
     "@zthun/cirque-du-react": "^7.1.1",
