@@ -25,13 +25,13 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.30",
     "@zthun/cirque-du-react": "^7.1.2",
     "@zthun/cirque-du-selenium": "^7.1.2",
     "less": "^4.3.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
-    "vitest": "^3.1.4"
+    "vitest": "^3.2.2"
   }
 }
