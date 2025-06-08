@@ -8,7 +8,7 @@ import type {
 import { ZCircusWaitOptionsBuilder } from "@zthun/cirque";
 import { get, keyBy, trim } from "lodash-es";
 import { flush } from "../util/flush.mjs";
-import { squash } from "../util/squash";
+import { squash } from "../util/squash.mjs";
 
 /**
  * Represents a circus driver that wraps an html element.

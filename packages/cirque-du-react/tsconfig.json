@@ -3,8 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@zthun/cirque": ["../cirque/src/index.ts"],
-      "@zthun/cirque-du-dom": ["../cirque-du-dom/src/index.ts"]
+      "@zthun/cirque": ["../cirque/src/index.mts"],
+      "@zthun/cirque-du-dom": ["../cirque-du-dom/src/index.mts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.mts"]

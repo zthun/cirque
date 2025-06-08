@@ -1,4 +1,4 @@
-import { ZChecklist } from "./checklist/checklist";
+import { ZChecklist } from "./checklist/checklist.js";
 
 import "./todo-app.less";
 

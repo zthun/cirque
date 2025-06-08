@@ -3,8 +3,8 @@ import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { afterEach, describe, expect, it } from "vitest";
 import type { ZChecklistComponentModel } from "./checklist/checklist.cm.mjs";
-import { ZTodoApp } from "./todo-app";
 import { ZTodoAppComponentModel } from "./todo-app.cm.mjs";
+import { ZTodoApp } from "./todo-app.js";
 
 describe("ZTodoApp", () => {
   let _renderer: IZCircusSetup;

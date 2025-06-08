@@ -3320,6 +3320,7 @@ __metadata:
     vite: "npm:^6.3.5"
     vite-plugin-dts: "npm:^4.5.4"
     vite-plugin-external: "npm:^6.2.2"
+    vite-plugin-externalize-deps: "npm:^0.9.0"
     vite-tsconfig-paths: "npm:^5.1.4"
     vitest: "npm:^3.2.2"
   languageName: unknown

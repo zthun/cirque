@@ -1,8 +1,8 @@
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { describe, expect, it } from "vitest";
-import { ZChecklist } from "./checklist";
 import { ZChecklistComponentModel } from "./checklist.cm.mjs";
+import { ZChecklist } from "./checklist.js";
 
 describe("ZChecklist", () => {
   const createTestTarget = async () => {

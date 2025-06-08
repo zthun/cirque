@@ -1,6 +1,8 @@
 import { Browser, Builder, Capabilities } from "selenium-webdriver";
-import { Options } from "selenium-webdriver/chrome";
 import { ZCircusSetupBrowser } from "./circus-setup-browser.mjs";
+
+// Selenium doesn't property add the exports to the package.json file
+const Options = require("selenium-webdriver/chrome");
 
 /**
  * A setup module for the chrome driver.

@@ -8,7 +8,7 @@ import {
 } from "@zthun/cirque";
 import type { Mocked } from "vitest";
 import { beforeEach, describe, expect, it, vitest } from "vitest";
-import { squash } from "./squash";
+import { squash } from "./squash.mjs";
 
 describe("Squash", () => {
   let user: Mocked<any>;
