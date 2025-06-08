@@ -1,12 +1,13 @@
 // cspell: disable
 
+import type { IZCircusAct } from "@zthun/cirque";
 import {
-  IZCircusAct,
   ZCircusActBuilder,
   ZCircusActionType,
   ZCircusKeyboardQwerty,
 } from "@zthun/cirque";
-import { beforeEach, describe, expect, it, Mocked, vitest } from "vitest";
+import type { Mocked } from "vitest";
+import { beforeEach, describe, expect, it, vitest } from "vitest";
 import { squash } from "./squash";
 
 describe("Squash", () => {

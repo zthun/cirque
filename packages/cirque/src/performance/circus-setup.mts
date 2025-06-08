@@ -1,4 +1,4 @@
-import { IZCircusDriver } from "../driver/circus-driver.mjs";
+import type { IZCircusDriver } from "../driver/circus-driver.mjs";
 
 /**
  * Represents a step to setup the circus.

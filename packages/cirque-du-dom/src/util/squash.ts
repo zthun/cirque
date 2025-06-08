@@ -1,9 +1,7 @@
+import type { IZCircusAct, IZCircusAction, IZCircusKey } from "@zthun/cirque";
 import {
   isKeyboardAction,
   isMouseAction,
-  IZCircusAct,
-  IZCircusAction,
-  IZCircusKey,
   ZCircusActBuilder,
   ZCircusActionType,
   ZCircusKeyboardQwerty,

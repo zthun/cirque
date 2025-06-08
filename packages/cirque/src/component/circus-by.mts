@@ -1,6 +1,6 @@
-import { IZCircusDriver } from "../driver/circus-driver.mjs";
+import type { IZCircusDriver } from "../driver/circus-driver.mjs";
 import { ZCircusWaitOptionsBuilder } from "../driver/circus-wait-options.mjs";
-import {
+import type {
   ZCircusComponentConstructor,
   ZCircusComponentModel,
 } from "./circus-component-model.mjs";

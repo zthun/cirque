@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
+import type { IZCircusAction } from "./circus-action.mjs";
 import {
   isKeyboardAction,
   isMagicAction,
   isMouseAction,
-  IZCircusAction,
   ZCircusActionType,
 } from "./circus-action.mjs";
 

@@ -1,4 +1,4 @@
-import { IZCircusKey } from "../keyboard/circus-key.mjs";
+import type { IZCircusKey } from "../keyboard/circus-key.mjs";
 
 /**
  * Represents a type of action that can be performed.

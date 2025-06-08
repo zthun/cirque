@@ -1,11 +1,12 @@
-import {
+import type {
   IZCircusAct,
   IZCircusDriver,
   IZCircusWaitOptions,
-  ZCircusWaitOptionsBuilder,
 } from "@zthun/cirque";
+import { ZCircusWaitOptionsBuilder } from "@zthun/cirque";
 import { keyBy } from "lodash-es";
-import { By, WebDriver, WebElement } from "selenium-webdriver";
+import type { WebDriver, WebElement } from "selenium-webdriver";
+import { By } from "selenium-webdriver";
 import { squash } from "../util/squash.mjs";
 
 /**

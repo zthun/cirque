@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
 import { ZCircusSetupHook } from "../setup/circus-setup-hook.mjs";
-import { IZCircusReactHook } from "./circus-react-hook.mjs";
+import type { IZCircusReactHook } from "./circus-react-hook.mjs";
 
 describe("ZCircusReactHook", () => {
   let _target: IZCircusReactHook<

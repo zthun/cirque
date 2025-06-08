@@ -1,12 +1,12 @@
 import { ZCircusKeyTranslator } from "../keyboard/circus-key-translator.mjs";
-import { IZCircusKey } from "../keyboard/circus-key.mjs";
+import type { IZCircusKey } from "../keyboard/circus-key.mjs";
 import { ZCircusKeyboardQwerty } from "../keyboard/circus-keyboard-qwerty.mjs";
-import {
+import type {
   IZCircusAction,
-  ZCircusActionType,
   ZCircusMagicFunction,
   ZCircusMouseButton,
 } from "./circus-action.mjs";
+import { ZCircusActionType } from "./circus-action.mjs";
 
 /**
  * Represents an ordered act in a circus.

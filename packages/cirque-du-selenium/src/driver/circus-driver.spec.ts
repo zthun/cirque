@@ -1,6 +1,5 @@
+import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import {
-  IZCircusDriver,
-  IZCircusSetup,
   ZCircusActBuilder,
   ZCircusKeyboardQwerty,
   ZCircusWaitOptionsBuilder,

@@ -1,13 +1,14 @@
+import type { IZCircusAct } from "@zthun/cirque";
 import {
   isKeyboardAction,
   isMagicAction,
   isMouseAction,
-  IZCircusAct,
   ZCircusActBuilder,
   ZCircusActionType,
 } from "@zthun/cirque";
 import { snakeCase } from "lodash-es";
-import { Actions, Button, Key } from "selenium-webdriver";
+import type { Actions } from "selenium-webdriver";
+import { Button, Key } from "selenium-webdriver";
 
 /**
  * Squashes acts into specific chunks for selenium action sequences.

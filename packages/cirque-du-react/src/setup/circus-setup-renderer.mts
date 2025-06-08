@@ -1,7 +1,8 @@
-import { render, RenderOptions, RenderResult } from "@testing-library/react";
-import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import type { RenderOptions, RenderResult } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusDriver } from "@zthun/cirque-du-dom";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 
 /**
  * Represents a setup that renders a react component.

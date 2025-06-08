@@ -1,4 +1,4 @@
-import { IZCircusKey } from "./circus-key.mjs";
+import type { IZCircusKey } from "./circus-key.mjs";
 import { ZCircusKeyboardQwerty } from "./circus-keyboard-qwerty.mjs";
 
 /**

@@ -1,4 +1,4 @@
-import { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusDriver } from "../driver/circus-driver.mjs";
 import { flush } from "../util/flush.mjs";
 
