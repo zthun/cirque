@@ -28,6 +28,7 @@
     "@types/node": "^22.15.30",
     "@zthun/cirque-du-react": "^7.1.2",
     "@zthun/cirque-du-selenium": "^7.1.2",
+    "@zthun/janitor-build-config": "^19.1.0",
     "less": "^4.3.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "~5.8.3",
