@@ -15,9 +15,11 @@ export class ZCircusSetupFirefox extends ZCircusSetupBrowser {
     super(url);
   }
 
-  public builder(): Builder {
-    return new Builder()
-      .forBrowser(Browser.FIREFOX)
-      .withCapabilities(Capabilities.firefox());
+  public builder(): Promise<Builder> {
+    return Promise.resolve(
+      new Builder()
+        .forBrowser(Browser.FIREFOX)
+        .withCapabilities(Capabilities.firefox()),
+    );
   }
 }

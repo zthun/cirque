@@ -15,9 +15,11 @@ export class ZCircusSetupEdge extends ZCircusSetupBrowser {
     super(url);
   }
 
-  public builder(): Builder {
-    return new Builder()
-      .forBrowser(Browser.EDGE)
-      .withCapabilities(Capabilities.edge());
+  public builder(): Promise<Builder> {
+    return Promise.resolve(
+      new Builder()
+        .forBrowser(Browser.EDGE)
+        .withCapabilities(Capabilities.edge()),
+    );
   }
 }

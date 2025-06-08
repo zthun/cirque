@@ -1,9 +1,6 @@
 import { Browser, Builder, Capabilities } from "selenium-webdriver";
 import { ZCircusSetupBrowser } from "./circus-setup-browser.mjs";
 
-// Selenium doesn't property add the exports to the package.json file
-const Options = require("selenium-webdriver/chrome");
-
 /**
  * A setup module for the chrome driver.
  */
@@ -34,10 +31,12 @@ export class ZCircusSetupChrome extends ZCircusSetupBrowser {
     return this;
   }
 
-  public builder(): Builder {
+  public async builder(): Promise<Builder> {
     const builder = new Builder()
       .forBrowser(Browser.CHROME)
       .withCapabilities(Capabilities.chrome());
+    // @ts-expect-error This is a selenium-webdriver problem
+    const { Options } = await import("selenium-webdriver/chrome");
     const options = new Options();
 
     if (this._headless) {

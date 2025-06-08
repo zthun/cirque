@@ -21,7 +21,7 @@ export class ZCircusDriver implements IZCircusDriver {
    *        The element to wrap.
    */
   public constructor(public readonly element: HTMLElement) {
-    // JSDOM doesn't actually render anything so whenever we try to get the bounding client
+    // JSDOM and happy-dom don't actually render anything so whenever we try to get the bounding client
     // rect, it just returns (0, 0, 0, 0).  This messes up stuff that needs calculations
     // on the actual rectangles of the DOM, so we're just going to monkey patch the
     // getBoundingClientRect here.

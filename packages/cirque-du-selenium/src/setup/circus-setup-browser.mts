@@ -48,7 +48,7 @@ export abstract class ZCircusSetupBrowser
    * @returns
    *        The starting builder for this browser.
    */
-  public abstract builder(): Builder;
+  public abstract builder(): Promise<Builder>;
 
   /**
    * Constructs a new browser window and navigates to it.
@@ -59,7 +59,7 @@ export abstract class ZCircusSetupBrowser
    */
   public async setup(): Promise<IZCircusDriver> {
     if (this._driver == null) {
-      const builder = this.builder();
+      const builder = await this.builder();
       const capabilities = builder.getCapabilities();
       const driver = builder
         .withCapabilities(
