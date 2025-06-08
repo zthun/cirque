@@ -3307,6 +3307,7 @@ __metadata:
     "@zthun/janitor-build-config": "npm:^19.1.0"
     "@zthun/janitor-lint": "npm:^19.1.0"
     "@zthun/janitor-lint-config": "npm:^19.1.0"
+    "@zthun/janitor-options": "npm:^19.1.0"
     husky: "npm:^9.1.7"
     jsdom: "npm:^26.1.0"
     lerna: "npm:^8.2.2"

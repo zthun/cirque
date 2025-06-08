@@ -1,60 +1,28 @@
-const generated = [
-  "**/CHANGELOG.md",
-  "packages/**/dist/**",
-  "packages/**/docs/**",
-  "node_modules/**",
-  "packages/**/node_modules/**",
-  "package-lock.json",
-  ".yarnrc.yml",
-];
-const partialGenerated = ["cspell.json", "lerna.json"];
+import {
+  ZJanitorOptionsBuilder,
+  ZJanitorOptionsLintBuilder,
+} from "@zthun/janitor-options";
 
-const esFiles = [
-  "*.ts",
-  "packages/**/src/**/*.ts",
-  "packages/**/src/**/*.tsx",
-  "packages/**/src/**/*.mts",
-];
-const htmlFiles = ["packages/**/*.html"];
-const markdownFiles = ["*.md", "packages/**/*.md"];
-const jsonFiles = ["*.json", "packages/**/*.json"];
-const yamlFiles = [".circleci/config.yml"];
-const prettyFiles = []
-  .concat(esFiles)
-  .concat(htmlFiles)
-  .concat(markdownFiles)
-  .concat(jsonFiles)
-  .concat(yamlFiles);
-const spellingFiles = []
-  .concat(esFiles)
-  .concat(htmlFiles)
-  .concat(markdownFiles)
-  .concat(jsonFiles)
-  .concat(yamlFiles);
+const lint = new ZJanitorOptionsLintBuilder()
+  .esFile("*.{js,cjs,mjs,ts,mts,tsx}")
+  .esFile("packages/**/src/**/*.{js,cjs,mjs,ts,mts,tsx}")
+  .htmlFile("packages/**/*.html")
+  .markdownFile("*.md")
+  .markdownFile("packages/**/*.md")
+  .jsonFile("*.json")
+  .jsonFile("packages/**/*.json")
+  .yamlFile(".circleci/config.yml")
+  .generateSpellingFiles()
+  .generatePrettyFiles()
+  .excludeAll("**/CHANGELOG.md")
+  .excludeAll("packages/**/dist/**")
+  .excludeAll("packages/**/docs/**")
+  .excludeAll("node_modules/**")
+  .excludeAll("packages/**/node_modules/**")
+  .excludeAll(".yarnrc.yml")
+  .excludeAll("yarn.lock")
+  .excludeAll("lerna.json")
+  .excludeAll(".config/cspell.json")
+  .build();
 
-const esFilesExclude = generated;
-const htmlFilesExclude = generated;
-const markdownFilesExclude = generated;
-const jsonFilesExclude = generated;
-const yamlFilesExclude = generated;
-const prettyFilesExclude = generated.concat(partialGenerated);
-const spellingFilesExclude = generated.concat(partialGenerated);
-
-export default {
-  lint: {
-    esFiles,
-    esFilesExclude,
-    htmlFiles,
-    htmlFilesExclude,
-    jsonFiles,
-    jsonFilesExclude,
-    markdownFiles,
-    markdownFilesExclude,
-    prettyFiles,
-    prettyFilesExclude,
-    spellingFiles,
-    spellingFilesExclude,
-    yamlFiles,
-    yamlFilesExclude,
-  },
-};
+export default new ZJanitorOptionsBuilder().lint(lint).build();
