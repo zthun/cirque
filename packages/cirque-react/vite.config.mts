@@ -1,5 +1,9 @@
-import { ZViteConfigBuilder } from "@zthun/janitor-build-config/vite";
+import {
+  ZViteConfigBuilder,
+  ZViteServerBuilder,
+} from "@zthun/janitor-build-config/vite";
 import { defineConfig } from "vite";
 
-const config = new ZViteConfigBuilder().react().build();
+const server = new ZViteServerBuilder().dev().build();
+const config = new ZViteConfigBuilder().react().server(server).build();
 export default defineConfig(config);

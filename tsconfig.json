@@ -2,7 +2,6 @@
   "extends": "./.config/.tsconfig.json",
   "compilerOptions": {
     "baseUrl": "packages",
-    "target": "esnext",
     "paths": {
       "@zthun/cirque": ["cirque/src/index.mts"],
       "@zthun/cirque-du-dom": ["cirque-du-dom/src/index.mts"],

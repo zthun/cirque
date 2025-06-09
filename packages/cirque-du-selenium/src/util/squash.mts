@@ -55,7 +55,7 @@ export function squash(factory: () => Actions, act: IZCircusAct): IZCircusAct {
     }
 
     if (isMouseAction(action)) {
-      const button: Button = Button[action.context.toUpperCase()];
+      const button: any = Button[action.context.toUpperCase()];
       if (action.name === ZCircusActionType.MouseUp) {
         performance = performance.release(button);
       } else {
