@@ -4,6 +4,7 @@ const config = new ZTypedocConfigBuilder()
   .web()
   .entry("../*")
   .favicon("public/svg/cirque.svg")
+  .name("Circus")
   .build();
 
 export default config;

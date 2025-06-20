@@ -1,12 +1,13 @@
+import type { World } from "@cucumber/cucumber";
 import {
   After,
   Given,
   setDefaultTimeout,
   Then,
   When,
-  World,
 } from "@cucumber/cucumber";
-import { IZCircusDriver, IZCircusSetup, ZCircusBy } from "@zthun/cirque";
+import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupChrome } from "@zthun/cirque-du-selenium";
 import assert from "assert";
 import { ZTypedocPageComponentModel } from "../src/typedoc-page.cm.mjs";

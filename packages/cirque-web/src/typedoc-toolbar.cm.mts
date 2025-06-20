@@ -25,10 +25,11 @@ export class ZTypedocToolbarComponentModel extends ZCircusComponentModel {
 
   public async search(phrase: string) {
     const waits = new ZCircusWaitOptionsBuilder().debounce(1000).build();
-    const button = await this.driver.select(".tsd-toolbar-icon.search svg");
+    const button = await this.driver.select("#tsd-search-trigger svg");
     const searchFocus = new ZCircusActBuilder().click().build();
     await button.perform(searchFocus);
 
+    // Clicking the search button opens up a modal
     const typePhrase = new ZCircusActBuilder().type(phrase).build();
     await this.driver.perform(typePhrase);
     await this.driver.wait(() => true, waits);
@@ -37,5 +38,11 @@ export class ZTypedocToolbarComponentModel extends ZCircusComponentModel {
       .build();
     await this.driver.perform(commit);
     await this.driver.wait(() => true, waits);
+
+    // Now we select the first item if there is one.
+    const queryResult = "#tsd-search #tsd-search-results>li>a";
+    const result = await this.driver.select(queryResult);
+    const select = new ZCircusActBuilder().click().build();
+    await result.perform(select);
   }
 }
