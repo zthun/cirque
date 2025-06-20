@@ -5,6 +5,7 @@ const config = new ZTypedocConfigBuilder()
   .entry("../*")
   .favicon("public/svg/cirque.svg")
   .name("Circus")
+  .exclude("../cirque-react")
   .build();
 
 export default config;
