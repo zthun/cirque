@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.4](https://github.com/zthun/cirque/compare/v7.1.3...v7.1.4) (2025-06-20)
+
+
+### Bug Fixes
+
+* proper documentation should now be generated ([51129a6](https://github.com/zthun/cirque/commit/51129a6e9a80b7c84626c498995c8e6da147fefc))
+
+
+
 ## [7.1.3](https://github.com/zthun/cirque/compare/v7.1.2...v7.1.3) (2025-06-09)
 
 **Note:** Version bump only for package @zthun/cirque-du-dom
