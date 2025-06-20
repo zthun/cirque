@@ -14,11 +14,17 @@
     "DOCKERHUB",
     "geckodriver",
     "htmlhint",
+    "libc",
     "microbundle",
     "npmrc",
     "originjs",
     "zthun",
     "Zthunworks"
   ],
-  "dictionaries": ["typescript", "node", "npm", "en_US"]
+  "dictionaries": [
+    "typescript",
+    "node",
+    "npm",
+    "en_US"
+  ]
 }
