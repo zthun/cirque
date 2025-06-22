@@ -313,10 +313,14 @@ describe("ZCircusDriver (DOM)", () => {
     it("should reject if the predicate never resolves.", async () => {
       // Arrange
       const target = await createTestTarget();
-      const options = new ZCircusWaitOptionsBuilder().timeout(10).build();
+      const options = new ZCircusWaitOptionsBuilder()
+        .timeout(10)
+        .description("Short timeout test")
+        .build();
       // Act.
       // Assert
       await expect(target.wait(() => false, options)).rejects.toBeTruthy();
+      await expect(target.wait(() => false)).rejects.toBeTruthy();
     });
   });
 });
