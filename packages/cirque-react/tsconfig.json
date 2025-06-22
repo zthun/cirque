@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@zthun/cirque": ["../cirque/src/index.mts"],
+      "@zthun/cirque-du-dom": ["../cirque-du-dom/src/index.mts"],
       "@zthun/cirque-du-react": ["../cirque-du-react/src/index.mts"],
       "@zthun/cirque-du-selenium": ["../cirque-du-selenium/src/index.mts"]
     }
