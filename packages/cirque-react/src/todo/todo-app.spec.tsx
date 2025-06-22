@@ -18,8 +18,10 @@ describe("ZTodoApp", () => {
   };
 
   afterEach(() => {
-    _renderer?.destroy?.call(_renderer);
     _driver?.destroy?.call(_driver);
+    _driver?.destroy?.call(_driver);
+    _renderer?.destroy?.call(_renderer);
+    _renderer?.destroy?.call(_renderer);
   });
 
   type ChecklistFactory = (
