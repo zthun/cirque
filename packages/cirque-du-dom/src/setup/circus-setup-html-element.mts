@@ -9,6 +9,18 @@ export class ZCircusSetupHtmlElement implements IZCircusSetup<IZCircusDriver> {
   private _current: HTMLElement | null;
 
   /**
+   * Gets whether the setup has been initialized.
+   *
+   * @returns
+   *        True if the setup method was invoked and is not destroyed.
+   *        False if it was never invoked and this setup has not been
+   *        destroyed.
+   */
+  public async initialized() {
+    return this._current != null;
+  }
+
+  /**
    * Initializes a new instance of this object.
    *
    * @param _template -
