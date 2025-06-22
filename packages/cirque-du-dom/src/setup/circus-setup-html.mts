@@ -6,7 +6,20 @@ import { ZCircusSetupHtmlElement } from "./circus-setup-html-element.mjs";
  * Represents a setup that renders a react component.
  */
 export class ZCircusSetupHtml implements IZCircusSetup {
-  private _node: IZCircusSetup | null = null;
+  private _node: ZCircusSetupHtmlElement | null = null;
+
+  /**
+   * Gets whether the setup has been initialized.
+   *
+   * @returns
+   *        True if the setup method was invoked and is not destroyed.
+   *        False if it was never invoked and this setup has not been
+   *        destroyed.
+   */
+  public async initialized() {
+    const _initialized = await this._node?.initialized();
+    return !!_initialized;
+  }
 
   /**
    * Initializes a new instance of this object.
@@ -20,7 +33,7 @@ export class ZCircusSetupHtml implements IZCircusSetup {
    * Destroys / Removes the element from the DOM.
    */
   public async destroy(): Promise<void> {
-    this._node?.destroy?.call(this._node);
+    this._node?.destroy();
     this._node = null;
     await flush();
   }
