@@ -54,7 +54,7 @@ function squashKeyboardEvents(
     const isAKeyPress =
       stepAction.name === ZCircusActionType.KeyDown &&
       nextAction?.name === ZCircusActionType.KeyUp &&
-      key.code === nextKey?.code;
+      key.code === nextKey.code;
 
     if (isAKeyPress) {
       chain.push(key.printable ? value : `{${value}}`);
