@@ -76,7 +76,7 @@ export function squash(factory: () => Actions, act: IZCircusAct): IZCircusAct {
 
   if (performance != null) {
     const _performance = performance;
-    newAct.magic(() => _performance?.perform());
+    newAct.magic(() => _performance.perform());
   }
 
   return newAct.build();
