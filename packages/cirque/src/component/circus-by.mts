@@ -31,6 +31,9 @@ export abstract class ZCircusBy {
    * @param selector -
    *        The optional selector to query.  If this is falsy,
    *        the the component model internal selector is used.
+   *
+   * @returns
+   *        A list of component models that match the selector.
    */
   public static async all<T extends ZCircusComponentModel>(
     driver: IZCircusDriver,
