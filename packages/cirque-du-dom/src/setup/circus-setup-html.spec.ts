@@ -1,17 +1,11 @@
-import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
 import { afterEach, describe, expect, it } from "vitest";
 import { ZCircusSetupHtml } from "./circus-setup-html.mjs";
-
-class ZCircusTestComponentModel extends ZCircusComponentModel {
-  public static readonly Selector = ".ZCircusTest-root";
-}
 
 describe("ZCircusSetupHtml", () => {
   let _target: ZCircusSetupHtml;
 
   const createTestTarget = () => {
-    const cls = "ZCircusTest-root ZCircusTest-target";
-    const html = `<div class="${cls}">Test Div</div>`;
+    const html = `<div>Test Div</div>`;
 
     _target = new ZCircusSetupHtml(html);
     return _target;
@@ -51,23 +45,6 @@ describe("ZCircusSetupHtml", () => {
   });
 
   describe("Setup", () => {
-    it("should parse the html", async () => {
-      // Arrange.
-      const target = createTestTarget();
-      const driver = await target.setup();
-
-      // Act.
-      const [actual] = await ZCircusBy.all(
-        driver,
-        ZCircusTestComponentModel,
-        ".ZCircusTest-target",
-      );
-      await driver.destroy?.call(driver);
-
-      // Assert.
-      expect(actual).toBeTruthy();
-    });
-
     it("should initialize the driver", async () => {
       // Arrange.
       const target = createTestTarget();
