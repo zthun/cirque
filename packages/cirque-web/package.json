@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.14",
     "@zthun/cirque": "^7.1.5",
     "@zthun/cirque-du-dom": "^7.1.5",
     "@zthun/cirque-du-react": "^7.1.5",
     "@zthun/cirque-du-selenium": "^7.1.5",
-    "@zthun/janitor-build-config": "^19.2.4",
-    "typedoc": "^0.28.5",
+    "@zthun/janitor-build-config": "^19.3.1",
+    "typedoc": "^0.28.7",
     "typescript": "~5.8.3"
   },
   "files": [
