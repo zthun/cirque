@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.8](https://github.com/zthun/cirque/compare/v7.1.7...v7.1.8) (2025-09-09)
+
+**Note:** Version bump only for package @zthun/cirque-du-selenium
+
+
+
+
+
 ## [7.1.7](https://github.com/zthun/cirque/compare/v7.1.6...v7.1.7) (2025-09-06)
 
 **Note:** Version bump only for package @zthun/cirque-du-selenium
