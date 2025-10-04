@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-react",
-  "version": "7.1.8",
+  "version": "7.1.9",
   "description": "A sample todo react application for use with testing the circus react framework",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@zthun/cirque": "^7.1.8",
+    "@zthun/cirque": "^7.1.9",
     "lodash-es": "^4.17.21",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -26,8 +26,8 @@
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
     "@types/node": "^24.6.2",
-    "@zthun/cirque-du-react": "^7.1.8",
-    "@zthun/cirque-du-selenium": "^7.1.8",
+    "@zthun/cirque-du-react": "^7.1.9",
+    "@zthun/cirque-du-selenium": "^7.1.9",
     "@zthun/janitor-build-config": "^19.3.5",
     "less": "^4.4.1",
     "tsconfig-paths": "^4.2.0",

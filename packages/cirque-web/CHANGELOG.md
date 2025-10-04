@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.9](https://github.com/zthun/cirque/compare/v7.1.8...v7.1.9) (2025-10-04)
+
+**Note:** Version bump only for package @zthun/cirque-web
+
+
+
+
+
 ## [7.1.8](https://github.com/zthun/cirque/compare/v7.1.7...v7.1.8) (2025-09-09)
 
 **Note:** Version bump only for package @zthun/cirque-web
