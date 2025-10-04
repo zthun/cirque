@@ -18,21 +18,21 @@
   "dependencies": {
     "@zthun/cirque": "^7.1.8",
     "lodash-es": "^4.17.21",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "uuid": "^13.0.0",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
-    "@types/node": "^24.3.1",
+    "@types/node": "^24.6.2",
     "@zthun/cirque-du-react": "^7.1.8",
     "@zthun/cirque-du-selenium": "^7.1.8",
-    "@zthun/janitor-build-config": "^19.3.4",
+    "@zthun/janitor-build-config": "^19.3.5",
     "less": "^4.4.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "~5.9.2",
-    "vite": "^7.1.5",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.9",
     "vitest": "^3.2.4"
   }
 }
