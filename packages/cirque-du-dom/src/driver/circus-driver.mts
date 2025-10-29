@@ -38,6 +38,17 @@ export class ZCircusDriver implements IZCircusDriver {
       }) as unknown as DOMRect;
   }
 
+  public async destroy() {
+    // Happy-DOM will throw AbortErrors if it is loading anything,
+    // so we want to make sure we wait for this thing to finish.
+    // JSDom does not have this problem.
+    const win = globalThis.window as any;
+
+    if (win?.happyDOM?.whenAsyncComplete) {
+      await win.happyDOM.whenAsyncComplete();
+    }
+  }
+
   public attribute<T extends string>(
     attribute: string,
     fallback: T | null = null,

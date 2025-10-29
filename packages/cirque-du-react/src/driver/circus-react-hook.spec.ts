@@ -1,3 +1,4 @@
+import { ZCircusDestroy } from "@zthun/cirque";
 import type { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
@@ -15,9 +16,7 @@ describe("ZCircusReactHook", () => {
     return _target;
   };
 
-  afterEach(async () => {
-    await _target?.destroy();
-  });
+  afterEach(() => ZCircusDestroy.sequential(_target));
 
   it("should rerender the value", async () => {
     // Arrange.

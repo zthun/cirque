@@ -1,18 +1,11 @@
+import type { IZCircusDestroy } from "../destroyable/circus-destroy.mjs";
 import type { IZCircusAct } from "../performance/circus-act.mjs";
 import type { IZCircusWaitOptions } from "./circus-wait-options.mjs";
 
 /**
  * Represents a driver that manages search and action criteria on a page object model.
  */
-export interface IZCircusDriver {
-  /**
-   * Destroys the driver session.
-   *
-   * This releases all memory and items used by the driver.
-   * If nothing is used, then this may do nothing.
-   */
-  destroy?(): Promise<void>;
-
+export interface IZCircusDriver extends IZCircusDestroy {
   /**
    * Returns an attribute of the driver.
    *

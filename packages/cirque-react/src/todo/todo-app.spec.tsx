@@ -1,5 +1,5 @@
 import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
-import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { afterEach, describe, expect, it } from "vitest";
 import type { ZChecklistComponentModel } from "./checklist/checklist.cm.mjs";
@@ -17,12 +17,7 @@ describe("ZTodoApp", () => {
     return ZCircusBy.first(_driver, ZTodoAppComponentModel);
   };
 
-  afterEach(() => {
-    _driver?.destroy?.call(_driver);
-    _driver?.destroy?.call(_driver);
-    _renderer?.destroy?.call(_renderer);
-    _renderer?.destroy?.call(_renderer);
-  });
+  afterEach(() => ZCircusDestroy.sequential(_driver, _renderer));
 
   type ChecklistFactory = (
     t: ZTodoAppComponentModel,

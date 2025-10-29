@@ -1,14 +1,23 @@
-import { ZCircusBy } from "@zthun/cirque";
+import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { ZChecklistComponentModel } from "./checklist.cm.mjs";
 import { ZChecklist } from "./checklist.js";
 
 describe("ZChecklist", () => {
+  let _renderer: IZCircusSetup | undefined;
+  let _driver: IZCircusDriver | undefined;
+
+  afterEach(() => ZCircusDestroy.sequential(_driver, _renderer));
+
   const createTestTarget = async () => {
     const element = <ZChecklist />;
-    const driver = await new ZCircusSetupRenderer(element).setup();
-    return ZCircusBy.first(driver, ZChecklistComponentModel);
+
+    _renderer = new ZCircusSetupRenderer(element);
+    _driver = await _renderer.setup();
+
+    return ZCircusBy.first(_driver, ZChecklistComponentModel);
   };
 
   it("should start as empty", async () => {

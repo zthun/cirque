@@ -1,3 +1,4 @@
+import type { IZCircusDestroy } from "../destroyable/circus-destroy.mjs";
 import type { IZCircusDriver } from "../driver/circus-driver.mjs";
 
 /**
@@ -7,12 +8,7 @@ import type { IZCircusDriver } from "../driver/circus-driver.mjs";
  *        The type of data the setup will return.  Defaults
  *        to a circus driver.
  */
-export interface IZCircusSetup<T = IZCircusDriver> {
-  /**
-   * Releases and cleans up any items used by this setup.
-   */
-  destroy?(): Promise<void>;
-
+export interface IZCircusSetup<T = IZCircusDriver> extends IZCircusDestroy {
   /**
    * Sets up the circus environment.
    *

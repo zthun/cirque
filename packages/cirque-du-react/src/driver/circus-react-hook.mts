@@ -1,20 +1,10 @@
 import type { RenderHookResult } from "@testing-library/react";
+import type { IZCircusDestroy } from "@zthun/cirque";
 
 /**
  * Represents a driver for a react hook.
  */
-export interface IZCircusReactHook<T, P> {
-  /**
-   * Destroys the hook.
-   *
-   * This call is optional.  Hooks will
-   * be destroyed automatically when the test
-   * framework is unmounted.  This is useful
-   * for testing use cases of a hook after the parent
-   * component has been unmounted.
-   */
-  destroy(): Promise<void>;
-
+export interface IZCircusReactHook<T, P> extends IZCircusDestroy {
   /**
    * Returns the current state of the data.
    *
