@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
-    "@types/node": "^24.9.1",
+    "@types/node": "^24.9.2",
     "@zthun/cirque": "^7.1.11",
     "@zthun/cirque-du-dom": "^7.1.11",
     "@zthun/cirque-du-react": "^7.1.11",
