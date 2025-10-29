@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.0](https://github.com/zthun/cirque/compare/v7.1.11...v7.2.0) (2025-10-29)
+
+
+### Bug Fixes
+
+* happy-dom should no longer complain about abort errors ([b605a55](https://github.com/zthun/cirque/commit/b605a5567075e87a5893e33c0dee3f2eb0bcb017))
+
+
+
 ## [7.1.11](https://github.com/zthun/cirque/compare/v7.1.10...v7.1.11) (2025-10-23)
 
 **Note:** Version bump only for package @zthun/cirque-du-dom

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.0](https://github.com/zthun/cirque/compare/v7.1.11...v7.2.0) (2025-10-29)
+
+
+### Features
+
+* circus-destroy allows you to mass destroy objects that implement a destroy method ([123b710](https://github.com/zthun/cirque/commit/123b7101d47d8267e441dad78427257e8e4d8469))
+
+
+
 ## [7.1.11](https://github.com/zthun/cirque/compare/v7.1.10...v7.1.11) (2025-10-23)
 
 **Note:** Version bump only for package @zthun/cirque
