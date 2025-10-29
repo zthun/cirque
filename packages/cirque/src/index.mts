@@ -1,5 +1,6 @@
 export * from "./component/circus-by.mjs";
 export * from "./component/circus-component-model.mjs";
+export * from "./destroyable/circus-destroy.mjs";
 export * from "./driver/circus-driver.mjs";
 export * from "./driver/circus-wait-options.mjs";
 export * from "./keyboard/circus-key.mjs";
