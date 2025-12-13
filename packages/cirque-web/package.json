@@ -18,14 +18,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^12.2.0",
-    "@types/node": "^24.9.2",
+    "@cucumber/cucumber": "^12.4.0",
+    "@types/node": "^25.0.1",
     "@zthun/cirque": "^7.2.0",
     "@zthun/cirque-du-dom": "^7.2.0",
     "@zthun/cirque-du-react": "^7.2.0",
     "@zthun/cirque-du-selenium": "^7.2.0",
-    "@zthun/janitor-build-config": "^19.4.2",
-    "typedoc": "^0.28.14",
+    "@zthun/janitor-build-config": "^19.5.2",
+    "typedoc": "^0.28.15",
     "typescript": "~5.9.3"
   },
   "files": [
