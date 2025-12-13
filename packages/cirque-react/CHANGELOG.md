@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/zthun/cirque/compare/v7.2.0...v7.2.1) (2025-12-13)
+
+**Note:** Version bump only for package @zthun/cirque-react
+
+
+
+
+
 ## [7.2.0](https://github.com/zthun/cirque/compare/v7.1.11...v7.2.0) (2025-10-29)
 
 **Note:** Version bump only for package @zthun/cirque-react
