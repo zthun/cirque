@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-react",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "description": "A sample todo react application for use with testing the circus react framework",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@zthun/cirque": "^7.2.0",
+    "@zthun/cirque": "^7.2.1",
     "lodash-es": "^4.17.21",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
