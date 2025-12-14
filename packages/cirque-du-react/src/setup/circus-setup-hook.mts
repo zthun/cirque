@@ -7,9 +7,9 @@ import { ZCircusReactHook } from "../driver/circus-react-hook.mjs";
 /**
  * Represents a setup mechanism that renders a react hook.
  */
-export class ZCircusSetupHook<T, P>
-  implements IZCircusSetup<IZCircusReactHook<T, P>>
-{
+export class ZCircusSetupHook<T, P> implements IZCircusSetup<
+  IZCircusReactHook<T, P>
+> {
   /**
    * Initializes a new instance of this object.
    */

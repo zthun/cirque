@@ -6,9 +6,7 @@ import { ZCircusDriver } from "../driver/circus-driver.mjs";
 /**
  * Represents a necessary setup that can open a browser.
  */
-export abstract class ZCircusSetupBrowser
-  implements IZCircusSetup<IZCircusDriver>
-{
+export abstract class ZCircusSetupBrowser implements IZCircusSetup<IZCircusDriver> {
   private _acceptInsecureCerts = false;
   private _driver: WebDriver | null = null;
 
