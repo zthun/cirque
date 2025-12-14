@@ -31,7 +31,7 @@
     "@zthun/cirque-du-dom": "^7.2.0"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^19.5.2",
+    "@zthun/janitor-build-config": "^19.5.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "typescript": "~5.9.3",
