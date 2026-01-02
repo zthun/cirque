@@ -3897,6 +3897,7 @@ __metadata:
     "@zthun/janitor-lint": "npm:^19.5.4"
     "@zthun/janitor-lint-config": "npm:^19.5.4"
     "@zthun/janitor-options": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     happy-dom: "npm:^20.0.11"
     husky: "npm:^9.1.7"
     lerna: "npm:^9.0.3"
@@ -3919,6 +3920,7 @@ __metadata:
     "@testing-library/user-event": "npm:^14.6.1"
     "@zthun/cirque": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     lodash-es: "npm:^4.17.22"
     typescript: "npm:~5.9.3"
     vite: "npm:^7.3.0"
@@ -3935,6 +3937,7 @@ __metadata:
     "@zthun/cirque": "npm:^7.2.3"
     "@zthun/cirque-du-dom": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
     typescript: "npm:~5.9.3"
@@ -3952,6 +3955,7 @@ __metadata:
   dependencies:
     "@zthun/cirque": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     lodash-es: "npm:^4.17.22"
     selenium-webdriver: "npm:^4.39.0"
     typescript: "npm:~5.9.3"
@@ -3970,6 +3974,7 @@ __metadata:
     "@zthun/cirque-du-react": "npm:^7.2.3"
     "@zthun/cirque-du-selenium": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     less: "npm:^4.5.1"
     lodash-es: "npm:^4.17.22"
     react: "npm:^19.2.3"
@@ -3992,6 +3997,7 @@ __metadata:
     "@zthun/cirque-du-react": "npm:^7.2.3"
     "@zthun/cirque-du-selenium": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     typedoc: "npm:^0.28.15"
     typescript: "npm:~5.9.3"
   languageName: unknown
@@ -4002,6 +4008,7 @@ __metadata:
   resolution: "@zthun/cirque@workspace:packages/cirque"
   dependencies:
     "@zthun/janitor-build-config": "npm:^19.5.4"
+    "@zthun/janitor-ts-config": "npm:^19.5.3"
     typescript: "npm:~5.9.3"
     vite: "npm:^7.3.0"
     vitest: "npm:^4.0.16"
@@ -4180,6 +4187,15 @@ __metadata:
     postcss: ^8.0.0
     stylelint: ^16.0.0
   checksum: 10/1bcaa2d63273807bd85c92beb70259846f40315ad8f6e31e927f0ddab062009d1e1386ff47b36753d56d8064488eedb591a326ac2bbe9f10ebaa266a4b818c2d
+  languageName: node
+  linkType: hard
+
+"@zthun/janitor-ts-config@npm:^19.5.3":
+  version: 19.5.3
+  resolution: "@zthun/janitor-ts-config@npm:19.5.3"
+  peerDependencies:
+    typescript: ^5.0.0
+  checksum: 10/2bee97906e424926e0dfbd70dbb9a137e683203358a4ebffd454111417dfe291cc17dd5d2cb80e5d5f4b0d5c1b3204b54eb4a57eb2cc57d3fc360fc3a4b3da98
   languageName: node
   linkType: hard
 

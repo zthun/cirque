@@ -37,6 +37,7 @@
     "@zthun/janitor-lint": "^19.5.4",
     "@zthun/janitor-lint-config": "^19.5.4",
     "@zthun/janitor-options": "^19.5.4",
+    "@zthun/janitor-ts-config": "^19.5.3",
     "happy-dom": "^20.0.11",
     "husky": "^9.1.7",
     "lerna": "^9.0.3",

@@ -1,5 +1,9 @@
 {
-  "extends": "./.config/.tsconfig.json",
+  "extends": [
+    "@zthun/janitor-ts-config/base.json",
+    "@zthun/janitor-ts-config/browser.json",
+    "@zthun/janitor-ts-config/react.json"
+  ],
   "compilerOptions": {
     "baseUrl": "packages",
     "paths": {
