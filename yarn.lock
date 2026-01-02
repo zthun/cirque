@@ -3911,13 +3911,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-dom@npm:^7.2.2, @zthun/cirque-du-dom@workspace:packages/cirque-du-dom":
+"@zthun/cirque-du-dom@npm:^7.2.3, @zthun/cirque-du-dom@workspace:packages/cirque-du-dom":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-dom@workspace:packages/cirque-du-dom"
   dependencies:
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/user-event": "npm:^14.6.1"
-    "@zthun/cirque": "npm:^7.2.2"
+    "@zthun/cirque": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     lodash-es: "npm:^4.17.22"
     typescript: "npm:~5.9.3"
@@ -3926,14 +3926,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-react@npm:^7.2.2, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
+"@zthun/cirque-du-react@npm:^7.2.3, @zthun/cirque-du-react@workspace:packages/cirque-du-react":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-react@workspace:packages/cirque-du-react"
   dependencies:
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/react": "npm:^16.3.1"
-    "@zthun/cirque": "npm:^7.2.2"
-    "@zthun/cirque-du-dom": "npm:^7.2.2"
+    "@zthun/cirque": "npm:^7.2.3"
+    "@zthun/cirque-du-dom": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     react: "npm:^19.2.3"
     react-dom: "npm:^19.2.3"
@@ -3946,11 +3946,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque-du-selenium@npm:^7.2.2, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
+"@zthun/cirque-du-selenium@npm:^7.2.3, @zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque-du-selenium@workspace:packages/cirque-du-selenium"
   dependencies:
-    "@zthun/cirque": "npm:^7.2.2"
+    "@zthun/cirque": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     lodash-es: "npm:^4.17.22"
     selenium-webdriver: "npm:^4.39.0"
@@ -3966,9 +3966,9 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": "npm:^12.5.0"
     "@types/node": "npm:^25.0.3"
-    "@zthun/cirque": "npm:^7.2.2"
-    "@zthun/cirque-du-react": "npm:^7.2.2"
-    "@zthun/cirque-du-selenium": "npm:^7.2.2"
+    "@zthun/cirque": "npm:^7.2.3"
+    "@zthun/cirque-du-react": "npm:^7.2.3"
+    "@zthun/cirque-du-selenium": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     less: "npm:^4.5.1"
     lodash-es: "npm:^4.17.22"
@@ -3987,17 +3987,17 @@ __metadata:
   dependencies:
     "@cucumber/cucumber": "npm:^12.5.0"
     "@types/node": "npm:^25.0.3"
-    "@zthun/cirque": "npm:^7.2.2"
-    "@zthun/cirque-du-dom": "npm:^7.2.2"
-    "@zthun/cirque-du-react": "npm:^7.2.2"
-    "@zthun/cirque-du-selenium": "npm:^7.2.2"
+    "@zthun/cirque": "npm:^7.2.3"
+    "@zthun/cirque-du-dom": "npm:^7.2.3"
+    "@zthun/cirque-du-react": "npm:^7.2.3"
+    "@zthun/cirque-du-selenium": "npm:^7.2.3"
     "@zthun/janitor-build-config": "npm:^19.5.4"
     typedoc: "npm:^0.28.15"
     typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
-"@zthun/cirque@npm:^7.2.2, @zthun/cirque@workspace:packages/cirque":
+"@zthun/cirque@npm:^7.2.3, @zthun/cirque@workspace:packages/cirque":
   version: 0.0.0-use.local
   resolution: "@zthun/cirque@workspace:packages/cirque"
   dependencies:
