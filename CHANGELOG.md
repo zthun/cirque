@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>7.2.5 (2026-01-31)</small>
+
+* build: update lint config ([d9017e2](https://github.com/zthun/cirque/commit/d9017e2))
+* build: update outdated packages ([ecad543](https://github.com/zthun/cirque/commit/ecad543))
+* chore: update yarn lockfile [skip ci] ([bbbcc47](https://github.com/zthun/cirque/commit/bbbcc47))
+* chore: update yarn lockfile [skip ci] ([f163376](https://github.com/zthun/cirque/commit/f163376))
+
+
+
+
+
 ## [7.2.4](https://github.com/zthun/cirque/compare/v7.2.3...v7.2.4) (2026-01-02)
 
 **Note:** Version bump only for package @zthun/circus
