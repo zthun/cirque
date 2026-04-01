@@ -1,9 +1,10 @@
+import "./checklist.less";
+
 import { startCase } from "lodash-es";
 import { useState } from "react";
 import { v4 } from "uuid";
-import { ZChecklistItem } from "./checklist-item.js";
 
-import "./checklist.less";
+import { ZChecklistItem } from "./checklist-item.js";
 
 interface IZCheckItem {
   id: string;

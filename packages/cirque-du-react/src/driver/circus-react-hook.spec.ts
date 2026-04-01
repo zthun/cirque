@@ -2,6 +2,7 @@ import { ZCircusDestroy } from "@zthun/cirque";
 import type { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
+
 import { ZCircusSetupHook } from "../setup/circus-setup-hook.mjs";
 import type { IZCircusReactHook } from "./circus-react-hook.mjs";
 

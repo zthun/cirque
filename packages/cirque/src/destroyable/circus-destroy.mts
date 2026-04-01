@@ -29,7 +29,7 @@ export abstract class ZCircusDestroy {
     ...destructible: (IZCircusDestroy | undefined | null)[]
   ) {
     // Order matters here, so we destroy them one at a time instead of all at once.
-    for await (const destroyable of destructible) {
+    for (const destroyable of destructible) {
       await destroyable?.destroy?.call(destroyable);
     }
   }

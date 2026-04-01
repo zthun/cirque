@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { mock } from "vitest-mock-extended";
-import { ZCircusDestroy, type IZCircusDestroy } from "./circus-destroy.mjs";
+
+import { type IZCircusDestroy, ZCircusDestroy } from "./circus-destroy.mjs";
 
 describe("ZCircusDestroy", () => {
   describe("Sequential", () => {

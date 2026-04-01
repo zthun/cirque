@@ -1,4 +1,5 @@
 import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+
 import { ZCircusDriver } from "../driver/circus-driver.mjs";
 import { flush } from "../util/flush.mjs";
 
@@ -16,8 +17,8 @@ export class ZCircusSetupHtmlElement implements IZCircusSetup<IZCircusDriver> {
    *        False if it was never invoked and this setup has not been
    *        destroyed.
    */
-  public async initialized() {
-    return this._current != null;
+  public initialized() {
+    return Promise.resolve(this._current != null);
   }
 
   /**

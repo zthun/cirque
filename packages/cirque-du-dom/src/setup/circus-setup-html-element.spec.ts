@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
+
 import { ZCircusSetupHtmlElement } from "./circus-setup-html-element.mjs";
 
 describe("ZCircusSetupHtmlElement", () => {

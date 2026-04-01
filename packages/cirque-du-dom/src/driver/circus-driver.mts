@@ -7,6 +7,7 @@ import type {
 } from "@zthun/cirque";
 import { ZCircusWaitOptionsBuilder } from "@zthun/cirque";
 import { get, keyBy, trim } from "lodash-es";
+
 import { flush } from "../util/flush.mjs";
 import { squash } from "../util/squash.mjs";
 
@@ -36,17 +37,6 @@ export class ZCircusDriver implements IZCircusDriver {
         top: 0,
         bottom: 25,
       }) as unknown as DOMRect;
-  }
-
-  public async destroy() {
-    // Happy-DOM will throw AbortErrors if it is loading anything,
-    // so we want to make sure we wait for this thing to finish.
-    // JSDom does not have this problem.
-    const win = globalThis.window as any;
-
-    if (win?.happyDOM?.whenAsyncComplete) {
-      await win.happyDOM.whenAsyncComplete();
-    }
   }
 
   public attribute<T extends string>(
@@ -122,9 +112,7 @@ export class ZCircusDriver implements IZCircusDriver {
     const drivers = await this.query(selector);
 
     if (!drivers.length) {
-      return Promise.reject(
-        `No element with selector, ${selector}, could be found.`,
-      );
+      throw new Error(`No element with selector, ${selector}, could be found.`);
     }
 
     return drivers[0];

@@ -1,6 +1,6 @@
-import { ZChecklist } from "./checklist/checklist.js";
-
 import "./todo-app.less";
+
+import { ZChecklist } from "./checklist/checklist.js";
 
 /**
  * Represents the main entry point for the application.

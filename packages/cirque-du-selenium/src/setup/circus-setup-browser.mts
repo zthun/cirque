@@ -1,6 +1,7 @@
 import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import type { Builder, WebDriver } from "selenium-webdriver";
 import { By } from "selenium-webdriver";
+
 import { ZCircusDriver } from "../driver/circus-driver.mjs";
 
 /**

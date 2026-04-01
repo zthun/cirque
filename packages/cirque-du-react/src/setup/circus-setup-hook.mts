@@ -1,6 +1,7 @@
 import type { RenderHookOptions } from "@testing-library/react";
 import { renderHook } from "@testing-library/react";
 import type { IZCircusSetup } from "@zthun/cirque";
+
 import type { IZCircusReactHook } from "../driver/circus-react-hook.mjs";
 import { ZCircusReactHook } from "../driver/circus-react-hook.mjs";
 

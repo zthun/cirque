@@ -1,8 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+
 import { ZTodoApp } from "./todo/todo-app.js";
 
-const container = createRoot(document.getElementById("zthunworks-circus")!);
+const root = document.getElementById("zthunworks-circus") as HTMLElement;
+
+const container = createRoot(root);
 
 container.render(
   <StrictMode>

@@ -1,4 +1,5 @@
 import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
+
 import { flush } from "../util/flush.mjs";
 import { ZCircusSetupHtmlElement } from "./circus-setup-html-element.mjs";
 
@@ -33,7 +34,7 @@ export class ZCircusSetupHtml implements IZCircusSetup {
    * Destroys / Removes the element from the DOM.
    */
   public async destroy(): Promise<void> {
-    this._node?.destroy();
+    await this._node?.destroy();
     this._node = null;
     await flush();
   }

@@ -1,5 +1,5 @@
-import { ZCircusKeyTranslator } from "../keyboard/circus-key-translator.mjs";
 import type { IZCircusKey } from "../keyboard/circus-key.mjs";
+import { ZCircusKeyTranslator } from "../keyboard/circus-key-translator.mjs";
 import { ZCircusKeyboardQwerty } from "../keyboard/circus-keyboard-qwerty.mjs";
 import type {
   IZCircusAction,
@@ -49,7 +49,7 @@ export class ZCircusActBuilder {
    * @returns
    *        This object.
    */
-  private _action(name: ZCircusActionType, context?: any): this {
+  private _action(name: ZCircusActionType, context?: unknown): this {
     return this.action({ name, context });
   }
 

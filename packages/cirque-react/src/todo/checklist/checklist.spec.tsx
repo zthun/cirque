@@ -2,6 +2,7 @@ import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { afterEach, describe, expect, it } from "vitest";
+
 import { ZChecklistComponentModel } from "./checklist.cm.mjs";
 import { ZChecklist } from "./checklist.js";
 

@@ -10,6 +10,7 @@ import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusBy } from "@zthun/cirque";
 import { ZCircusSetupChrome } from "@zthun/cirque-du-selenium";
 import assert from "assert";
+
 import { ZTypedocPageComponentModel } from "../src/typedoc-page.cm.mjs";
 
 setDefaultTimeout(30000);
@@ -23,13 +24,10 @@ async function page(world: IZWorld) {
   return ZCircusBy.first(driver, ZTypedocPageComponentModel);
 }
 
-Given(
-  "I navigate to the typedoc application",
-  async function (this: World<IZWorld>) {
-    const url = "http://localhost:5174";
-    this.parameters.browser = new ZCircusSetupChrome(url).acceptInsecureCerts();
-  },
-);
+Given("I navigate to the typedoc application", function (this: World<IZWorld>) {
+  const url = "http://localhost:5174";
+  this.parameters.browser = new ZCircusSetupChrome(url).acceptInsecureCerts();
+});
 
 When(
   "I search for {string} on the typedoc page",

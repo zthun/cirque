@@ -31,10 +31,10 @@
     "lodash-es": "^4.17.23"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^19.5.6",
-    "@zthun/janitor-ts-config": "^19.5.3",
+    "@zthun/janitor-build-config": "^20.0.0",
+    "@zthun/janitor-ts-config": "^20.0.0",
     "typescript": "~5.9.3",
-    "vite": "^7.3.1",
+    "vite": "^8.0.3",
     "vitest": "^4.1.2"
   },
   "files": [
