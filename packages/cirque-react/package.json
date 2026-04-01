@@ -27,7 +27,7 @@
     "@types/node": "^25.5.0",
     "@zthun/cirque-du-react": "^7.2.5",
     "@zthun/cirque-du-selenium": "^7.2.5",
-    "@zthun/janitor-build-config": "^20.0.0",
+    "@zthun/janitor-build-config": "^20.0.2",
     "@zthun/janitor-ts-config": "^20.0.0",
     "less": "^4.6.4",
     "typescript": "~5.9.3",
