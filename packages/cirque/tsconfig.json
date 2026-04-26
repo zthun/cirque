@@ -3,5 +3,5 @@
     "@zthun/janitor-ts-config/base.json",
     "@zthun/janitor-ts-config/browser.json"
   ],
-  "include": ["src/**/*.ts", "src/**/*.mts"]
+  "include": ["**/*.ts", "**/*.mts"]
 }

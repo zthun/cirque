@@ -4,10 +4,9 @@
     "@zthun/janitor-ts-config/browser.json"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@zthun/cirque": ["../cirque/src/index.mts"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.mts"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"]
 }

@@ -5,14 +5,14 @@
     "@zthun/janitor-ts-config/react.json"
   ],
   "compilerOptions": {
-    "baseUrl": "packages",
     "paths": {
-      "@zthun/cirque": ["cirque/src/index.mts"],
-      "@zthun/cirque-du-dom": ["cirque-du-dom/src/index.mts"],
-      "@zthun/cirque-du-react": ["cirque-du-react/src/index.mts"],
-      "@zthun/cirque-du-selenium": ["cirque-du-selenium/src/index.mts"]
+      "@zthun/cirque": ["./packages/cirque/src/index.mts"],
+      "@zthun/cirque-du-dom": ["./packages/cirque-du-dom/src/index.mts"],
+      "@zthun/cirque-du-react": ["./packages/cirque-du-react/src/index.mts"],
+      "@zthun/cirque-du-selenium": [
+        "./packages/cirque-du-selenium/src/index.mts"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"],
-  "exclude": ["**/node_modules/**", "**/dist/**"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"]
 }

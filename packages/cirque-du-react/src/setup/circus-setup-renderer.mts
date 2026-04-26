@@ -24,7 +24,8 @@ export class ZCircusSetupRenderer implements IZCircusSetup<IZCircusDriver> {
   ) {
     // We will flush the event loops ourselves.  Trying to mingle this with @testing-library
     // is a mess.  So we will just turn all this off.
-    global.IS_REACT_ACT_ENVIRONMENT = false;
+    const _global: any = globalThis;
+    _global.IS_REACT_ACT_ENVIRONMENT = false;
   }
 
   public async destroy() {

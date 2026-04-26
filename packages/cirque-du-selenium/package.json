@@ -26,15 +26,15 @@
   },
   "dependencies": {
     "@zthun/cirque": "^7.2.6",
-    "lodash-es": "^4.17.23",
-    "selenium-webdriver": "^4.41.0"
+    "lodash-es": "^4.18.1",
+    "selenium-webdriver": "^4.43.0"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^20.0.2",
-    "@zthun/janitor-ts-config": "^20.0.0",
-    "typescript": "~5.9.3",
-    "vite": "^8.0.3",
-    "vitest": "^4.1.2"
+    "@zthun/janitor-build-config": "^20.0.5",
+    "@zthun/janitor-ts-config": "^20.0.4",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   },
   "files": [
     "dist"
