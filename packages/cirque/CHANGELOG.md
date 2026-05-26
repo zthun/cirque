@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.8](https://github.com/zthun/cirque/compare/v7.2.7...v7.2.8) (2026-05-26)
+
+**Note:** Version bump only for package @zthun/cirque
+
 ## [7.2.7](https://github.com/zthun/cirque/compare/v7.2.6...v7.2.7) (2026-04-26)
 
 **Note:** Version bump only for package @zthun/cirque

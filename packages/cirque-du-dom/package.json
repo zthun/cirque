@@ -1,6 +1,6 @@
 {
   "name": "@zthun/cirque-du-dom",
-  "version": "7.2.7",
+  "version": "7.2.8",
   "description": "A cirque performance for unit testing basic dom applications and web components.",
   "author": "Anthony Bonta",
   "license": "MIT",
@@ -27,7 +27,7 @@
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/user-event": "^14.6.1",
-    "@zthun/cirque": "^7.2.7",
+    "@zthun/cirque": "^7.2.8",
     "lodash-es": "^4.18.1"
   },
   "devDependencies": {
