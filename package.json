@@ -34,7 +34,7 @@
     "@types/selenium-webdriver": "^4.35.5",
     "@vitest/coverage-v8": "^4.1.7",
     "@zthun/janitor-build-config": "^20.0.6",
-    "@zthun/janitor-eslint-config": "^20.0.6",
+    "@zthun/janitor-eslint-config": "^20.0.7",
     "@zthun/janitor-ts-config": "^20.0.4",
     "eslint": "^9.39.4",
     "happy-dom": "^20.9.0",

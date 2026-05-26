@@ -3800,7 +3800,7 @@ __metadata:
     "@types/selenium-webdriver": "npm:^4.35.5"
     "@vitest/coverage-v8": "npm:^4.1.7"
     "@zthun/janitor-build-config": "npm:^20.0.6"
-    "@zthun/janitor-eslint-config": "npm:^20.0.6"
+    "@zthun/janitor-eslint-config": "npm:^20.0.7"
     "@zthun/janitor-ts-config": "npm:^20.0.4"
     eslint: "npm:^9.39.4"
     happy-dom: "npm:^20.9.0"
@@ -3950,9 +3950,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zthun/janitor-eslint-config@npm:^20.0.6":
-  version: 20.0.6
-  resolution: "@zthun/janitor-eslint-config@npm:20.0.6"
+"@zthun/janitor-eslint-config@npm:^20.0.7":
+  version: 20.0.7
+  resolution: "@zthun/janitor-eslint-config@npm:20.0.7"
   dependencies:
     "@cspell/eslint-plugin": "npm:^10.0.0"
     "@eslint/css": "npm:^1.2.0"
@@ -3979,7 +3979,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 10/ae4b208cb8b546928ffe1ce005068e57581979019a2a09c6ac9d3e303543c55dca2541a459c1fc7106a772e3bd544ca0b23112a299d7981db365de4dfa3bd969
+  checksum: 10/960956bbffea5711dd9356e20af69d205220053562bf23c1b77d2262f57f0ea7af47060f48d9e24e2ff0a352468bc3610c001a18e1d710faf00a10f121a75145
   languageName: node
   linkType: hard
 
