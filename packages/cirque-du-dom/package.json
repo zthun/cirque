@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/user-event": "^14.6.3",
     "@zthun/cirque": "^7.2.8",
     "lodash-es": "^4.18.1"
   },
@@ -34,8 +34,8 @@
     "@zthun/janitor-build-config": "^20.0.6",
     "@zthun/janitor-ts-config": "^20.0.4",
     "typescript": "~6.0.3",
-    "vite": "^8.0.14",
-    "vitest": "^4.1.7"
+    "vite": "^8.2.1",
+    "vitest": "^4.1.10"
   },
   "files": [
     "dist"

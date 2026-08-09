@@ -44,7 +44,7 @@ export class ZCircusDriver implements IZCircusDriver {
 
   public async classes(filter?: string[]): Promise<string[]> {
     const clasz = await this._search.getAttribute("class");
-    const all = clasz.split(" ");
+    const all = (clasz || "").split(" ");
     const _filter = filter == null ? all : filter;
     const lookup = keyBy(_filter);
     const filtered = all.filter((c) =>
