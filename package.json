@@ -20,8 +20,7 @@
     "lint": "eslint",
     "check": "tsc --noEmit",
     "build": "lerna run build",
-    "make": "yarn clean && yarn lint && yarn check && yarn test && yarn build",
-    "postinstall": "husky install"
+    "make": "yarn clean && yarn lint && yarn check && yarn test && yarn build"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
@@ -34,7 +33,7 @@
     "@types/selenium-webdriver": "^4.35.6",
     "@vitest/coverage-v8": "^4.1.10",
     "@zthun/janitor-build-config": "^21.0.0",
-    "@zthun/janitor-eslint-config": "^21.0.0",
+    "@zthun/janitor-eslint-config": "^21.0.1",
     "@zthun/janitor-ts-config": "^21.0.0",
     "eslint": "^10.8.1",
     "happy-dom": "^20.11.2",
