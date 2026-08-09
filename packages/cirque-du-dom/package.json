@@ -31,8 +31,8 @@
     "lodash-es": "^4.18.1"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^20.0.6",
-    "@zthun/janitor-ts-config": "^20.0.4",
+    "@zthun/janitor-build-config": "^21.0.0",
+    "@zthun/janitor-ts-config": "^21.0.0",
     "typescript": "^6.0.3",
     "vite": "^8.2.1",
     "vitest": "^4.1.10"

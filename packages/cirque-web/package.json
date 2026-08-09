@@ -24,8 +24,8 @@
     "@zthun/cirque-du-dom": "^7.2.8",
     "@zthun/cirque-du-react": "^7.2.8",
     "@zthun/cirque-du-selenium": "^7.2.8",
-    "@zthun/janitor-build-config": "^20.0.6",
-    "@zthun/janitor-ts-config": "^20.0.4",
+    "@zthun/janitor-build-config": "^21.0.0",
+    "@zthun/janitor-ts-config": "^21.0.0",
     "typedoc": "^0.28.20",
     "typescript": "^6.0.3"
   },
