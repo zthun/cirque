@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.10](https://github.com/zthun/cirque/compare/v7.2.9...v7.2.10) (2026-08-09)
+
+**Note:** Version bump only for package @zthun/cirque-du-react
+
 ## [7.2.9](https://github.com/zthun/cirque/compare/v7.2.8...v7.2.9) (2026-08-09)
 
 **Note:** Version bump only for package @zthun/cirque-du-react
