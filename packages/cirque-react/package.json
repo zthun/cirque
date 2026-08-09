@@ -30,7 +30,7 @@
     "@zthun/janitor-build-config": "^20.0.6",
     "@zthun/janitor-ts-config": "^20.0.4",
     "less": "^4.8.1",
-    "typescript": "~6.0.3",
+    "typescript": "^6.0.3",
     "vite": "^8.2.1",
     "vitest": "^4.1.10"
   }

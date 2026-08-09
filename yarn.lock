@@ -3801,7 +3801,7 @@ __metadata:
     react-dom: "npm:^19.2.8"
     rimraf: "npm:^6.1.3"
     tsx: "npm:^4.23.11"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
   languageName: unknown
@@ -3817,7 +3817,7 @@ __metadata:
     "@zthun/janitor-build-config": "npm:^20.0.6"
     "@zthun/janitor-ts-config": "npm:^20.0.4"
     lodash-es: "npm:^4.18.1"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
   languageName: unknown
@@ -3835,7 +3835,7 @@ __metadata:
     "@zthun/janitor-ts-config": "npm:^20.0.4"
     react: "npm:^19.2.8"
     react-dom: "npm:^19.2.8"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
   peerDependencies:
@@ -3853,7 +3853,7 @@ __metadata:
     "@zthun/janitor-ts-config": "npm:^20.0.4"
     lodash-es: "npm:^4.18.1"
     selenium-webdriver: "npm:^4.46.0"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
   languageName: unknown
@@ -3874,7 +3874,7 @@ __metadata:
     lodash-es: "npm:^4.18.1"
     react: "npm:^19.2.8"
     react-dom: "npm:^19.2.8"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     uuid: "npm:^14.0.1"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
@@ -3894,7 +3894,7 @@ __metadata:
     "@zthun/janitor-build-config": "npm:^20.0.6"
     "@zthun/janitor-ts-config": "npm:^20.0.4"
     typedoc: "npm:^0.28.20"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
   languageName: unknown
   linkType: soft
 
@@ -3904,7 +3904,7 @@ __metadata:
   dependencies:
     "@zthun/janitor-build-config": "npm:^20.0.6"
     "@zthun/janitor-ts-config": "npm:^20.0.4"
-    typescript: "npm:~6.0.3"
+    typescript: "npm:^6.0.3"
     vite: "npm:^8.2.1"
     vitest: "npm:^4.1.10"
     vitest-mock-extended: "npm:^5.1.1"
@@ -11909,7 +11909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~6.0.3":
+"typescript@npm:^6.0.3":
   version: 6.0.3
   resolution: "typescript@npm:6.0.3"
   bin:
@@ -11929,7 +11929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~6.0.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^6.0.3#optional!builtin<compat/typescript>":
   version: 6.0.3
   resolution: "typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"
   bin:

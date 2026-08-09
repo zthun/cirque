@@ -35,7 +35,7 @@
     "@zthun/janitor-ts-config": "^20.0.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "typescript": "~6.0.3",
+    "typescript": "^6.0.3",
     "vite": "^8.2.1",
     "vitest": "^4.1.10"
   },

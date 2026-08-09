@@ -27,7 +27,7 @@
   "devDependencies": {
     "@zthun/janitor-build-config": "^20.0.6",
     "@zthun/janitor-ts-config": "^20.0.4",
-    "typescript": "~6.0.3",
+    "typescript": "^6.0.3",
     "vite": "^8.2.1",
     "vitest": "^4.1.10",
     "vitest-mock-extended": "^5.1.1"
