@@ -20,18 +20,19 @@
     "lodash-es": "^4.18.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.2"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^13.2.1",
     "@types/node": "^26.2.0",
     "@zthun/cirque-du-react": "^7.2.11",
     "@zthun/cirque-du-selenium": "^7.2.11",
-    "@zthun/janitor-build-config": "^21.0.0",
+    "@zthun/janitor-build-config": "^21.1.0",
     "@zthun/janitor-ts-config": "^21.0.0",
-    "less": "^4.8.1",
+    "@zthun/janitor-vite": "^21.1.0",
+    "less": "^4.9.0",
     "typescript": "^6.0.3",
     "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   }
 }

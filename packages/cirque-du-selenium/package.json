@@ -27,14 +27,15 @@
   "dependencies": {
     "@zthun/cirque": "^7.2.11",
     "lodash-es": "^4.18.1",
-    "selenium-webdriver": "^4.46.0"
+    "selenium-webdriver": "^4.47.0"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^21.0.0",
+    "@zthun/janitor-build-config": "^21.1.0",
     "@zthun/janitor-ts-config": "^21.0.0",
+    "@zthun/janitor-vite": "^21.1.0",
     "typescript": "^6.0.3",
     "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "files": [
     "dist"

@@ -31,13 +31,14 @@
     "@zthun/cirque-du-dom": "^7.2.11"
   },
   "devDependencies": {
-    "@zthun/janitor-build-config": "^21.0.0",
+    "@zthun/janitor-build-config": "^21.1.0",
     "@zthun/janitor-ts-config": "^21.0.0",
+    "@zthun/janitor-vite": "^21.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "typescript": "^6.0.3",
     "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "react": ">=18.2.0 <20.0.0",

@@ -1,16 +1,6 @@
-import {
-  ZViteConfigBuilder,
-  ZViteServerBuilder,
-  ZViteTestBuilder,
-} from "@zthun/janitor-build-config/vite";
+import { extensionDevServer, projectReact } from "@zthun/janitor-vite";
 import { defineConfig } from "vite";
 
-const test = new ZViteTestBuilder().browser().build();
-const server = new ZViteServerBuilder().dev().build();
-const config = new ZViteConfigBuilder()
-  .react()
-  .server(server)
-  .test(test)
-  .build();
-
-export default defineConfig(config);
+export default defineConfig({
+  plugins: [projectReact(), extensionDevServer()],
+});
