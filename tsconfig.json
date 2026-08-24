@@ -1,9 +1,6 @@
 {
-  "extends": [
-    "@zthun/janitor-ts-config/base.json",
-    "@zthun/janitor-ts-config/browser.json",
-    "@zthun/janitor-ts-config/react.json"
-  ],
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "extends": ["@zthun/janitor-ts-config/base.json"],
   "compilerOptions": {
     "paths": {
       "@zthun/cirque": ["./packages/cirque/src/index.mts"],
