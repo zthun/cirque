@@ -13,9 +13,6 @@ describe("ZCircusReactHook", () => {
   >;
 
   const createTestTarget = async () => {
-    // This one is OK -> it's testing something specific.
-    // The destructuring happens later in each test
-    // eslint-disable-next-line @eslint-react/use-state
     _target = await new ZCircusSetupHook(() => useState(0)).setup();
     return _target;
   };
