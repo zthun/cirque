@@ -36,16 +36,15 @@ jsdom. Register any custom elements before calling `setup()`.
 
 ## Example
 
-This example assumes that `my-component` is registered and
-`MyComponentComponentModel` is defined with a matching selector.
+This example assumes that `my-component` is registered and `MyComponentModel` is
+defined with a matching selector.
 
 ```ts
 import type { IZCircusDriver, IZCircusSetup } from "@zthun/cirque";
 import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import { ZCircusSetupHtml } from "@zthun/cirque-du-dom";
 import { afterEach, describe, expect, it } from "vitest";
-
-// Import MyComponentComponentModel from your application.
+import { MyComponentModel } from "./my-component.cm.mjs";
 
 describe("MyComponent", () => {
   let driver: IZCircusDriver | undefined;
@@ -58,7 +57,7 @@ describe("MyComponent", () => {
   const createTestTarget = async () => {
     renderer = new ZCircusSetupHtml("<my-component></my-component>");
     driver = await renderer.setup();
-    return ZCircusBy.first(driver, MyComponentComponentModel);
+    return ZCircusBy.first(driver, MyComponentModel);
   };
 
   it("should render the component", async () => {

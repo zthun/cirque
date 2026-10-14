@@ -51,8 +51,8 @@ flushing. This implementation does not wrap every update in React's `act()`; use
 
 ## Example
 
-This example assumes that `MyComponent` and `MyComponentComponentModel` are
-defined in your application.
+This example assumes that `MyComponent` and `MyComponentModel` are defined in
+your application.
 
 ```tsx
 import type { IZCircusDriver } from "@zthun/cirque";
@@ -75,7 +75,7 @@ describe("MyComponent", () => {
     renderer = new ZCircusSetupRenderer(element);
     // The driver points to the rendered container.
     driver = await renderer.setup();
-    return ZCircusBy.first(driver, MyComponentComponentModel);
+    return ZCircusBy.first(driver, MyComponentModel);
   };
 
   it("should render the component", async () => {
