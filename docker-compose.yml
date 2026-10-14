@@ -9,9 +9,3 @@ services:
       - .:/usr/dev
     working_dir: /usr/dev
     command: npm --workspace @zthun/cirque-react run start
-  circus-services-web:
-    image: nginx:stable-alpine
-    ports:
-      - 5174:80
-    volumes:
-      - ./packages/cirque-web/dist:/usr/share/nginx/html

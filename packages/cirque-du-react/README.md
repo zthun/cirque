@@ -1,52 +1,86 @@
-# Circus Of React (Cirque Du React)
+# Circus of React (Cirque du React)
 
-This is the framework specific circus package for React based unit testing.
-Under the hood, this provides the necessary setup and driver implementations
-that contains the anti-corruption patter for @testing-library/react and
-@testing-library/react-hooks.
+This is the Circus adapter for React unit tests. It wraps the `render` and
+`renderHook` APIs from `@testing-library/react` and uses the DOM driver from
+`@zthun/cirque-du-dom` for component interactions.
 
 ## Installation
 
+For unit testing, install the adapter as a development dependency:
+
 ```sh
-# NPM
-npm install @zthun/cirque @zthun/cirque-du-react
+# npm
+npm install --save-dev @zthun/cirque @zthun/cirque-du-react
 # Yarn
-yarn add @zthun/cirque @zthun/cirque-du-react
+yarn add --dev @zthun/cirque @zthun/cirque-du-react
 ```
+
+The package expects compatible `react` and `react-dom` peer dependencies
+(currently React 18.2 or later, up to but excluding React 20). Run tests in an
+environment that provides a DOM, such as happy-dom or jsdom.
+
+If your library exports component models, include `@zthun/cirque` as a
+dependency or peer dependency instead.
 
 ## Setup
 
-There are two circus setup classes to this package,
-[**ZCircusSetupRenderer**](./src/setup/circus-setup-renderer.mts) and
-[**ZCircusSetupHook**](./src/setup/circus-setup-hook.mts).
+This package provides two setup classes:
+[**ZCircusSetupRenderer**](./src/setup/circus-setup-renderer.mts) for components
+and [**ZCircusSetupHook**](./src/setup/circus-setup-hook.mts) for hooks.
 
-Generally speaking, testing hooks does not really fall under the guise of
-component models or component testing, but the setup is here for the sake of
-completeness and helps you with not having to import anything from
-@testing-library directly.
+`ZCircusSetupRenderer` accepts a React element and optional render options. Its
+`setup()` method returns a DOM driver for the rendered container. Call
+`ZCircusDestroy.sequential(driver, renderer)` to clean up the driver and unmount
+the component through its renderer.
+
+Hook testing does not use component models, but `ZCircusSetupHook` provides a
+convenient wrapper around `renderHook`. It accepts a hook callback and optional
+render-hook options. The returned `IZCircusReactHook` provides `current()`,
+`rerender(props?)`, and `destroy()` methods; it does not implement
+`IZCircusDriver`. Call `destroy()` on the hook driver to unmount the hook.
 
 ## Driver
 
-You should never need to worry about the driver implementation since your only
-action with this package should be the setup implementation. However, it should
-be stated that one major advantage of using this package is that you no longer
-need to wrap actions and updates in an act() block. You can just test and use
-component models like you would normally. The act block is taken care of for you
-behind the scenes so you should no longer receive warnings about doing a
-rerender outside of an act block.
+Component models use the shared `IZCircusDriver` interface, so they do not need
+to depend on a React-specific driver.
 
-The hook driver is not a real implementation of an IZCircusDriver as it's much
-more compact and does way less. Again, the hook setup is here for convenience
-and completion.
+The setup classes disable `IS_REACT_ACT_ENVIRONMENT` and allow the event loop to
+flush after rendering. Component actions use the DOM driver's event handling and
+flushing. This implementation does not wrap every update in React's `act()`; use
+`driver.wait()` when an assertion depends on an asynchronous change.
+
+## Example
+
+This example assumes that `MyComponent` and `MyComponentModel` are defined in
+your application.
 
 ```tsx
+import type { IZCircusDriver } from "@zthun/cirque";
+import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import { afterEach, describe, expect, it } from "vitest";
+import { MyComponent } from "./my-component.ts";
+import { MyComponentModel } from "./my-component.cm.mjs";
+
 describe("MyComponent", () => {
-  const createTestTarget = () => {
+  let driver: IZCircusDriver | undefined;
+  let renderer: ZCircusSetupRenderer | undefined;
+
+  afterEach(async () => {
+    await ZCircusDestroy.sequential(driver, renderer);
+  });
+
+  const createTestTarget = async () => {
     const element = <MyComponent />;
-    // The setup does the rendering behind the scenes and the driver given to you
-    // points to the container element under the testing library render result.
-    const driver = await new ZCircusSetupRenderer(element).setup();
-    return ZCircusBy.first(driver, MyComponent);
+    renderer = new ZCircusSetupRenderer(element);
+    // The driver points to the rendered container.
+    driver = await renderer.setup();
+    return ZCircusBy.first(driver, MyComponentModel);
   };
+
+  it("should render the component", async () => {
+    const target = await createTestTarget();
+    expect(target).toBeDefined();
+  });
 });
 ```

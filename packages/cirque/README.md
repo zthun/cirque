@@ -1,23 +1,22 @@
 # Circus
 
-Zthunworks Circus' main package is @zthun/cirque. Cirque contains all of the
-abstractions and interfaces that your application will need in order to begin
-creating component models. The @zthun/cirque package _is meant to be used in a
-production package_. It is not a test only, dev dependency. If you are creating
-a library that exports out component models, you will want to make sure that
-cirque is some kind of dependency of your library.
+The main Zthunworks Circus package, `@zthun/cirque`, contains the abstractions
+and interfaces for creating component models. It is intended for use in
+production packages, rather than only as a development dependency. If your
+library exports component models, include `@zthun/cirque` as a dependency or
+peer dependency.
 
-The actual @zthun/cirque-du-_framework_ packages **are** dev dependencies and
-those are not meant to be exported in a production environment.
+The `@zthun/cirque-du-*` adapters are typically development dependencies when
+used for testing. Code that uses an adapter at runtime, such as a workflow bot,
+needs it as a runtime dependency.
 
-This package also has some useful functionality around keyboard input that is
-not found from within a JavaScript engine, so even if you are not using this
-package for testing, you can still use it for the keyboard identifiers.
+The package also provides keyboard identifiers and an action builder. You can
+use the keyboard utilities without using Circus for testing.
 
 ## Installation
 
 ```sh
-# NPM
+# npm
 npm install @zthun/cirque
 # Yarn
 yarn add @zthun/cirque
@@ -30,24 +29,20 @@ tests and component models.
 
 ### Driver
 
-At the heart of the circus framework is the
-[**IZCircusDriver**](./src/driver/circus-driver.mts) interface. This interface
-is a wrapper around the DOM and the interactions around it. If you have ever
-used selenium, then this will feel very familiar to you. The driver itself has
-several methods for interacting with the DOM, but the main ones you will use the
-most often are query and select. Query will find all elements that match a css
-selector, and select will match the first element that matches a css selector.
-The main difference here is that query is optional and can return no elements,
-or an empty array, whereas select will return a rejected promise if no element
-matches the query.
+At the heart of the Circus framework is the
+[**IZCircusDriver**](./src/driver/circus-driver.mts) interface. A driver wraps a
+DOM context and the interactions available within it. If you have used Selenium,
+this interface should feel familiar. Two common methods are `query` and
+`select`: `query` returns all elements that match a CSS selector, or an empty
+array if none match; `select` returns the first matching element and rejects if
+none match.
 
 ```ts
 function findElementsByName(
   driver: IZCircusDriver,
   name: string,
 ): Promise<IZCircusDriver[]> {
-  // Returns all elements with the given name.  Will return an
-  // empty array if no such elements match the query.
+  // Returns all elements with the given name, or an empty array if none match.
   return driver.query(`[name="${name}"],[data-name="${name}"]`);
 }
 
@@ -55,57 +50,48 @@ function findElementByName(
   driver: IZCircusDriver,
   name: string,
 ): Promise<IZCircusDriver> {
-  // Returns the first element that matches the given name.  Will return a rejected
-  // promise if it cannot find anything.
+  // Returns the first matching element and rejects if none match.
   return driver.select(`[name="${name}"],[data-name="${name}"]`);
 }
 ```
 
-To actually retrieve a driver object, you will need to consume a
-[**setup**](./src/performance/circus-setup.mts) implementation. _A circus setup
-is the only thing that is NOT framework agnostic_. The implementation for the
-setup will depend on the outer framework you are using. For example, if you are
-writing react unit tests, you would consume a
-[ZCircusSetupRenderer](../cirque-du-react/src/setup/circus-setup-renderer.mts)
-object to obtain a driver.
+To obtain a driver, use an
+[**IZCircusSetup**](./src/performance/circus-setup.mts) implementation. The
+setup and driver implementations depend on the framework; component models
+consume their shared interfaces. For React unit tests, use
+[ZCircusSetupRenderer](../cirque-du-react/src/setup/circus-setup-renderer.mts).
 
-```ts
+```tsx
 const element = <MyComponentUnderTest />;
-const driver = await new ZCircusSetupRenderer(element).setup();
-// The driver now points to the root container and you can now use it
-// without worrying about your framework.
-driver.query(MyComponentUnderTestComponentModel.Selector);
+const renderer = new ZCircusSetupRenderer(element);
+const driver = await renderer.setup();
+// The driver points to the rendered container.
+try {
+  await driver.query(MyComponentUnderTestComponentModel.Selector);
+} finally {
+  await ZCircusDestroy.sequential(driver, renderer);
+}
 ```
 
-The other method here is a way to halt the execution of things and allow things
-to happen asynchronously. This is where the **wait** method comes into play.
-User interaction with a UI application is asynchronous. The user does an action
-and then waits for the appropriate reaction. Waiting is necessary for things
-like animations to finish or elements to become visible after some act is
-performed.
+The `wait` method pauses until a condition is met. UI interactions often trigger
+asynchronous changes, such as animations or elements appearing after an action.
 
-The wait method takes a function callback that returns a boolean or a boolean
-promise. I will wait a specific amount of time for that method to return true,
-and when it does it immediately exits. If the callback does not ever return a
-true value, then the wait call returns a rejected promise and any test waiting
-on something to happen will properly fail.
+Pass a callback that returns a boolean or a promise of a boolean. The driver
+checks the condition until it returns `true` or the timeout expires. If the
+condition is never met, the promise rejects. You can customize the timeout and
+initial delay with `ZCircusWaitOptionsBuilder`; the defaults are a 10-second
+timeout and no initial delay.
 
 ```ts
 export class MyModalComponentModel extends ZCircusComponentModel {
   public static readonly Selector = ".MyModal-root";
 
-  public close() {
-    const body = this.driver.body();
+  public async close(): Promise<void> {
+    const body = await this.driver.body();
     const closeButton = await this.driver.select(".MyModal-close");
     const act = new ZCircusActBuilder().click().build();
     await closeButton.perform(act);
-    // This waits for the modal to no longer exist
-    // under the body DOM element. The peek method will
-    // return true if it finds something under driver context,
-    // and false if there is no such element.  The then
-    // block reverses the boolean since we want to wait
-    // until the modal no longer exists so we want body.peek
-    // to return false.
+    // Wait until the modal is no longer present in the document body.
     await body.wait(() =>
       body.peek(MyModalComponentModel.Selector).then((m) => !m),
     );
@@ -113,22 +99,42 @@ export class MyModalComponentModel extends ZCircusComponentModel {
 }
 ```
 
+Use `ZCircusDestroy.sequential(driver, renderer)` to clean up both the driver
+and its setup, in that order. The helper skips missing objects and optional
+`destroy` methods.
+
 ### Component Models
 
-All component models have the
-[**ZCircusComponentModel**](./src/component/circus-component-model.mts) abstract
-class they can inherit from, but this is not 100% required. It will save you
-typing in the all component models that are expected to be constructed will take
-a driver object. In combination with the ZCircusComponentModel, you also have
-the [**ZCircusBy**](./src/component/circus-by.mts) class, which is useful for
-running queries to construct component models in common ways.
+Component models can extend
+[**ZCircusComponentModel**](./src/component/circus-component-model.mts), which
+stores the driver passed to the constructor. Extending this class is optional: a
+compatible model needs a constructor that accepts a driver, a public `driver`
+property, and a static `Selector`.
+
+[**ZCircusBy**](./src/component/circus-by.mts) provides helpers for constructing
+models. `all` returns every matching model, and `optional` returns the first
+match or `null`. `first` and `css` wait for a matching element before
+constructing a model and reject if the wait times out. `first` and `optional`
+can also filter by a `name` or `data-name` attribute.
 
 ```tsx
-// The following component here is a react component,
-// but you can create a component model for any framework
-// as long as an IZCircusSetup implementation is provided and the equivalent
-// IZCircusDriver implementation
-// to run queries in that framework.
+import type { IZCircusDriver } from "@zthun/cirque";
+import {
+  ZCircusBy,
+  ZCircusComponentModel,
+  ZCircusDestroy,
+} from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import type { ReactNode } from "react";
+import { afterEach, describe, expect, it } from "vitest";
+
+interface IMyCard {
+  title: string;
+  children?: ReactNode;
+}
+
+// This example uses React. Component models can support any framework
+// with compatible IZCircusSetup and IZCircusDriver implementations.
 export function MyCard(props: IMyCard) {
   const { title, children } = props;
 
@@ -141,10 +147,7 @@ export function MyCard(props: IMyCard) {
 }
 
 export class MyCardComponentModel extends ZCircusComponentModel {
-  // The names of these classes are encapsulated in this component
-  // model so you can just use this model directly and not have to
-  // worry in the case that the structure of the underlying component
-  // changes or the class names change.
+  // Keep selectors in the model so tests do not depend on the DOM structure.
   public static readonly Selector = ".MyCard-root";
 
   public header(): Promise<IZCircusDriver> {
@@ -156,11 +159,14 @@ export class MyCardComponentModel extends ZCircusComponentModel {
   }
 }
 
-import { ZCircusBy } from "@zthun/cirque";
-import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
-
 describe("MyCard", () => {
   const title = "Hello Circus";
+  let driver: IZCircusDriver | undefined;
+  let renderer: ZCircusSetupRenderer | undefined;
+
+  afterEach(async () => {
+    await ZCircusDestroy.sequential(driver, renderer);
+  });
 
   const createTestTarget = async () => {
     const element = (
@@ -173,7 +179,8 @@ describe("MyCard", () => {
       </MyCard>
     );
 
-    const driver = await new ZCircusSetupRenderer(element).setup();
+    renderer = new ZCircusSetupRenderer(element);
+    driver = await renderer.setup();
     return ZCircusBy.first(driver, MyCardComponentModel);
   };
 
@@ -201,28 +208,33 @@ describe("MyCard", () => {
 
 ### Performances
 
-What would a circus be without a performance. This is where the magic happens
-and is the most useful feature of the cirque package. The **ZCircusActBuilder**
-allows you to build a performance of actions that the user will perform. This
-usually boils down to keyboard and mouse actions.
+What would a circus be without a performance? The **ZCircusActBuilder** builds
+an ordered sequence of actions, usually keyboard and mouse interactions.
 
-Think of your own usage. When you click a mouse button, or you press a key on
-your keyboard, what is actually happening. When you push a key, the KeyDown
-action happens and when you release the key, the KeyUp action happens. Likewise,
-when you push your mouse buttons, a MouseDown action happens, and when you
-release it, a MouseUp action happens. The circus action is built around this -
-actual representations of human interactions with devices.
+Pressing a key produces a `KeyDown` action, and releasing it produces a `KeyUp`
+action. Mouse buttons similarly produce `MouseDown` and `MouseUp` actions. The
+builder combines these into operations such as `press`, `type`, and `click`.
 
-You'll notice a _perform_ method on every driver. Each driver element context
-has the ability to perform an action. You can think of all DOM elements as
-circus employees in this case. You are the ringmaster that is directing the
-show. You provide a performance script to the driver and the driver simply
-performs the entire act in one fell swoop.
+Each driver has a `perform` method that runs the act against its DOM context.
+You are the ringmaster: provide the script, and the driver performs it.
 
-Let's take an example of an input where the user needs to type information into
-a form and press the submit button.
+The following example types into a form and clicks the submit button. It assumes
+that `MyForm`, `MyService`, and `mockService` are defined in your application.
 
 ```tsx
+import type { IZCircusDriver } from "@zthun/cirque";
+import {
+  ZCircusActBuilder,
+  ZCircusBy,
+  ZCircusComponentModel,
+  ZCircusDestroy,
+  ZCircusKeyboardQwerty,
+} from "@zthun/cirque";
+import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
+import { afterEach, describe, expect, it } from "vitest";
+
+// Import MyForm, MyService, and mockService from your application and test helpers.
+
 export class MyFormComponentModel extends ZCircusComponentModel {
   public static readonly Selector = ".MyForm-root";
 
@@ -240,13 +252,21 @@ export class MyFormComponentModel extends ZCircusComponentModel {
 }
 
 describe("MyForm", () => {
-  const createTestTarget = () => {
+  let driver: IZCircusDriver | undefined;
+  let renderer: ZCircusSetupRenderer | undefined;
+
+  afterEach(async () => {
+    await ZCircusDestroy.sequential(driver, renderer);
+  });
+
+  const createTestTarget = async () => {
     const element = (
       <MyService.Provider value={mockService}>
-        <MyForm />;
+        <MyForm />
       </MyService.Provider>
     );
-    const driver = await new ZCircusSetupReact(element).setup();
+    renderer = new ZCircusSetupRenderer(element);
+    driver = await renderer.setup();
     return ZCircusBy.first(driver, MyFormComponentModel);
   };
 
@@ -255,16 +275,11 @@ describe("MyForm", () => {
     const target = await createTestTarget();
     // Act.
     const firstName = await target.firstName();
-    // Note that type is the same as doing multiple key down and key up strokes
-    // all at once.  Press is the combination of key down and key up strokes 1
-    // or more times. The ZCircusKeyboardQwerty is a utility class that contains
-    // every possible key that you find on a standard qwerty keyboard and
-    // includes all of the upper case, lower case and code variants according
-    // to the JavaScript key standard.  If you don't want to use cirque
-    // for testing, you can actually just use it exclusively for this keyboard utility
-    // class.
-    // cspell:disable next-line
+    // type adds key presses for characters supported by the QWERTY translator.
+    // press combines keyDown and keyUp and can repeat a key press.
+    // ZCircusKeyboardQwerty provides identifiers for standard QWERTY keys.
     const enterFirstName = new ZCircusActBuilder()
+      // cspell:disable next-line
       .type("Bruceee")
       .press(ZCircusKeyboardQwerty.backspace, 2)
       .build();
@@ -273,9 +288,9 @@ describe("MyForm", () => {
     const enterLastName = new ZCircusActBuilder().type("Wayne").build();
     await lastName.perform(enterLastName);
     const submit = await target.submit();
-    // Click here is a combination of leftMouseDown and leftMouseUp.
+    // click combines leftMouseDown and leftMouseUp.
     const clickSubmit = new ZCircusActBuilder().click().build();
-    await submit.click();
+    await submit.perform(clickSubmit);
     // Assert.
     expect(mockService.updateUser).toHaveBeenCalledWith({
       firstName: "Bruce",
@@ -287,14 +302,12 @@ describe("MyForm", () => {
 
 ## Conclusion
 
-This is the majority of what the basic cirque package offers you. You learned
-about the driver and how it abstracts away the interaction between the DOM and
-the framework. You learned how to enact user performances through said drivers
-and how to construct proper component models for reuse across unit and end to
-end tests. When writing tests, your next step will be to decide which framework
-packages you wish to support.
+The driver abstracts DOM interactions, performances describe user actions, and
+component models make those interactions reusable across unit and end-to-end
+tests. Choose the adapter that matches your test environment.
 
 | Framework | Package                                                      |
 | --------- | ------------------------------------------------------------ |
+| DOM       | [@zthun/cirque-du-dom](../cirque-du-dom/README.md)           |
 | React     | [@zthun/cirque-du-react](../cirque-du-react/README.md)       |
 | Selenium  | [@zthun/cirque-du-selenium](../cirque-du-selenium/README.md) |
