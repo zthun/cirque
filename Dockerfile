@@ -40,9 +40,3 @@ RUN --mount=type=secret,id=GIT_CREDENTIALS,dst=/root/.git-credentials npx lerna 
     git push --tags
 RUN --mount=type=secret,id=NPM_CREDENTIALS,dst=/root/.npmrc npx lerna publish from-package --yes
 
-FROM node:lts-alpine as cirque-web-install
-RUN npm install -g @zthun/cirque-web
-
-FROM nginx:stable-alpine as cirque-web
-COPY --from=cirque-web-install /usr/local/lib/node_modules/@zthun/cirque-web/dist/. /usr/share/nginx/html/
-
