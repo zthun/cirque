@@ -79,3 +79,12 @@ Regardless of what framework the component is written in, the way of interacting
 with that component on a user level remains the same. You just need to make sure
 that the output DOM elements have the necessary classes to target the specific
 pieces.
+
+## Packages
+
+| Name                                                                 | For                                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [@zthun/cirque](./packages/cirque/README.md)                         | The base package which contains the actions that can be performed on a component |
+| [@zthun/cirque-du-dom](./packages/cirque-du-dom//README.md)          | A package for manipulating a browser DOM structure.                              |
+| [@zthun/cirque-du-react](./packages/cirque-du-react/README.md)       | A testing package for unit testing in react.                                     |
+| [@zthun/cirque-du-selenium](./packages/cirque-du-selenium/README.md) | A testing package for e2e testing using selenium.                                |
