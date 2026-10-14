@@ -8,8 +8,9 @@ like selenium-web-driver for writing end to end tests. If you were writing a bot
 that simplifies workflows, it would be implemented much differently than how you
 would actually write unit or end to end tests. This is a pain. It bloats the
 code base and solves the same problem multiple different times, and multiple
-different ways. So why is it done this way. The users interaction with page
-components doesn't change, so why do the frameworks vary so much?
+different ways. So what's the point of doing it this way? The users interaction
+with page components doesn't change, so what makes the framework so special that
+is has to vary the interactions?
 
 Zthunworks Circus attempts to combat this problem by providing a combination of
 a design pattern along with libraries that keep the APIs consistent across
