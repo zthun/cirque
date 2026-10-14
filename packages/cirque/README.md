@@ -63,9 +63,14 @@ consume their shared interfaces. For React unit tests, use
 
 ```tsx
 const element = <MyComponentUnderTest />;
-const driver = await new ZCircusSetupRenderer(element).setup();
+const renderer = new ZCircusSetupRenderer(element);
+const driver = await renderer.setup();
 // The driver points to the rendered container.
-await driver.query(MyComponentUnderTestComponentModel.Selector);
+try {
+  await driver.query(MyComponentUnderTestComponentModel.Selector);
+} finally {
+  await ZCircusDestroy.sequential(driver, renderer);
+}
 ```
 
 The `wait` method pauses until a condition is met. UI interactions often trigger
@@ -94,6 +99,10 @@ export class MyModalComponentModel extends ZCircusComponentModel {
 }
 ```
 
+Use `ZCircusDestroy.sequential(driver, renderer)` to clean up both the driver
+and its setup, in that order. The helper skips missing objects and optional
+`destroy` methods.
+
 ### Component Models
 
 Component models can extend
@@ -110,7 +119,11 @@ can also filter by a `name` or `data-name` attribute.
 
 ```tsx
 import type { IZCircusDriver } from "@zthun/cirque";
-import { ZCircusBy, ZCircusComponentModel } from "@zthun/cirque";
+import {
+  ZCircusBy,
+  ZCircusComponentModel,
+  ZCircusDestroy,
+} from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import type { ReactNode } from "react";
 import { afterEach, describe, expect, it } from "vitest";
@@ -148,10 +161,11 @@ export class MyCardComponentModel extends ZCircusComponentModel {
 
 describe("MyCard", () => {
   const title = "Hello Circus";
+  let driver: IZCircusDriver | undefined;
   let renderer: ZCircusSetupRenderer | undefined;
 
   afterEach(async () => {
-    await renderer?.destroy();
+    await ZCircusDestroy.sequential(driver, renderer);
   });
 
   const createTestTarget = async () => {
@@ -166,7 +180,7 @@ describe("MyCard", () => {
     );
 
     renderer = new ZCircusSetupRenderer(element);
-    const driver = await renderer.setup();
+    driver = await renderer.setup();
     return ZCircusBy.first(driver, MyCardComponentModel);
   };
 
@@ -213,6 +227,7 @@ import {
   ZCircusActBuilder,
   ZCircusBy,
   ZCircusComponentModel,
+  ZCircusDestroy,
   ZCircusKeyboardQwerty,
 } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
@@ -237,10 +252,11 @@ export class MyFormComponentModel extends ZCircusComponentModel {
 }
 
 describe("MyForm", () => {
+  let driver: IZCircusDriver | undefined;
   let renderer: ZCircusSetupRenderer | undefined;
 
   afterEach(async () => {
-    await renderer?.destroy();
+    await ZCircusDestroy.sequential(driver, renderer);
   });
 
   const createTestTarget = async () => {
@@ -250,7 +266,7 @@ describe("MyForm", () => {
       </MyService.Provider>
     );
     renderer = new ZCircusSetupRenderer(element);
-    const driver = await renderer.setup();
+    driver = await renderer.setup();
     return ZCircusBy.first(driver, MyFormComponentModel);
   };
 

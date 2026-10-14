@@ -30,7 +30,8 @@ and [**ZCircusSetupHook**](./src/setup/circus-setup-hook.mts) for hooks.
 
 `ZCircusSetupRenderer` accepts a React element and optional render options. Its
 `setup()` method returns a DOM driver for the rendered container. Call
-`destroy()` on the renderer to unmount the component.
+`ZCircusDestroy.sequential(driver, renderer)` to clean up the driver and unmount
+the component through its renderer.
 
 Hook testing does not use component models, but `ZCircusSetupHook` provides a
 convenient wrapper around `renderHook`. It accepts a hook callback and optional
@@ -54,24 +55,26 @@ This example assumes that `MyComponent` and `MyComponentComponentModel` are
 defined in your application.
 
 ```tsx
-import { ZCircusBy } from "@zthun/cirque";
+import type { IZCircusDriver } from "@zthun/cirque";
+import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import { ZCircusSetupRenderer } from "@zthun/cirque-du-react";
 import { afterEach, describe, expect, it } from "vitest";
 import { MyComponent } from "./my-component.ts";
 import { MyComponentModel } from "./my-component.cm.mjs";
 
 describe("MyComponent", () => {
+  let driver: IZCircusDriver | undefined;
   let renderer: ZCircusSetupRenderer | undefined;
 
   afterEach(async () => {
-    await renderer?.destroy();
+    await ZCircusDestroy.sequential(driver, renderer);
   });
 
   const createTestTarget = async () => {
     const element = <MyComponent />;
     renderer = new ZCircusSetupRenderer(element);
     // The driver points to the rendered container.
-    const driver = await renderer.setup();
+    driver = await renderer.setup();
     return ZCircusBy.first(driver, MyComponentComponentModel);
   };
 

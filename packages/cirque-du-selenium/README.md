@@ -28,17 +28,19 @@ provide setup classes for Safari or Internet Explorer.
 Each setup accepts the URL to open and returns a driver rooted at the page's
 `html` element. Chrome also supports `.headless()`. All browser setups support
 `.acceptInsecureCerts()` for test environments with untrusted certificates. Call
-`destroy()` on the setup to close the browser session.
+`ZCircusDestroy.sequential(driver, renderer)` to clean up the driver and close
+the browser session through its setup.
 
 ## Example
 
 This Cucumber example assumes that `MyPageComponentModel` is defined in your
-application. The browser setup is retained so the `After` hook can close it.
+application. Both the driver and browser setup are retained so the `After` hook
+can destroy them in order.
 
 ```ts
 import { After, Given } from "@cucumber/cucumber";
 import type { World } from "@cucumber/cucumber";
-import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusBy, ZCircusDestroy } from "@zthun/cirque";
 import {
   ZCircusSetupChrome,
   ZCircusSetupEdge,
@@ -70,6 +72,7 @@ Given("My page loads", async function (this: World<any>) {
 });
 
 After(async function (this: World<any>) {
-  await this.parameters.browser?.destroy();
+  const { driver, browser: renderer } = this.parameters;
+  await ZCircusDestroy.sequential(driver, renderer);
 });
 ```
