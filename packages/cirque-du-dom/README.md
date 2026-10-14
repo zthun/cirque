@@ -1,41 +1,67 @@
-# Circus Of DOM (Cirque Du DOM)
+# Circus of DOM (Cirque du DOM)
 
-This is the framework specific circus package for web component / dom based unit
-testing. Under the hood, this provides the necessary setup and driver
-implementations that contains the anti-corruption pattern for basic HTMLElement
-selectors.
+This is the Circus adapter for unit testing web components and DOM-based UIs. It
+provides setup and driver implementations backed by `HTMLElement`,
+`@testing-library/dom`, and `@testing-library/user-event`.
 
 ## Installation
 
+For unit testing, install the adapter as a development dependency:
+
 ```sh
-# NPM
-npm install @zthun/cirque @zthun/cirque-du-dom
+# npm
+npm install --save-dev @zthun/cirque @zthun/cirque-du-dom
 # Yarn
-yarn add @zthun/cirque @zthun/cirque-du-dom
+yarn add --dev @zthun/cirque @zthun/cirque-du-dom
 ```
+
+If your library exports component models, include `@zthun/cirque` as a
+dependency or peer dependency instead.
 
 ## Setup
 
-There are two circus setup classes to this package,
+This package provides two setup classes:
 [**ZCircusSetupHtml**](./src/setup/circus-setup-html.mts) and
 [**ZCircusSetupHtmlElement**](./src/setup/circus-setup-html-element.mts).
 
-Whichever one you need depends on how deep you go when constructing your DOM
-object. If all you have is string html, then use ZCircusSetupHtml. If you need
-full control of the wrapper container element, use ZCircusSetupHtmlElement.
+Use `ZCircusSetupHtml` to render an HTML string inside a `div` container. Use
+`ZCircusSetupHtmlElement` to provide your own container template. The latter
+clones the template and appends the clone to `document.body`; it does not attach
+the original element. Both setups return a driver for the container and remove
+that container when you call `destroy()`.
+
+Run DOM tests in an environment that provides `document`, such as happy-dom or
+jsdom. Register any custom elements before calling `setup()`.
 
 ## Example
 
-```typescript
-describe("MyComponent", () => {
-  let _renderer: IZCircusSetup;
-  let _driver: IZCircusDriver;
+This example assumes that `my-component` is registered and
+`MyComponentComponentModel` is defined with a matching selector.
 
-  const createTestTarget = () => {
-    const htm = html`<my-component></my-component>;`;
-    _renderer = new ZCircusSetupHtml(htm);
-    _driver = await _renderer.setup();
+```ts
+import type { IZCircusSetup } from "@zthun/cirque";
+import { ZCircusBy } from "@zthun/cirque";
+import { ZCircusSetupHtml } from "@zthun/cirque-du-dom";
+import { afterEach, describe, expect, it } from "vitest";
+
+// Import MyComponentComponentModel from your application.
+
+describe("MyComponent", () => {
+  let renderer: IZCircusSetup | undefined;
+
+  afterEach(async () => {
+    await renderer?.destroy?.();
+  });
+
+  const createTestTarget = async () => {
+    renderer = new ZCircusSetupHtml("<my-component></my-component>");
+    const driver = await renderer.setup();
     return ZCircusBy.first(driver, MyComponentComponentModel);
   };
+
+  it("should render the component", async () => {
+    const target = await createTestTarget();
+    expect(target).toBeDefined();
+  });
 });
 ```
